@@ -1,0 +1,234 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const benefits = [
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>`,
+    title: 'Top-of-Market Pay + Bonuses',
+    body: 'Hourly rate at the top of the Phoenix Valley market, plus performance bonuses tied to quality scores — not sales volume. We never bonus on upsells.',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/>`,
+    title: 'Take-Home Truck, Fuel Card & Tools',
+    body: 'Fully stocked take-home service truck, fuel card, tablet, and all tools provided. You show up ready to work — we handle the overhead.',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>`,
+    title: 'Full Benefits After 60 Days',
+    body: 'Medical, dental, and vision insurance starting at 60 days. We cover a significant portion of the premium — because you shouldn\'t have to choose between healthcare and a good job.',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"/>`,
+    title: '401(k) with 4% Match',
+    body: 'We match your 401(k) contributions up to 4% of salary. Start investing in your future from day one — vesting schedule starts immediately.',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/>`,
+    title: 'Paid Continuing Education',
+    body: 'EPA recertification, NATE prep and testing, manufacturer training, and continuing ed hours — all paid. We want you to get better at the trade, and we fund it.',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/>`,
+    title: 'Clear Career Path, No Ceiling',
+    body: 'Helper → Apprentice → Service Tech → Senior Tech → Lead Tech → Service Manager or Install Lead. We promote from within and make the path explicit.',
+  },
+];
+
+const positions = [
+  {
+    title: 'HVAC Service Technician',
+    type: 'Full-Time',
+    location: 'Phoenix Valley',
+    summary: 'Run residential service calls across the Phoenix Valley. Diagnose, quote, and repair AC and heating systems for homeowners. Take-home truck, stocked with parts.',
+    requirements: ['EPA 608 Universal certification required', 'NATE certification a strong plus', '2+ years residential HVAC service experience', 'Clean driving record', 'Background check required'],
+  },
+  {
+    title: 'HVAC Installer',
+    type: 'Full-Time',
+    location: 'Phoenix Valley',
+    summary: 'Lead and run residential install crews on AC, heat pump, and furnace replacements. Experience with Carrier, Trane, Lennox, and Mitsubishi equipment preferred.',
+    requirements: ['EPA 608 Universal certification required', '3+ years installation experience', 'Experience with variable-speed and heat pump systems preferred', 'Able to read blueprints and duct diagrams', 'Background check required'],
+  },
+  {
+    title: 'Commercial Service Technician',
+    type: 'Full-Time',
+    location: 'Phoenix Valley',
+    summary: 'Service RTUs, package units, light commercial systems, and commercial refrigeration for our growing commercial client roster. Account management mindset a plus.',
+    requirements: ['EPA 608 Universal certification required', '5+ years commercial HVAC experience', 'RTU and package unit experience required', 'Commercial refrigeration experience preferred', 'Background check required'],
+  },
+  {
+    title: 'Apprentice / Helper',
+    type: 'Full-Time',
+    location: 'Phoenix Valley',
+    summary: 'Earn while you learn alongside our senior technicians and installers. We pay for EPA 608 certification and continuing education. No prior HVAC experience required — the right attitude is.',
+    requirements: ['Strong mechanical aptitude', 'Valid Arizona driver\'s license', 'Ability to work outdoors in Phoenix summer heat', 'Willingness to learn and take direction', 'Background check required'],
+  },
+  {
+    title: 'Customer Service Representative',
+    type: 'Full-Time',
+    location: 'Phoenix (office)',
+    summary: 'Answer inbound calls, dispatch technicians, and book jobs across the Phoenix Valley. The voice of Skyhooked on Comfort for every customer who reaches out. HVAC experience not required.',
+    requirements: ['Strong phone and communication skills', 'Detail-oriented, good with scheduling software', 'Ability to stay calm during high-volume periods', 'HVAC knowledge is a bonus, not required', 'Background check required'],
+  },
+];
+---
+
+<BaseLayout
+  title="HVAC Jobs in Phoenix, AZ | Careers at Skyhooked on Comfort"
+  description="HVAC technician, installer, and CSR jobs in Phoenix. Top pay, take-home truck, full benefits, 401(k) match, paid training. Apply to join the Skyhooked on Comfort team."
+>
+
+  <!-- Hero -->
+  <section class="bg-charcoal py-20">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <div class="inline-flex items-center gap-2 bg-sky/20 text-sky text-sm font-semibold px-4 py-1.5 rounded-full mb-6 font-body">
+        We're Hiring Across the Phoenix Valley
+      </div>
+      <h1 class="font-display font-extrabold text-white text-4xl sm:text-5xl leading-tight mb-6">
+        HVAC techs, installers, and CSRs — come build a career, not just chase the next service call.
+      </h1>
+      <p class="font-body text-charcoal-50 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
+        Skyhooked on Comfort is hiring across the Phoenix Valley. Top-of-market pay, real benefits, take-home truck, and a team that has your back. Family-owned culture — no corporate quotas, no "sell the package" pressure.
+      </p>
+      <a href="#apply" class="inline-flex items-center gap-2 mt-8 bg-sky hover:bg-sky-dark text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg">
+        Apply Now →
+      </a>
+    </div>
+  </section>
+
+
+  <!-- Why Work Here -->
+  <section class="bg-white py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl mb-4">Why technicians stay.</h2>
+        <p class="font-body text-neutral-600 text-lg max-w-2xl mx-auto">
+          We've had techs with us for 10+ years. Here's why they don't leave.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {benefits.map(b => (
+          <div class="bg-charcoal-50 rounded-2xl p-6 border border-charcoal/10">
+            <div class="w-12 h-12 bg-sky/15 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true" set:html={b.icon}></svg>
+            </div>
+            <h3 class="font-display font-bold text-charcoal text-base mb-2">{b.title}</h3>
+            <p class="font-body text-neutral-600 text-sm leading-relaxed">{b.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Open Positions -->
+  <section class="bg-charcoal-50 py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl mb-4">Open positions.</h2>
+        <p class="font-body text-neutral-600 text-lg">All positions are full-time, Phoenix Valley. Benefits start at 60 days.</p>
+      </div>
+      <div class="space-y-5">
+        {positions.map(pos => (
+          <div class="bg-white rounded-2xl p-7 border border-neutral-200 hover:shadow-lg transition-shadow">
+            <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+              <div>
+                <h3 class="font-display font-bold text-charcoal text-xl mb-1">{pos.title}</h3>
+                <div class="flex flex-wrap gap-2">
+                  <span class="inline-flex items-center gap-1 bg-sky/15 text-sky text-xs font-semibold px-3 py-1 rounded-full">{pos.type}</span>
+                  <span class="inline-flex items-center gap-1 bg-charcoal/10 text-charcoal text-xs font-semibold px-3 py-1 rounded-full">{pos.location}</span>
+                </div>
+              </div>
+              <a href="#apply" class="bg-charcoal hover:bg-charcoal-light text-white font-display font-bold text-sm px-5 py-2.5 rounded-lg transition-colors">Apply →</a>
+            </div>
+            <p class="font-body text-neutral-700 text-sm leading-relaxed mb-4">{pos.summary}</p>
+            <div>
+              <div class="font-body text-xs font-semibold text-neutral-500 uppercase tracking-wide mb-2">Requirements</div>
+              <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-1.5">
+                {pos.requirements.map(req => (
+                  <li class="flex items-start gap-2 text-xs font-body text-neutral-600">
+                    <svg class="w-3.5 h-3.5 text-sky flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                    {req}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Application Form -->
+  <section id="apply" class="bg-white py-20">
+    <div class="max-w-2xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl mb-4">Apply now.</h2>
+        <p class="font-body text-neutral-600">We respond to every application within 1 business day.</p>
+      </div>
+      <form class="bg-charcoal-50 rounded-2xl p-8 border border-charcoal/10 space-y-5" action="/contact" method="POST">
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label class="block font-body font-semibold text-charcoal text-sm mb-1.5" for="app-name">Full Name *</label>
+            <input id="app-name" name="name" type="text" required class="w-full font-body text-charcoal border border-neutral-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-sky focus:ring-1 focus:ring-sky bg-white" placeholder="Your full name" />
+          </div>
+          <div>
+            <label class="block font-body font-semibold text-charcoal text-sm mb-1.5" for="app-phone">Phone *</label>
+            <input id="app-phone" name="phone" type="tel" required class="w-full font-body text-charcoal border border-neutral-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-sky focus:ring-1 focus:ring-sky bg-white" placeholder="(480) 000-0000" />
+          </div>
+        </div>
+        <div>
+          <label class="block font-body font-semibold text-charcoal text-sm mb-1.5" for="app-email">Email Address *</label>
+          <input id="app-email" name="email" type="email" required class="w-full font-body text-charcoal border border-neutral-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-sky focus:ring-1 focus:ring-sky bg-white" placeholder="you@example.com" />
+        </div>
+        <div>
+          <label class="block font-body font-semibold text-charcoal text-sm mb-1.5" for="app-position">Position of Interest *</label>
+          <select id="app-position" name="position" required class="w-full font-body text-charcoal border border-neutral-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-sky focus:ring-1 focus:ring-sky bg-white">
+            <option value="">Select a position...</option>
+            <option>HVAC Service Technician</option>
+            <option>HVAC Installer</option>
+            <option>Commercial Service Technician</option>
+            <option>Apprentice / Helper</option>
+            <option>Customer Service Representative</option>
+            <option>Other / General Interest</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-body font-semibold text-charcoal text-sm mb-1.5" for="app-experience">Years of HVAC Experience *</label>
+          <select id="app-experience" name="experience" required class="w-full font-body text-charcoal border border-neutral-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-sky focus:ring-1 focus:ring-sky bg-white">
+            <option value="">Select...</option>
+            <option>0 – Less than 1 year</option>
+            <option>1–2 years</option>
+            <option>3–5 years</option>
+            <option>6–10 years</option>
+            <option>10+ years</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-body font-semibold text-charcoal text-sm mb-1.5" for="app-epa">Do you hold EPA Section 608 certification? *</label>
+          <select id="app-epa" name="epa_cert" required class="w-full font-body text-charcoal border border-neutral-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-sky focus:ring-1 focus:ring-sky bg-white">
+            <option value="">Select...</option>
+            <option>Yes – Universal (608)</option>
+            <option>Yes – Type I or II</option>
+            <option>No, but willing to obtain</option>
+            <option>Not applicable (applying for CSR)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-body font-semibold text-charcoal text-sm mb-1.5" for="app-resume">Resume (PDF or Word)</label>
+          <input id="app-resume" name="resume" type="file" accept=".pdf,.doc,.docx" class="w-full font-body text-charcoal border border-neutral-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-sky focus:ring-1 focus:ring-sky bg-white file:mr-4 file:py-1 file:px-3 file:rounded file:border-0 file:bg-sky/15 file:text-sky file:font-semibold file:text-xs" />
+        </div>
+        <div>
+          <label class="block font-body font-semibold text-charcoal text-sm mb-1.5" for="app-message">Anything you'd like us to know?</label>
+          <textarea id="app-message" name="message" rows="3" class="w-full font-body text-charcoal border border-neutral-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-sky focus:ring-1 focus:ring-sky bg-white resize-none" placeholder="Previous employers, notable projects, why Skyhooked..."></textarea>
+        </div>
+        <button type="submit" class="w-full bg-sky hover:bg-sky-dark text-charcoal font-display font-bold py-4 rounded-xl transition-colors text-lg">
+          Submit Application →
+        </button>
+        <p class="font-body text-neutral-500 text-xs text-center">We respond to every application within 1 business day. Questions? Call (480) 123-4567.</p>
+      </form>
+    </div>
+  </section>
+
+</BaseLayout>

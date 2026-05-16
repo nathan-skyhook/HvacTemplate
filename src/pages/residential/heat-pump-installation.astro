@@ -1,0 +1,622 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const brands = [
+  {
+    name: 'Mitsubishi Electric',
+    desc: 'Hyper-Heat technology maintains full rated capacity down to 5°F — well below any Phoenix winter night. Diamond Contractor service network.',
+    highlight: 'Best cold-climate performance',
+  },
+  {
+    name: 'Carrier',
+    desc: 'Infinity Greenspeed variable-speed — among the most efficient heat pumps available. Factory Authorized Dealer support and strong Phoenix-area parts availability.',
+    highlight: 'Factory Authorized Dealer',
+  },
+  {
+    name: 'Trane',
+    desc: 'XV20i variable-speed and XV18 two-stage — built to Trane\'s "It\'s hard to stop a Trane" reliability standard. Comfort Specialist dealer network.',
+    highlight: 'Rock-solid reliability',
+  },
+  {
+    name: 'Daikin',
+    desc: 'Fit and VRV Life systems. Daikin owns the full engineering stack — compressor to controls — for tight integration and excellent efficiency in Phoenix\'s climate.',
+    highlight: 'Inverter technology leader',
+  },
+  {
+    name: 'Bosch',
+    desc: 'IDS Premium and IDS Plus — exceptional value with industry-leading 10-year parts AND labor warranty. Extremely quiet operation.',
+    highlight: 'Best warranty value',
+  },
+  {
+    name: 'Lennox',
+    desc: 'SL25XPV achieves some of the highest SEER2 ratings on the market. Premier Dealer service and strong Phoenix-area dealer network.',
+    highlight: 'Highest efficiency ratings',
+  },
+  {
+    name: 'Goodman / Amana',
+    desc: 'Budget-friendly heat pump systems with strong manufacturer warranties. Excellent choice when upfront cost is the primary constraint.',
+    highlight: 'Best upfront value',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Will a heat pump work in Phoenix\'s winters?',
+    a: 'Absolutely. Modern heat pumps — especially Mitsubishi Hyper-Heat, Carrier Infinity Greenspeed, and Lennox SL25XPV — maintain full rated capacity to 5°F and operate effectively below 0°F. Phoenix Valley winter lows typically range from 35–45°F, with occasional cold snaps to the mid-20s. A quality heat pump handles every single day of a Phoenix winter without any backup heat needed.',
+  },
+  {
+    q: 'How long does a heat pump installation take?',
+    a: 'Most straightforward swaps (replacing an existing AC + furnace in the same location) take a single day. If ductwork modifications, electrical panel upgrades, or attic air handler work is required, plan on two days. We confirm the timeline in writing before we start.',
+  },
+  {
+    q: 'Do I qualify for the 30% federal tax credit?',
+    a: 'If you own your home and install a qualifying heat pump (meets CEE Tier 2 or higher — all systems we regularly install qualify), yes. The credit is 30% of equipment + installation costs, up to $2,000 per year, through 2032. We provide your AHRI certificate and complete documentation. Your tax preparer files Form 5695 with your return.',
+  },
+  {
+    q: 'Mitsubishi, Carrier, or Trane — which should I choose?',
+    a: 'All three are excellent systems and we\'re happy with any of them on our installs. Mitsubishi leads in cold-climate performance (less relevant for Phoenix but still a quality indicator). Carrier and Trane have strong variable-speed lineups and deep parts availability in the Phoenix Valley. We\'ll recommend based on your home\'s needs, your budget, and which manufacturer has the strongest local warranty support at the time of your install.',
+  },
+  {
+    q: 'Should I keep my gas furnace as backup (dual-fuel)?',
+    a: 'For Phoenix homeowners, a pure heat pump is almost always the right answer. Phoenix winters are mild enough that a modern heat pump handles every cold night without needing gas backup. Dual-fuel setups make more sense in climates where temperatures regularly drop below 20°F for extended periods. We\'ll model both options if you want the comparison.',
+  },
+  {
+    q: 'How long do heat pumps last?',
+    a: '15–20 years with annual maintenance. Manufacturer warranties run 10 years on all parts (with registration — we register for you). Our workmanship warranty is 1 year standard. Comfort Plan members receive 5-year extended workmanship coverage.',
+  },
+];
+---
+
+<BaseLayout
+  title="Heat Pump Installation Phoenix AZ | 30% Tax Credit | Skyhooked"
+  description="Licensed heat pump installation in Phoenix. Mitsubishi, Carrier, Trane, Daikin. 30% federal tax credit + APS/SRP rebates. Manual J sizing. Call (480) 123-4567."
+>
+
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Heat Pump Installation",
+    "provider": {
+      "@type": "HVACBusiness",
+      "name": "Skyhooked on Comfort",
+      "telephone": "(480) 123-4567",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Phoenix",
+        "addressRegion": "AZ",
+        "addressCountry": "US"
+      }
+    },
+    "areaServed": {
+      "@type": "Place",
+      "name": "Phoenix Valley, AZ"
+    },
+    "description": "Residential heat pump installation across the Phoenix Valley. Mitsubishi, Carrier, Trane, Daikin, Bosch, Lennox, Goodman. 30% IRA federal tax credit, APS and SRP utility rebates. Manual J load calculation on every project.",
+    "offers": {
+      "@type": "Offer",
+      "description": "30% federal IRA 25C tax credit available on qualifying installations through 2032"
+    }
+  }
+  </script>
+
+  <!-- ==========================================
+       Hero
+       ========================================== -->
+  <section
+    class="relative min-h-[65vh] flex flex-col justify-center overflow-hidden"
+    style="background: linear-gradient(135deg, oklch(0.12 0.02 253) 0%, oklch(0.18 0.025 253) 50%, oklch(0.30 0.025 253) 100%);"
+  >
+    <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+      <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full opacity-10" style="background: radial-gradient(circle, oklch(0.58 0.13 233), transparent);"></div>
+      <div class="absolute bottom-0 -left-20 w-80 h-80 rounded-full opacity-5" style="background: radial-gradient(circle, oklch(0.58 0.13 233), transparent);"></div>
+    </div>
+    <div class="relative max-w-5xl mx-auto px-4 py-24 lg:py-32 text-center">
+      <div class="inline-flex items-center gap-2 bg-sky/20 text-sky text-sm font-semibold px-4 py-1.5 rounded-full mb-6 font-body">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/>
+        </svg>
+        30% Federal Tax Credit · APS & SRP Rebates Available
+      </div>
+      <h1 class="font-display font-extrabold text-white text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6">
+        Heat Pump Installation in Phoenix<br class="hidden sm:block"/>
+        <span class="text-sky">— 30% Federal Tax Credit,</span><br class="hidden sm:block"/>
+        Right-Sized for Your Home.
+      </h1>
+      <p class="font-body text-charcoal-50 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        Heat pumps are the most efficient way to heat and cool a Phoenix home — and right now the federal government will cover 30% of the install through the Inflation Reduction Act (up to $2,000). Skyhooked on Comfort installs Mitsubishi, Carrier, Trane, Daikin, Bosch, and Lennox heat pumps across the Phoenix Valley, with a real Manual J load calculation on every project.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+        <a href="tel:4801234567" class="flex items-center gap-2 bg-sky hover:bg-sky-dark text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Call (480) 123-4567
+        </a>
+        <a href="/contact" class="flex items-center gap-2 border-2 border-white text-white hover:bg-white hover:text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors">
+          Free Consultation →
+        </a>
+      </div>
+      <ul class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-charcoal-50 text-sm font-body">
+        <li class="flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-sky flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+          AZ ROC-312489
+        </li>
+        <li class="flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-sky flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+          Manual J on Every Install
+        </li>
+        <li class="flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-sky flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+          Tax Credit Paperwork Filed For You
+        </li>
+        <li class="flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-sky flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+          Family Owned Since 2010
+        </li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       Why Heat Pumps Now — 3 Reasons
+       ========================================== -->
+  <section class="bg-white py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl mb-3">
+          Why heat pumps moved from niche to mainstream
+        </h2>
+        <p class="font-body text-neutral-500 text-lg max-w-xl mx-auto">
+          Three things changed in the last five years that make heat pumps the right choice for most Phoenix Valley homeowners replacing an aging AC or furnace.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-6">
+        {[
+          {
+            num: '01',
+            heading: 'Cold-Climate Performance Caught Up',
+            body: 'Modern heat pumps — Mitsubishi Hyper-Heat, Carrier Infinity Greenspeed, Lennox SL25XPV — maintain full rated capacity down to ~5°F and operate effectively below 0°F. The old "heat pumps don\'t work in cold weather" line is decades out of date. For Phoenix\'s winters, where lows rarely drop below 30°F even on the coldest nights, any quality heat pump handles every single day without backup heat.',
+          },
+          {
+            num: '02',
+            heading: 'Federal Incentives Changed the Math',
+            body: 'The Inflation Reduction Act 25C tax credit covers 30% of equipment + installation on qualifying heat pumps, up to $2,000 per year, through 2032. Stacked with APS and SRP utility rebates (typically $500–$2,000 per install), many Phoenix Valley homeowners recover $2,500–$4,000 from a typical installation. That changes the payback calculation significantly.',
+          },
+          {
+            num: '03',
+            heading: 'Operating Cost Beats Gas in Phoenix',
+            body: 'Heat pumps are 2–4x more efficient than electric resistance heating and increasingly competitive with gas furnaces on operating cost. In Phoenix, where you\'re running cooling for 8–10 months and only need heat intermittently, a heat pump\'s dual-function efficiency makes it the most cost-effective system for most homes — especially as APS and SRP electricity rates flatten relative to gas.',
+          },
+        ].map(item => (
+          <div class="bg-charcoal-50 rounded-2xl p-7 border border-charcoal/10">
+            <div class="font-display font-extrabold text-sky text-3xl mb-3">{item.num}</div>
+            <h3 class="font-display font-bold text-charcoal text-base mb-3">{item.heading}</h3>
+            <p class="font-body text-neutral-600 text-sm leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       Right-Sizing Matters
+       ========================================== -->
+  <section class="bg-charcoal py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="font-display font-bold text-white text-3xl sm:text-4xl mb-6">
+            Right-sizing matters more than the brand
+          </h2>
+          <p class="font-body text-charcoal-50 text-lg leading-relaxed mb-5">
+            The single biggest mistake HVAC contractors make on heat pump installs is oversizing. An oversized heat pump short-cycles — it reaches setpoint temperature too quickly, shuts off before it's done a proper dehumidification cycle, then restarts minutes later. The result: wear on the compressor, poor humidity control (especially in Phoenix's July–September monsoon season), and wasted energy.
+          </p>
+          <p class="font-body text-charcoal-50 text-lg leading-relaxed mb-5">
+            We do a real Manual J load calculation on every heat pump install. This means measuring your home's insulation values, window U-values and SHGC ratings, attic conditions, orientation, infiltration rate, and internal heat loads. It takes 30–60 minutes on-site, then we run the calculation in ACCA-approved software.
+          </p>
+          <p class="font-body text-charcoal-50 text-lg leading-relaxed">
+            Most Phoenix Valley homes need a 2.5–4 ton heat pump. If a contractor quotes you a 5-ton system without doing a Manual J, walk away.
+          </p>
+        </div>
+        <div class="bg-charcoal-light/40 rounded-2xl p-8 border border-white/10">
+          <h3 class="font-display font-bold text-white text-xl mb-6">What oversizing costs you</h3>
+          <div class="space-y-5">
+            {[
+              { issue: 'Short-cycling', impact: 'Compressor runs inefficiently, wears faster, uses more electricity per BTU' },
+              { issue: 'Poor dehumidification', impact: 'System shuts off before moisture is removed — comfort issue in Phoenix\'s monsoon months' },
+              { issue: 'Temperature swings', impact: 'Rapid heating/cooling cycles create hot/cold swings instead of steady comfort' },
+              { issue: 'Higher upfront cost', impact: 'You paid for capacity your home doesn\'t need' },
+              { issue: 'Shorter equipment life', impact: 'Oversized compressors fail years earlier than correctly-sized ones' },
+            ].map(row => (
+              <div class="border-b border-white/10 pb-4 last:border-0 last:pb-0">
+                <div class="font-display font-bold text-sky text-sm mb-1">{row.issue}</div>
+                <div class="font-body text-charcoal-50 text-sm">{row.impact}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       What's Included
+       ========================================== -->
+  <section class="bg-white py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl mb-3">What's included in every heat pump installation</h2>
+        <p class="font-body text-neutral-500 text-lg max-w-xl mx-auto">One flat-rate price covers all of this. No line-item surprises after installation.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          'Free in-home consultation',
+          'Manual J heat-gain/heat-loss load calculation',
+          'Manual S equipment selection (3 options)',
+          'Manual D duct design if duct modifications needed',
+          'Whole-home heat pump installation (ducted central)',
+          'Ductless mini-split option where applicable',
+          'Hybrid dual-fuel option (heat pump + gas backup)',
+          'Refrigerant line set — new install or reuse assessment',
+          'Electrical disconnect and wiring',
+          'Condensate drain and safety switch',
+          'Thermostat installation or upgrade',
+          'Permit pulled and inspection scheduled',
+          'AHRI certificate filed for tax credit',
+          'Old system disconnect, removal, and disposal',
+          '10-year manufacturer warranty registration',
+          '1-year workmanship warranty',
+          'Tax credit and utility rebate documentation package',
+        ].map(item => (
+          <div class="flex items-start gap-3 bg-charcoal-50 rounded-xl p-4">
+            <svg class="w-5 h-5 text-sky flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+            </svg>
+            <span class="font-body text-neutral-700 text-sm">{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       Our Process — 6 Steps
+       ========================================== -->
+  <section class="bg-charcoal-50 py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl mb-3">Our heat pump installation process</h2>
+        <p class="font-body text-neutral-500 text-lg max-w-xl mx-auto">Six steps from first call to tax credit paperwork in hand.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[
+          {
+            num: '01',
+            h: 'Free In-Home Consultation',
+            b: 'We visit your home, inspect your existing system and ductwork, measure key parameters, and discuss your comfort goals and budget. No obligation.',
+          },
+          {
+            num: '02',
+            h: 'Manual J Load Calculation',
+            b: 'Real heat-loss and heat-gain math using ACCA-approved software. We measure insulation, windows, orientation, attic conditions, and infiltration. Takes 30–60 minutes on-site.',
+          },
+          {
+            num: '03',
+            h: 'Manual S Equipment Selection',
+            b: 'We present three options: Good / Better / Best. Side-by-side comparison of capacity, SEER2, HSPF2, sound rating, warranty, price, and modeled annual operating cost for your home.',
+          },
+          {
+            num: '04',
+            h: 'Flat-Rate Quote',
+            b: 'One number covers everything: equipment, labor, refrigerant line set, electrical, condensate, permit, inspection, AHRI certificate, tax credit paperwork, and haul-away of old system.',
+          },
+          {
+            num: '05',
+            h: 'Installation',
+            b: 'Single day for a straightforward swap. Two days if ductwork or electrical changes needed. System comfort-tested before we leave. Area left cleaner than we found it.',
+          },
+          {
+            num: '06',
+            h: 'Tax Credit & Rebate Paperwork',
+            b: 'We file your AHRI certificate and provide complete documentation for the federal 25C credit, APS rebate, and SRP rebate. Your accountant files Form 5695 — we give you everything they need.',
+          },
+        ].map(step => (
+          <div class="bg-white rounded-2xl p-7 border border-neutral-100 hover:shadow-lg transition-shadow">
+            <div class="font-display font-extrabold text-sky text-3xl mb-3">{step.num}</div>
+            <h3 class="font-display font-bold text-charcoal text-base mb-2">{step.h}</h3>
+            <p class="font-body text-neutral-600 text-sm leading-relaxed">{step.b}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       Brands
+       ========================================== -->
+  <section class="bg-charcoal py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-white text-3xl sm:text-4xl mb-3">Heat pump brands we install</h2>
+        <p class="font-body text-charcoal-50 text-lg max-w-xl mx-auto">We're brand-agnostic. You get options — we recommend based on your home, budget, and which manufacturer has the best local parts support.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {brands.map(brand => (
+          <div class="bg-charcoal-light/40 rounded-2xl p-6 border border-white/10">
+            <div class="font-display font-bold text-sky text-xs mb-2 uppercase tracking-wide">{brand.highlight}</div>
+            <h3 class="font-display font-bold text-white text-base mb-2">{brand.name}</h3>
+            <p class="font-body text-charcoal-50 text-sm leading-relaxed">{brand.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       Pricing & Financing
+       ========================================== -->
+  <section class="bg-white py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl mb-6">Pricing & financing</h2>
+          <p class="font-body text-neutral-600 text-lg leading-relaxed mb-5">
+            Most whole-home heat pump installs in Phoenix run <strong class="text-charcoal">$6,500–$12,000</strong> before tax credit and rebates. Variable-speed premium systems run higher; basic single-stage units run lower. Dual-fuel installs (heat pump + gas furnace backup) add approximately $1,500–$2,500.
+          </p>
+          <p class="font-body text-neutral-600 text-lg leading-relaxed mb-5">
+            After the federal 25C tax credit (up to $2,000) and APS/SRP rebate (typically $500–$2,000), most Phoenix Valley homeowners end up paying <strong class="text-charcoal">$4,000–$9,000</strong> out of pocket — less with financing.
+          </p>
+          <p class="font-body text-neutral-600 text-lg leading-relaxed mb-8">
+            Every quote is flat-rate, in writing, with no surprise line items added after the fact. Permit, inspection, AHRI certificate, and haul-away of the old system are all included.
+          </p>
+          <a href="/financing" class="inline-flex items-center gap-2 bg-charcoal hover:bg-charcoal-light text-white font-display font-bold px-6 py-3 rounded-lg transition-colors">
+            See Financing Options →
+          </a>
+        </div>
+        <div class="space-y-4">
+          <div class="bg-sky rounded-2xl p-6">
+            <h3 class="font-display font-bold text-charcoal text-xl mb-4">Federal IRA 25C Tax Credit</h3>
+            <div class="space-y-3">
+              <div class="flex justify-between">
+                <span class="font-body text-charcoal/80 text-sm">Credit amount</span>
+                <span class="font-display font-bold text-charcoal text-sm">30% of equipment + install</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="font-body text-charcoal/80 text-sm">Annual cap</span>
+                <span class="font-display font-bold text-charcoal text-sm">Up to $2,000/year</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="font-body text-charcoal/80 text-sm">Available through</span>
+                <span class="font-display font-bold text-charcoal text-sm">December 31, 2032</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="font-body text-charcoal/80 text-sm">Equipment requirement</span>
+                <span class="font-display font-bold text-charcoal text-sm">CEE Tier 2 or higher</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="font-body text-charcoal/80 text-sm">We provide</span>
+                <span class="font-display font-bold text-charcoal text-sm">Full AHRI certificate + docs</span>
+              </div>
+            </div>
+          </div>
+          <div class="bg-charcoal-50 rounded-2xl p-6 border border-charcoal/10">
+            <h3 class="font-display font-bold text-charcoal text-base mb-3">Financing options</h3>
+            <ul class="space-y-2 font-body text-neutral-600 text-sm">
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>0% APR for 12 months (qualified buyers)</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>0% APR for 60 months (qualified buyers)</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>24–84 month low-APR plans</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>GoodLeap and Synchrony partners</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Soft credit pull — no impact to score</li>
+              <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Apply in 90 seconds, decision in minutes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       APS & SRP Utility Incentives
+       ========================================== -->
+  <section class="bg-charcoal-50 py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl mb-3">
+          Federal + utility incentives we help you claim
+        </h2>
+        <p class="font-body text-neutral-500 text-lg max-w-xl mx-auto">
+          Most Phoenix Valley homeowners can stack three or four incentives on a heat pump install. We handle the documentation for all of them.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {[
+          {
+            source: 'Federal 25C Credit',
+            amount: 'Up to $2,000',
+            desc: '30% of equipment + install on qualifying heat pumps. Claimed on your federal tax return via Form 5695. Available through 2032.',
+          },
+          {
+            source: 'APS Rebate',
+            amount: '$500–$2,000',
+            desc: 'Arizona Public Service offers heat pump rebates for qualifying customers. Amount varies by system efficiency and current program. We track program availability.',
+          },
+          {
+            source: 'SRP Rebate',
+            amount: '$500–$1,500',
+            desc: 'Salt River Project customers in the east Valley and Scottsdale area can apply for heat pump incentives. We file your AHRI certificate and rebate application.',
+          },
+          {
+            source: 'HEEHRA / HER2',
+            amount: 'Up to $8,000',
+            desc: 'Income-qualified households may receive up to $8,000 in heat pump rebates once Arizona launches its HOMES program. We track the rollout and will notify eligible customers.',
+          },
+        ].map(item => (
+          <div class="bg-white rounded-2xl p-6 border border-neutral-100 hover:shadow-lg transition-shadow">
+            <div class="font-display font-extrabold text-sky text-2xl mb-1">{item.amount}</div>
+            <h3 class="font-display font-bold text-charcoal text-base mb-2">{item.source}</h3>
+            <p class="font-body text-neutral-600 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-8 bg-charcoal rounded-xl p-6 text-center">
+        <p class="font-body text-charcoal-50 text-sm max-w-2xl mx-auto">
+          <strong class="text-white">Stacking example:</strong> $9,000 install → $2,000 federal credit + $1,500 APS rebate = $5,500 actual out-of-pocket. Finance the $9,000 at 0% APR, claim the credits at tax time, and your effective monthly payment drops significantly.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       Reviews
+       ========================================== -->
+  <section class="bg-white py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl text-center mb-10">
+        Phoenix Valley homeowners on their heat pump installs
+      </h2>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <blockquote class="bg-charcoal-50 rounded-2xl p-7 border border-charcoal/10">
+          <div class="flex items-center gap-1 mb-4" aria-label="5 stars">
+            {[...Array(5)].map(() => (
+              <svg class="w-4 h-4 text-sky" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+            ))}
+          </div>
+          <p class="font-body text-neutral-700 text-base leading-relaxed mb-5">
+            "We replaced a 22-year-old gas furnace + AC with a Mitsubishi Hyper-Heat system. Skyhooked ran a Manual J that came in at 2.5 tons — our previous system was 4 tons. The house is more comfortable, quieter, and our combined heating and cooling bill dropped 38% the first year. They handled the IRA tax credit paperwork completely."
+          </p>
+          <footer class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-charcoal flex items-center justify-center text-white font-display font-bold text-sm">LH</div>
+            <div>
+              <cite class="font-body font-semibold text-charcoal not-italic text-sm">Lauren H.</cite>
+              <p class="font-body text-neutral-500 text-xs">Chandler · Mitsubishi Hyper-Heat Install</p>
+            </div>
+          </footer>
+        </blockquote>
+
+        <blockquote class="bg-charcoal-50 rounded-2xl p-7 border border-charcoal/10">
+          <div class="flex items-center gap-1 mb-4" aria-label="5 stars">
+            {[...Array(5)].map(() => (
+              <svg class="w-4 h-4 text-sky" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+            ))}
+          </div>
+          <p class="font-body text-neutral-700 text-base leading-relaxed mb-5">
+            "Three other contractors quoted a 5-ton system based on our old equipment. Skyhooked was the only one that measured the house and recommended 3 tons — a Carrier Infinity variable-speed. Saved us $4,500 upfront and the system runs perfectly. We got the full $2,000 federal credit at tax time."
+          </p>
+          <footer class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-charcoal flex items-center justify-center text-white font-display font-bold text-sm">TM</div>
+            <div>
+              <cite class="font-body font-semibold text-charcoal not-italic text-sm">Tom M.</cite>
+              <p class="font-body text-neutral-500 text-xs">Tempe · Carrier Infinity Greenspeed Install</p>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       FAQ
+       ========================================== -->
+  <section class="bg-charcoal-50 py-20">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl text-center mb-10">
+        Heat pump installation — common questions
+      </h2>
+      <div class="space-y-3 mb-10">
+        {faqs.map((faq, i) => (
+          <div class="faq-item border border-neutral-200 rounded-xl overflow-hidden bg-white">
+            <button
+              class="faq-btn w-full text-left flex items-center justify-between gap-4 p-5 font-display font-semibold text-charcoal hover:bg-charcoal-50 transition-colors"
+              aria-expanded="false"
+              data-index={i}
+            >
+              <span>{faq.q}</span>
+              <svg class="faq-chevron w-5 h-5 flex-shrink-0 text-sky transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-panel hidden px-5 pb-5">
+              <p class="font-body text-neutral-600 leading-relaxed">{faq.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       Related Services
+       ========================================== -->
+  <section class="bg-white py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="font-display font-bold text-charcoal text-2xl mb-8 text-center">Related services</h2>
+      <div class="grid sm:grid-cols-4 gap-4">
+        {[
+          { href: '/residential/ac-installation', name: 'AC Installation', desc: 'High-efficiency central AC if a heat pump isn\'t the right fit.' },
+          { href: '/residential/heating-installation', name: 'Heating Installation', desc: 'Gas furnace options and hybrid dual-fuel systems.' },
+          { href: '/residential/ductless-mini-splits', name: 'Ductless Mini-Splits', desc: 'Single and multi-zone ductless heat pumps for additions and garages.' },
+          { href: '/residential/smart-thermostats', name: 'Smart Thermostats', desc: 'Maximize heat pump efficiency with a compatible smart thermostat.' },
+        ].map(s => (
+          <a href={s.href} class="group bg-charcoal-50 hover:bg-charcoal rounded-xl p-5 border border-charcoal/10 hover:border-charcoal transition-colors">
+            <h3 class="font-display font-bold text-charcoal group-hover:text-white text-sm mb-1 transition-colors">{s.name}</h3>
+            <p class="font-body text-neutral-500 group-hover:text-charcoal-50 text-xs transition-colors">{s.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       Bottom CTA
+       ========================================== -->
+  <section class="bg-charcoal py-20">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 class="font-display font-extrabold text-white text-3xl sm:text-4xl mb-6 leading-tight">
+        Ready to see if a heat pump fits your home?<br/>
+        <span class="text-sky">Free in-home consultation with a real Manual J.</span>
+      </h2>
+      <p class="font-body text-charcoal-50 text-lg mb-8">
+        No obligation. No pressure. Just honest numbers — equipment options, operating cost models, and every incentive you qualify for.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="tel:4801234567" class="flex items-center gap-2 bg-sky hover:bg-sky-dark text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Call (480) 123-4567
+        </a>
+        <a href="/contact" class="flex items-center gap-2 border-2 border-white text-white hover:bg-white hover:text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors">
+          Request a Quote →
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel = btn.nextElementSibling as HTMLElement;
+      const chevron = btn.querySelector('.faq-chevron') as SVGElement;
+      const isOpen = !panel.classList.contains('hidden');
+      document.querySelectorAll('.faq-panel').forEach(p => p.classList.add('hidden'));
+      document.querySelectorAll('.faq-chevron').forEach(c => c.classList.remove('rotate-180'));
+      document.querySelectorAll('.faq-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+      if (!isOpen) {
+        panel.classList.remove('hidden');
+        chevron?.classList.add('rotate-180');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>

@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const industries = [
+  {
+    name: 'Office & Professional',
+    slug: 'office',
+    desc: 'From single-tenant suites to multi-story office buildings. We handle RTU replacements, VAV system maintenance, BAS integration, and tenant improvement buildouts. ASHRAE 62.1 ventilation compliance for all office configurations.',
+    services: ['Rooftop unit service and replacement', 'VAV box maintenance and calibration', 'Tenant improvement HVAC', 'Demand-controlled ventilation'],
+    detail: 'Phoenix commercial office buildings face extended peak cooling seasons — 4+ months of 100°F+ temperatures. RTUs on office buildings typically have a shorter effective lifespan than in cooler climates. Planned maintenance programs prevent the emergency service calls that disrupt tenants and property managers alike.',
+  },
+  {
+    name: 'Restaurant & Food Service',
+    slug: 'restaurant',
+    desc: 'Kitchen exhaust balance, makeup air units, hood cleaning coordination, and dining area comfort. Food service HVAC is specialized — grease-laden air, high exhaust volumes, and health code compliance intersect with occupant comfort.',
+    services: ['Kitchen makeup air units (MAU)', 'Exhaust-supply balance verification', 'Grease-resistant coil cleaning', 'Health inspection documentation'],
+    detail: 'Phoenix restaurants face extreme summer heat that compounds kitchen heat loads significantly. A dining room that loses cooling comfort in July will feel it in reservation volume. We understand food service HVAC and the operational constraints that go with it — no interruptions during service, tight health code requirements, and after-hours availability.',
+  },
+  {
+    name: 'Medical & Dental',
+    slug: 'medical',
+    desc: 'Pressure relationships, HEPA filtration, ASHRAE 170 compliance, and uninterrupted operation. Medical office HVAC failures are not just uncomfortable — they can affect patient safety and result in regulatory action.',
+    services: ['Positive/negative pressure rooms', 'HEPA and MERV-15 filtration', 'Emergency backup cooling', 'ASHRAE 170 compliance documentation'],
+    detail: 'Healthcare HVAC requires more than just comfort — it requires documented compliance with ASHRAE 170 (ventilation for healthcare facilities), proper pressure relationships between spaces, and filtration appropriate for infection control. We provide written compliance documentation and understand the consequences of unplanned downtime in medical settings.',
+  },
+  {
+    name: 'Retail & Shopping Centers',
+    slug: 'retail',
+    desc: 'Single-tenant stores to multi-anchor shopping centers. We manage RTU fleets for property managers and handle TI buildouts for new tenants — permits pulled, scheduled around operations, clean documentation.',
+    services: ['RTU fleet maintenance agreements', 'Tenant improvement coordination', 'Seasonal pre-opening inspections', 'Portfolio management programs'],
+    detail: 'Retail HVAC in Phoenix must handle enormous cooling loads driven by high glass-to-wall ratios, west-facing exposures, and high foot traffic. Customer comfort directly affects dwell time and sales. We have experience managing RTU fleets across retail center portfolios and can consolidate service coordination and invoicing for multi-property accounts.',
+  },
+  {
+    name: 'Warehouse & Industrial',
+    slug: 'warehouse',
+    desc: 'Evaporative cooling, refrigerated warehouses, loading dock makeup air, and process cooling. Industrial HVAC serves both worker comfort and equipment/process requirements.',
+    services: ['Evaporative cooler service and replacement', 'Refrigerated storage systems', 'Makeup air for loading docks', 'Process cooling equipment'],
+    detail: 'Phoenix warehouses have options that don\'t exist in humid climates — evaporative cooling is highly effective in our dry desert air. We help warehouse operators choose the right mix of evaporative and refrigerant-based cooling for their specific application, occupant requirements, and budget.',
+  },
+  {
+    name: 'Education & Childcare',
+    slug: 'education',
+    desc: 'Schools, childcare centers, and tutoring facilities. Reliable cooling for occupied spaces, MERV-13+ filtration for vulnerable populations, and compliance with Arizona Department of Health standards for childcare.',
+    services: ['MERV-13 filtration upgrades', 'Classroom ventilation compliance', 'Summer pre-season inspections', 'After-hours installation and service'],
+    detail: 'Childcare and K-12 facilities in Arizona must comply with ADHS ventilation standards that go beyond standard commercial code. We understand these requirements and have completed projects for licensed childcare operators across the Valley. Summer inspection timing is critical — school buildings that lose cooling in August affect enrollment and can trigger regulatory attention.',
+  },
+];
+
+const faqs = [
+  { q: 'Do you handle multi-location businesses with properties across the Valley?', a: 'Yes. We manage PM agreements and service coordination for multi-location accounts — restaurants, retail chains, medical group practices. Single billing, single point of contact, coordinated scheduling across all your locations.' },
+  { q: 'Are you licensed for commercial work in Arizona?', a: 'Yes. Arizona ROC license #312489 covers commercial HVAC installation and service. We pull our own permits on all work that requires them and coordinate inspections through completion.' },
+  { q: 'Can you respond to emergency calls in my industry 24/7?', a: 'Yes. Commercial emergency response is available 24/7. PM agreement clients receive priority dispatch with no overtime surcharge. Standard commercial service receives next-available response with transparent after-hours rates disclosed before any work begins.' },
+  { q: 'Do you service equipment under active manufacturer warranty?', a: 'Yes. We are authorized service providers for Carrier, Trane, Daikin, and other major commercial brands. Our service reports satisfy manufacturer PM requirements. For warranty claims, we document findings and coordinate with manufacturer technical support as needed.' },
+];
+---
+
+<BaseLayout
+  title="Commercial HVAC Industries Served in Phoenix, AZ | Skyhooked on Comfort"
+  description="Commercial HVAC service for offices, restaurants, medical, retail, warehouses, and schools in the Phoenix Valley. PM agreements, TI buildouts, emergency service. Call (480) 123-4567."
+>
+  <script type="application/ld+json" is:inline>
+  { "@context": "https://schema.org", "@type": "Service", "serviceType": "Commercial HVAC Service", "provider": { "@type": "HVACBusiness", "name": "Skyhooked on Comfort", "telephone": "(480) 123-4567", "address": { "@type": "PostalAddress", "addressLocality": "Phoenix", "addressRegion": "AZ" } }, "areaServed": "Phoenix Valley, AZ" }
+  </script>
+
+  <section class="relative py-24 lg:py-32 overflow-hidden" style="background: linear-gradient(135deg, oklch(0.12 0.02 253) 0%, oklch(0.18 0.025 253) 60%, oklch(0.30 0.025 253) 100%);">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <div class="inline-flex items-center gap-2 bg-sky/20 text-sky text-sm font-semibold px-4 py-1.5 rounded-full mb-6 font-body">Office · Restaurant · Medical · Retail · Industrial · Education</div>
+      <h1 class="font-display font-extrabold text-white text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6">Commercial HVAC for Every <span class="text-sky">Industry in Phoenix</span></h1>
+      <p class="font-body text-neutral-300 text-lg sm:text-xl max-w-2xl mx-auto mb-10">Different industries have different HVAC requirements — code requirements, operational constraints, occupant vulnerabilities, and what a failure actually costs. We have commercial experience across the full range of Phoenix Valley business types.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="tel:4801234567" class="flex items-center gap-2 bg-sky hover:bg-sky-dark text-white font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg">Call (480) 123-4567</a>
+        <a href="/contact" class="border-2 border-white text-white hover:bg-white hover:text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors">Request a Quote →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries -->
+  <section class="bg-white py-20">
+    <div class="max-w-5xl mx-auto px-4 space-y-10">
+      {industries.map((ind, i) => (
+        <div class={`grid lg:grid-cols-2 gap-8 items-start ${i % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
+          <div class={i % 2 === 1 ? 'lg:col-start-2' : ''}>
+            <h2 class="font-display font-bold text-charcoal text-2xl sm:text-3xl mb-3">{ind.name}</h2>
+            <p class="font-body text-neutral-600 leading-relaxed mb-4">{ind.desc}</p>
+            <p class="font-body text-neutral-600 leading-relaxed text-sm">{ind.detail}</p>
+          </div>
+          <div class={`bg-charcoal-50 rounded-2xl p-6 border border-neutral-200 ${i % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
+            <h3 class="font-display font-bold text-charcoal text-base mb-4">Common services for this industry</h3>
+            <ul class="space-y-2">
+              {ind.services.map(s => (
+                <li class="flex items-start gap-2 font-body text-neutral-700 text-sm">
+                  <svg class="w-4 h-4 text-sky flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                  {s}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-charcoal-50 py-20">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 class="font-display font-bold text-charcoal text-3xl text-center mb-10">Commercial HVAC FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq, i) => (
+          <div class="faq-item border border-neutral-200 rounded-xl overflow-hidden bg-white">
+            <button class="faq-btn w-full text-left flex items-center justify-between gap-4 p-5 font-display font-semibold text-charcoal hover:bg-charcoal-50 transition-colors" aria-expanded="false" data-index={i}>
+              <span>{faq.q}</span>
+              <svg class="faq-chevron w-5 h-5 flex-shrink-0 text-sky transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-panel hidden px-5 pb-5"><p class="font-body text-neutral-600 leading-relaxed">{faq.a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Related -->
+  <section class="bg-white py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="font-display font-bold text-charcoal text-2xl mb-6 text-center">Commercial services</h2>
+      <div class="grid sm:grid-cols-3 gap-4">
+        {[
+          { title: 'Preventive Maintenance', href: '/commercial/preventive-maintenance', desc: 'PM agreements for any facility size.' },
+          { title: 'Commercial AC Systems', href: '/commercial/commercial-ac-systems', desc: 'RTU, chiller, and split systems.' },
+          { title: 'New Construction & TI', href: '/commercial/new-construction-tenant-improvement', desc: 'Design-build from drawings to startup.' },
+        ].map(r => (
+          <a href={r.href} class="bg-charcoal-50 rounded-xl p-5 border border-neutral-200 hover:shadow-md transition-shadow">
+            <h3 class="font-display font-bold text-charcoal text-base mb-1">{r.title}</h3>
+            <p class="font-body text-neutral-500 text-sm">{r.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-charcoal py-20">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 class="font-display font-extrabold text-white text-3xl sm:text-4xl mb-4">Let's talk about your facility.</h2>
+      <p class="font-body text-neutral-300 text-lg mb-8">Tell us what type of business you run and what you're dealing with. We'll give you an honest assessment and a clear quote.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="tel:4801234567" class="flex items-center gap-2 bg-sky hover:bg-sky-dark text-white font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors">Call (480) 123-4567</a>
+        <a href="/contact" class="border-2 border-white text-white hover:bg-white hover:text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors">Request a Quote →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel = btn.nextElementSibling as HTMLElement;
+      const chevron = btn.querySelector('.faq-chevron') as SVGElement;
+      const isOpen = !panel.classList.contains('hidden');
+      document.querySelectorAll('.faq-panel').forEach(p => p.classList.add('hidden'));
+      document.querySelectorAll('.faq-chevron').forEach(c => c.classList.remove('rotate-180'));
+      document.querySelectorAll('.faq-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+      if (!isOpen) { panel.classList.remove('hidden'); chevron?.classList.add('rotate-180'); btn.setAttribute('aria-expanded', 'true'); }
+    });
+  });
+</script>

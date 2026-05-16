@@ -1,0 +1,314 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Commercial AC Systems",
+  "name": "Commercial AC Systems Phoenix AZ",
+  "provider": {
+    "@type": "HVACBusiness",
+    "name": "Skyhooked on Comfort",
+    "telephone": "(480) 123-4567",
+    "address": { "@type": "PostalAddress", "addressLocality": "Phoenix", "addressRegion": "AZ" }
+  },
+  "areaServed": { "@type": "State", "name": "Phoenix Valley, AZ" }
+};
+
+const systems = [
+  { name: 'Rooftop Units (RTUs)', desc: 'The workhorse of Phoenix commercial buildings. We service, repair, and replace single-zone and multi-zone RTUs from 2 to 25+ tons. Phoenix\'s flat roofs and 115°+ ambient temperatures demand RTUs built for the desert — we stock the right equipment.' },
+  { name: 'Split Systems', desc: 'Commercial split systems for retail suites, server rooms, and spaces where RTU access isn\'t practical. Variable-refrigerant designs for precision zone control.' },
+  { name: 'Package Units', desc: 'Self-contained package units for smaller commercial buildings, strip malls, and light industrial. Gas/electric, all-electric, and heat pump package units across all major brands.' },
+  { name: 'Air Handling Units (AHUs)', desc: 'Custom and standard AHU service for larger commercial buildings. Coil cleaning, belt replacement, motor service, controls, and full AHU replacements with project management.' },
+];
+
+const brands = ['Carrier', 'Trane', 'Lennox', 'York', 'Daikin', 'Goodman', 'Rheem', 'American Standard', 'Bryant', 'Mitsubishi'];
+
+const faqs = [
+  {
+    q: 'How often should commercial RTUs in Phoenix be serviced?',
+    a: 'Quarterly tune-ups are the minimum for Phoenix Valley commercial RTUs. Phoenix\'s extreme heat, dust storms (haboobs), and 8-month cooling season demand more frequent filter changes and coil cleanings than most of the country.',
+  },
+  {
+    q: 'What size RTU does my commercial building need?',
+    a: 'Commercial load calculations account for square footage, occupancy, solar gain through glass, internal heat loads from equipment, and kitchen heat where applicable. We do a proper load calculation — not a square-footage estimate — on every commercial install.',
+  },
+  {
+    q: 'Can you replace a rooftop unit without disrupting our business?',
+    a: 'Yes. Most commercial RTU replacements in Phoenix are scheduled for nights or weekends. For occupied healthcare or food-service buildings, we coordinate the exact downtime window with your operations team.',
+  },
+  {
+    q: 'Do you handle commercial AC permits in Phoenix?',
+    a: 'Yes. We pull all required mechanical permits, schedule City of Phoenix (or relevant jurisdiction) inspections, and handle all AHJ correspondence. AZ ROC-312489.',
+  },
+  {
+    q: 'What brands of commercial AC do you service?',
+    a: 'All major brands: Carrier, Trane, Lennox, York, Daikin, Goodman, Rheem, American Standard, Bryant, Mitsubishi, and more. We stock common commercial parts for fast turnaround.',
+  },
+];
+---
+
+<BaseLayout
+  title="Commercial AC Systems in Phoenix, AZ | Skyhooked on Comfort"
+  description="Commercial AC repair, installation, and retrofit in Phoenix Valley. RTUs, split systems, package units, AHUs. All brands. Licensed AZ ROC-312489. Call (480) 123-4567."
+>
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+
+  <!-- Hero -->
+  <section
+    class="relative min-h-[60vh] flex flex-col justify-center bg-charcoal-dark overflow-hidden"
+    style="background: linear-gradient(135deg, oklch(0.12 0.02 253) 0%, oklch(0.18 0.025 253) 50%, oklch(0.30 0.025 253) 100%);"
+  >
+    <div class="relative max-w-5xl mx-auto px-4 py-24 text-center">
+      <h1 class="font-display font-extrabold text-white text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6">
+        Commercial AC Systems<br class="hidden sm:block"/>
+        <span class="text-sky">in Phoenix, AZ</span>
+      </h1>
+      <p class="font-body text-charcoal-50 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        Phoenix's commercial buildings run their AC harder than almost anywhere in the country. Skyhooked on Comfort services, repairs, retrofits, and replaces every type of commercial AC system — RTUs, split systems, package units, and AHUs — across the Phoenix Valley. All brands, all sizes, licensed and insured.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="tel:4801234567" class="flex items-center gap-2 bg-sky hover:bg-sky-dark text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Call (480) 123-4567
+        </a>
+        <a href="/contact" class="flex items-center gap-2 border-2 border-white text-white hover:bg-white hover:text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors">
+          Request a Bid →
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Systems Covered -->
+  <section class="bg-white py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl mb-3">Commercial AC Systems We Service</h2>
+        <p class="font-body text-neutral-500 text-lg max-w-xl mx-auto">Every commercial cooling platform used in Phoenix Valley buildings.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-6">
+        {systems.map(s => (
+          <div class="bg-charcoal-50 rounded-2xl p-7 border border-neutral-100">
+            <h3 class="font-display font-bold text-charcoal text-lg mb-3">{s.name}</h3>
+            <p class="font-body text-neutral-600 text-base leading-relaxed">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- New Install vs Repair vs Retrofit -->
+  <section class="bg-charcoal py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-white text-3xl sm:text-4xl mb-3">New Install · Repair · Retrofit</h2>
+        <p class="font-body text-charcoal-50 text-lg max-w-xl mx-auto">Three ways we help Phoenix Valley commercial operators with their AC systems.</p>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-6">
+        {[
+          {
+            heading: 'New Commercial AC Installation',
+            body: 'Load calculations, equipment selection, permit, and installation. We right-size every system — no guessing off the old unit nameplate. Account for Phoenix heat islands, high solar gain, and building envelope before spec\'ing equipment.',
+          },
+          {
+            heading: 'Commercial AC Repair',
+            body: 'Flat-rate commercial repair on all brands. We stock common commercial parts — contactors, capacitors, motors, valves, boards. Most repairs diagnosed and completed in a single visit. Written quote before work starts.',
+          },
+          {
+            heading: 'Retrofit & Modernization',
+            body: 'Aging RTU fleet that\'s costing more to repair than replace? We assess the full equipment inventory, provide a capital plan with ROI timelines, and execute phased replacements that minimize operational disruption.',
+          },
+        ].map(item => (
+          <div class="bg-charcoal-light/40 rounded-2xl p-6 border border-white/10">
+            <h3 class="font-display font-bold text-white text-base mb-3">{item.heading}</h3>
+            <p class="font-body text-charcoal-50 text-sm leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Phoenix Rooftop Context -->
+  <section class="bg-charcoal-50 py-20">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl mb-6 text-center">Rooftop Units on Phoenix Flat Roofs</h2>
+      <p class="font-body text-neutral-600 text-lg leading-relaxed mb-6">
+        Phoenix commercial buildings overwhelmingly use flat-roof construction, which creates unique demands on rooftop units. Ambient temperatures on a black membrane roof can exceed 160°F in summer — far above the manufacturer's rated operating envelope for standard equipment. High-ambient RTUs rated to 125°F+ ambient are frequently necessary, and refrigerant charge must be set precisely for Phoenix operating conditions rather than standard AHRI test conditions.
+      </p>
+      <p class="font-body text-neutral-600 text-lg leading-relaxed mb-6">
+        Dust storms (haboobs) load condenser coils fast. Without quarterly cleanings, a dirty condenser in Phoenix summer runs 15–20°F higher discharge temperatures, which accelerates compressor wear and reduces efficiency dramatically. Skyhooked's commercial maintenance contracts include condenser coil cleaning on every visit — not as an upsell, as standard scope.
+      </p>
+      <p class="font-body text-neutral-600 text-lg leading-relaxed">
+        We also handle RTU curb adapters and custom installations for buildings where the old equipment footprint doesn't match current manufacturers' dimensions — a common issue in Phoenix's aging commercial inventory from the 1980s and 1990s.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- Brands -->
+  <section class="bg-white py-16">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="font-display font-bold text-charcoal text-2xl mb-6">Brands We Install & Service</h2>
+      <div class="flex flex-wrap justify-center gap-3">
+        {brands.map(b => (
+          <span class="bg-charcoal-50 border border-neutral-200 text-charcoal font-body font-semibold text-sm px-4 py-2 rounded-xl">{b}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Process -->
+  <section class="bg-charcoal-50 py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl mb-3">Our Commercial AC Process</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { n: '01', heading: 'Site Assessment', body: 'Account manager and lead tech walk the property. Document every unit — make, model, age, condition, access.' },
+          { n: '02', heading: 'Proposal', body: 'Written proposal with load calculations, equipment options, schedule, permit plan, and line-item pricing. No surprises.' },
+          { n: '03', heading: 'Installation or Repair', body: 'Work scheduled around your operation. Permits pulled, inspections scheduled, area left clean. AZ ROC-312489.' },
+          { n: '04', heading: 'Commissioning & Handoff', body: 'System tested, settings documented, service report delivered. Maintenance plan options presented.' },
+        ].map(step => (
+          <div>
+            <div class="text-6xl font-display font-extrabold text-sky/20 leading-none mb-3">{step.n}</div>
+            <h3 class="font-display font-bold text-charcoal text-base mb-2">{step.heading}</h3>
+            <p class="font-body text-neutral-500 text-sm leading-relaxed">{step.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Reviews -->
+  <section class="bg-white py-20">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="font-display font-bold text-charcoal text-3xl mb-2">What Commercial Clients Say</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <blockquote class="bg-charcoal-50 rounded-2xl p-7 border border-charcoal/10">
+          <div class="flex items-center gap-1 mb-4">
+            {[...Array(5)].map(() => (
+              <svg class="w-4 h-4 text-sky" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+            ))}
+          </div>
+          <p class="font-body text-neutral-700 text-base leading-relaxed mb-5">
+            "Replaced all 14 RTUs across our strip mall portfolio over two summers. Skyhooked phased it properly so tenants were never without AC during business hours. Load calculations on every unit — some were oversized by 30%. The new systems are cheaper to run and quieter."
+          </p>
+          <footer class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-charcoal flex items-center justify-center text-white font-display font-bold text-sm">TK</div>
+            <div>
+              <cite class="font-body font-semibold text-charcoal not-italic text-sm">Tom K.</cite>
+              <p class="font-body text-neutral-500 text-xs">Property Manager · Phoenix Strip Mall Portfolio</p>
+            </div>
+          </footer>
+        </blockquote>
+        <blockquote class="bg-charcoal-50 rounded-2xl p-7 border border-charcoal/10">
+          <div class="flex items-center gap-1 mb-4">
+            {[...Array(5)].map(() => (
+              <svg class="w-4 h-4 text-sky" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+            ))}
+          </div>
+          <p class="font-body text-neutral-700 text-base leading-relaxed mb-5">
+            "Our office building's main RTU failed in July. Skyhooked diagnosed a failed compressor, quoted us repair vs. replacement honestly. Replacement was the right call — new Trane unit installed over a weekend, building was cool Monday morning. Permits handled, inspection scheduled. Clean and professional."
+          </p>
+          <footer class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-charcoal flex items-center justify-center text-white font-display font-bold text-sm">RL</div>
+            <div>
+              <cite class="font-body font-semibold text-charcoal not-italic text-sm">Rachel L.</cite>
+              <p class="font-body text-neutral-500 text-xs">Facilities Director · Tempe Office Building</p>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FAQ -->
+  <section class="bg-charcoal-50 py-20">
+    <div class="max-w-2xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="font-display font-bold text-charcoal text-3xl mb-3">Commercial AC FAQ</h2>
+      </div>
+      <div id="faq-list" class="space-y-3 mb-10">
+        {faqs.map((faq, i) => (
+          <div class="faq-item border border-neutral-200 rounded-xl overflow-hidden bg-white">
+            <button class="faq-btn w-full text-left flex items-center justify-between gap-4 p-5 font-display font-semibold text-charcoal hover:bg-charcoal-50 transition-colors" aria-expanded="false" data-index={i}>
+              <span>{faq.q}</span>
+              <svg class="faq-chevron w-5 h-5 flex-shrink-0 text-sky transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-panel hidden px-5 pb-5">
+              <p class="font-body text-neutral-600 leading-relaxed">{faq.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Related -->
+  <section class="bg-white py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="font-display font-bold text-charcoal text-2xl mb-6 text-center">Related Commercial Services</h2>
+      <div class="grid sm:grid-cols-4 gap-4">
+        {[
+          { href: '/commercial/preventive-maintenance', name: 'Preventive Maintenance', desc: 'Quarterly contracts for RTU fleets.' },
+          { href: '/commercial/emergency-hvac', name: 'Emergency HVAC', desc: '24/7 commercial emergency response.' },
+          { href: '/commercial/chiller-services', name: 'Chiller Services', desc: 'Large commercial cooling systems.' },
+          { href: '/commercial/vrf-vrv-systems', name: 'VRF / VRV Systems', desc: 'Multi-zone variable refrigerant systems.' },
+        ].map(link => (
+          <a href={link.href} class="bg-charcoal-50 rounded-xl p-5 hover:shadow-md transition-shadow border border-neutral-100">
+            <h3 class="font-display font-bold text-charcoal text-sm mb-1">{link.name}</h3>
+            <p class="font-body text-neutral-500 text-xs">{link.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section class="bg-charcoal py-20">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 class="font-display font-extrabold text-white text-3xl sm:text-4xl mb-6">Ready to discuss your commercial AC project?</h2>
+      <p class="font-body text-charcoal-50 text-lg mb-8">Site walk within 48 hours. Written bid with load calculations, equipment options, and permit plan.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="tel:4801234567" class="flex items-center gap-2 bg-sky hover:bg-sky-dark text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Call (480) 123-4567
+        </a>
+        <a href="/contact" class="flex items-center gap-2 border-2 border-white text-white hover:bg-white hover:text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors">
+          Request a Bid →
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel = btn.nextElementSibling as HTMLElement;
+      const chevron = btn.querySelector('.faq-chevron') as SVGElement;
+      const isOpen = !panel.classList.contains('hidden');
+      document.querySelectorAll('.faq-panel').forEach(p => p.classList.add('hidden'));
+      document.querySelectorAll('.faq-chevron').forEach(c => c.classList.remove('rotate-180'));
+      document.querySelectorAll('.faq-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+      if (!isOpen) {
+        panel.classList.remove('hidden');
+        chevron?.classList.add('rotate-180');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>

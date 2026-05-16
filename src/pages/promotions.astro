@@ -1,0 +1,181 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const coupons = [
+  {
+    headline: '$79 AC Tune-Up Special',
+    detail: 'Beat the Phoenix summer rush. Full 22-point inspection, filter check, coil cleaning, refrigerant level check. One of our most popular spring offers.',
+    badge: 'Spring Special',
+    code: 'SPRINGTUNE',
+    expires: 'Expires May 31, 2026',
+    color: 'sky',
+  },
+  {
+    headline: '$79 Furnace Tune-Up Special',
+    detail: 'Get your heating system ready before the Phoenix Valley cools down. 22-point inspection, heat exchanger check, combustion analysis, safety test.',
+    badge: 'Fall Special',
+    code: 'FALLTUNE',
+    expires: 'Expires October 31, 2026',
+    color: 'charcoal',
+  },
+  {
+    headline: '$50 OFF First Service',
+    detail: 'New customers only. Any service over $250. Our way of saying welcome — and making it easy to see what flat-rate HVAC service should feel like.',
+    badge: 'New Customers',
+    code: 'WELCOME50',
+    expires: 'No expiration',
+    color: 'sky',
+  },
+  {
+    headline: '10% OFF for Seniors & Military',
+    detail: 'Active duty, veterans, and customers 65+. Applies to any service, any time. A small thank-you for your service and sacrifice.',
+    badge: 'Always Available',
+    code: 'HONOR10',
+    expires: 'No expiration',
+    color: 'charcoal',
+  },
+  {
+    headline: '0% APR for 60 Months',
+    detail: 'Qualified buyers on new system installs over $5,000. Finance your AC replacement, heat pump, or furnace at zero interest. Apply in 90 seconds — soft credit check only.',
+    badge: 'Financing Offer',
+    code: 'PAYITLATER',
+    expires: 'Expires December 31, 2026',
+    color: 'sky',
+  },
+  {
+    headline: '$500 OFF Heat Pump Install',
+    detail: 'Stackable with the federal 25C tax credit (up to $2,000) and SRP/APS utility rebates (typically $500–$2,000). Combined savings can exceed $3,000 on a qualifying install.',
+    badge: 'Heat Pump',
+    code: 'PUMPIT500',
+    expires: 'Expires September 30, 2026',
+    color: 'charcoal',
+  },
+  {
+    headline: 'FREE Whole-Home Air Purifier with System Install',
+    detail: 'A $899 value — included free with any qualifying AC, heating, or heat pump replacement. Breathe cleaner air from day one in Phoenix\'s dusty desert environment.',
+    badge: 'Bundle Deal',
+    code: 'CLEANAIR',
+    expires: 'Expires August 31, 2026',
+    color: 'sky',
+  },
+];
+---
+
+<BaseLayout
+  title="HVAC Coupons & Specials in Phoenix, AZ | Skyhooked on Comfort"
+  description="Current HVAC coupons and specials from Skyhooked on Comfort in Phoenix. New customer discount, senior/military discount, tune-up specials, heat pump savings, and financing offers."
+>
+
+  <!-- Hero -->
+  <section class="bg-charcoal py-20">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <div class="inline-flex items-center gap-2 bg-sky/20 text-sky text-sm font-semibold px-4 py-1.5 rounded-full mb-6 font-body">
+        Updated May 2026
+      </div>
+      <h1 class="font-display font-extrabold text-white text-4xl sm:text-5xl leading-tight mb-6">
+        Current specials and coupons.
+      </h1>
+      <p class="font-body text-charcoal-50 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
+        Save on your next service. Mention the offer when you call, or paste the code into the quote form. One coupon per service — cannot be combined with other offers.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- Coupon Grid -->
+  <section class="bg-charcoal-50 py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {coupons.map(coupon => (
+          <div class="bg-white rounded-2xl border-2 border-dashed border-neutral-300 hover:border-sky transition-colors hover:shadow-lg overflow-hidden">
+            <div class={`px-6 py-3 ${coupon.color === 'sky' ? 'bg-sky' : 'bg-charcoal'}`}>
+              <span class={`font-display font-bold text-xs uppercase tracking-wide ${coupon.color === 'sky' ? 'text-charcoal' : 'text-white'}`}>{coupon.badge}</span>
+            </div>
+            <div class="p-6">
+              <h2 class="font-display font-extrabold text-charcoal text-xl mb-3 leading-tight">{coupon.headline}</h2>
+              <p class="font-body text-neutral-600 text-sm leading-relaxed mb-5">{coupon.detail}</p>
+              <div class="bg-charcoal-50 rounded-lg p-3 mb-4 flex items-center justify-between gap-3">
+                <div>
+                  <div class="font-body text-xs text-neutral-500 mb-0.5">Promo Code</div>
+                  <div class="font-display font-extrabold text-charcoal text-lg tracking-wider">{coupon.code}</div>
+                </div>
+                <button
+                  class="font-body text-xs font-semibold text-sky border border-sky rounded-lg px-3 py-1.5 hover:bg-sky hover:text-charcoal transition-colors"
+                  onclick={`navigator.clipboard.writeText('${coupon.code}')`}
+                  aria-label={`Copy code ${coupon.code}`}
+                >
+                  Copy
+                </button>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="font-body text-xs text-neutral-500">{coupon.expires}</span>
+                <a href="tel:4801234567" class={`font-display font-bold text-sm px-4 py-2 rounded-lg transition-colors ${coupon.color === 'sky' ? 'bg-sky hover:bg-sky-dark text-charcoal' : 'bg-charcoal hover:bg-charcoal-light text-white'}`}>
+                  Redeem →
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- How to Use -->
+  <section class="bg-white py-20">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl mb-4">How to use a coupon.</h2>
+        <p class="font-body text-neutral-600 text-lg">Three steps. No hassle.</p>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-8">
+        {[
+          { step: '01', title: 'Pick your offer.', body: 'Choose the coupon that applies to your situation. Copy the code or just note the name.' },
+          { step: '02', title: 'Call or request a quote.', body: 'Call (480) 123-4567 or submit the quote form. Mention or paste your code when you reach out.' },
+          { step: '03', title: 'Discount applied on-site.', body: 'Our technician applies the discount to your quote before you approve any work. No fine print at checkout.' },
+        ].map(step => (
+          <div class="text-center">
+            <div class="w-14 h-14 bg-sky/15 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <span class="font-display font-extrabold text-sky text-lg">{step.step}</span>
+            </div>
+            <h3 class="font-display font-bold text-charcoal text-lg mb-2">{step.title}</h3>
+            <p class="font-body text-neutral-600 text-sm leading-relaxed">{step.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Fine Print -->
+  <section class="bg-charcoal-50 py-12">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="font-display font-bold text-charcoal text-xl mb-4">Fine print.</h2>
+      <div class="font-body text-neutral-600 text-sm leading-relaxed space-y-2">
+        <p>One coupon per service call or project. Cannot be combined with other offers or promotions. Must be mentioned or presented at time of service. Cannot be applied retroactively to completed invoices or prior estimates.</p>
+        <p>New customer discount applies to first-time Skyhooked on Comfort customers only. Senior/military discounts require valid ID (government-issued ID for seniors, military ID or DD-214 for veterans). Financing offers subject to credit approval through GoodLeap or Synchrony; not all customers will qualify.</p>
+        <p>Heat pump and system install discounts apply to qualifying equipment installs only; not valid on service calls or parts-only repairs. Air purifier offer subject to availability; model may vary. All offers subject to change without notice.</p>
+        <p>Questions? Call <a href="tel:4801234567" class="text-sky hover:underline font-semibold">(480) 123-4567</a> — we'll clarify any offer before you book.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Bottom CTA -->
+  <section class="bg-charcoal py-16">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 class="font-display font-bold text-white text-3xl mb-4">Ready to save?</h2>
+      <p class="font-body text-charcoal-50 text-lg mb-8">Call with your code or request a quote online — discount applied before any work starts.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="tel:4801234567" class="flex items-center gap-2 bg-sky hover:bg-sky-dark text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Call (480) 123-4567
+        </a>
+        <a href="/contact" class="border-2 border-white text-white hover:bg-white hover:text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors">
+          Request a Quote →
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

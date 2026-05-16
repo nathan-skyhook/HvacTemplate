@@ -1,0 +1,661 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  const cities = [
+    {
+      params: { city: 'phoenix' },
+      props: {
+        name: 'Phoenix',
+        response: '30 min',
+        neighborhoods: ['Ahwatukee', 'Arcadia', 'Biltmore', 'Central Phoenix', 'North Mountain', 'Desert Ridge'],
+        climate: 'Phoenix summers regularly top 115°F, making reliable AC more than a comfort issue — it is a health and safety necessity. Monsoon season (July–September) brings humidity spikes that stress HVAC systems in ways most of the country never sees: coils ice up from restricted airflow, ductwork condensation causes mold in poorly-insulated attics, and dehumidification performance becomes as important as cooling capacity. Our Phoenix technicians carry extra capacitors, contactors, and refrigerant because those are exactly the parts that fail when outdoor temps stay above 100° for weeks at a time.',
+        review: {
+          text: '"Our AC died on a Saturday in July — 108° outside. Skyhooked had a tech at our door in under an hour. He found a failed capacitor, had the part on the truck, and had us cooling again in 45 minutes. The price was exactly what he quoted. These guys are the real deal."',
+          author: 'Sarah K.',
+          location: 'Ahwatukee, Phoenix',
+          service: 'AC Repair'
+        },
+        faqs: [
+          {
+            q: 'How quickly can you get to Phoenix?',
+            a: 'Phoenix is our headquarters. Most emergency calls in Phoenix are on-site in 30 minutes or less. We keep technicians stationed across the city so response times stay tight even during peak summer demand.'
+          },
+          {
+            q: 'Do you pull Phoenix permits for HVAC work?',
+            a: 'Yes — always. The City of Phoenix requires mechanical permits for new AC and heating equipment installations, ductwork modifications, and gas line work. We pull the permit, schedule the city inspection, and handle all AHJ correspondence on your behalf.'
+          },
+          {
+            q: 'Are you familiar with Phoenix monsoon-season HVAC problems?',
+            a: 'Absolutely. Monsoon season (July–September) is our busiest stretch. Dust storms clog outdoor condenser coils, humidity spikes cause coil icing and condensate overflow, and power fluctuations stress capacitors and contactors. We stock the right parts and know the seasonal failure patterns cold.'
+          }
+        ]
+      }
+    },
+    {
+      params: { city: 'scottsdale' },
+      props: {
+        name: 'Scottsdale',
+        response: '45 min',
+        neighborhoods: ['Old Town', 'North Scottsdale', 'McCormick Ranch', 'DC Ranch', 'Gainey Ranch', 'South Scottsdale'],
+        climate: "Scottsdale's desert heat rivals Phoenix's, but the city's high-end custom homes, sprawling resort properties, and large square footage create HVAC demands that go well beyond swapping a capacitor. Oversized custom homes with 14-foot ceilings, multiple wings, and premium Carrier or Trane variable-speed systems require technicians who actually understand load calculations and inverter-driven compressor diagnostics. DC Ranch and North Scottsdale homes regularly run 18 SEER2+ systems — and when those go down, you need a tech who can read the board codes, not one who just swaps parts until something works.",
+        review: {
+          text: '"We have a large custom home in McCormick Ranch — 4,200 square feet, Carrier Infinity system throughout. Skyhooked was the only company that ran a proper diagnostic on our zone control issue instead of just recommending a full replacement. Saved us $12,000. They clearly know high-end systems."',
+          author: 'Robert T.',
+          location: 'McCormick Ranch, Scottsdale',
+          service: 'Zone Control Diagnostic'
+        },
+        faqs: [
+          {
+            q: 'How quickly can you get to Scottsdale?',
+            a: "From our Phoenix headquarters, we typically reach Scottsdale in 45 minutes for emergencies. We also have technicians staged in the Scottsdale area for faster response during peak summer demand when AC calls volume spikes."
+          },
+          {
+            q: 'Do you pull Scottsdale permits for HVAC installations?',
+            a: 'Yes. The City of Scottsdale Development Services department requires mechanical permits for HVAC equipment replacements, ductwork modifications, and gas line work. We pull all required permits and schedule the inspection — you never have to call the city.'
+          },
+          {
+            q: "Are you experienced with Scottsdale's high-end custom home HVAC systems?",
+            a: "Yes — this is a significant part of our Scottsdale business. We service and install Carrier Infinity, Trane XV series, Lennox SL series, and Mitsubishi VRF systems regularly. Our senior techs are factory-certified and experienced with the variable-speed inverter diagnostics these premium systems require."
+          }
+        ]
+      }
+    },
+    {
+      params: { city: 'mesa' },
+      props: {
+        name: 'Mesa',
+        response: '45 min',
+        neighborhoods: ['Dobson Ranch', 'Eastmark', 'Superstition Springs', 'Red Mountain', 'Las Sendas', 'Downtown Mesa'],
+        climate: "Mesa's mix of older ranch homes and newer master-planned communities means we work on everything from 1970s ductwork to brand-new VRF installations in the same day. Dobson Ranch and Central Mesa homes built in the 1970s and 80s often have undersized flex duct runs, deteriorating fiberglass duct board, and original equipment far past its design life. Meanwhile, Eastmark and the newer communities east of Ellsworth Rd are running modern variable-speed systems with communicating thermostats. Our Mesa technicians are comfortable with both extremes — we've replaced 50-year-old duct systems and commissioned brand-new Daikin VRF installs in the same week.",
+        review: {
+          text: '"Our 1978 ranch in Dobson Ranch had the original duct system — undersized returns, falling fiberglass board in the attic, the works. Skyhooked\'s tech walked me through exactly what was wrong instead of just quoting a full system replacement. We replaced the ductwork first and the efficiency improvement was immediate. Professional, honest, and fast."',
+          author: 'Donna M.',
+          location: 'Dobson Ranch, Mesa',
+          service: 'Duct Replacement'
+        },
+        faqs: [
+          {
+            q: 'How quickly can you get to Mesa?',
+            a: 'Typical emergency response to Mesa is 45 minutes from our Phoenix headquarters. For Red Mountain and far east Mesa neighborhoods near the Superstitions, add roughly 10–15 minutes. We dispatch the closest available technician to minimize your wait.'
+          },
+          {
+            q: 'Do you pull Mesa permits?',
+            a: "Yes. The City of Mesa Building Safety division requires mechanical permits for HVAC equipment replacements, new installations, and ductwork modifications. We handle the permit application, inspections, and all city correspondence — you don't need to lift a finger."
+          },
+          {
+            q: 'Are you familiar with the older homes in Central Mesa?',
+            a: "Very familiar. Central and West Mesa has some of the Valley's oldest housing stock — 1960s through 1980s homes with original ductwork designs that predate modern equipment sizing. We regularly find undersized returns, inadequate attic insulation, and non-standard equipment configurations. We diagnose before we quote and explain options clearly."
+          }
+        ]
+      }
+    },
+    {
+      params: { city: 'tempe' },
+      props: {
+        name: 'Tempe',
+        response: '30 min',
+        neighborhoods: ['Downtown Tempe', 'ASU area', 'Maple-Ash', 'Mitchell Park', 'Warner Ranch', 'South Tempe'],
+        climate: "Tempe's dense urban core and large rental population — driven in part by ASU's 77,000+ students — means quick turnaround matters more here than almost anywhere in the Valley. Tenants and students can't wait three days for AC in a 110° July. Tempe also has one of the Valley's most varied housing stocks: 1950s and 60s bungalows in Maple-Ash and the historic districts, mid-century apartment complexes near campus, and newer townhomes and condos in South Tempe and Warner Ranch. We've learned to carry a wider variety of parts to handle older R-22 equipment that still runs in rental units alongside new SEER2 systems in newer builds.",
+        review: {
+          text: '"Found Skyhooked on Google after my neighbor in Maple-Ash recommended them. AC went out on a 112° day in July. Tech was here in 38 minutes, diagnosed a bad capacitor, fixed it for the flat-rate price. We\'ve used them for tune-ups every year since. Best HVAC company in Tempe."',
+          author: 'Andrea M.',
+          location: 'Maple-Ash, Tempe',
+          service: 'AC Repair'
+        },
+        faqs: [
+          {
+            q: 'How quickly can you get to Tempe?',
+            a: "Tempe is one of our fastest-response cities — typically 30 minutes from dispatch for emergency calls. Our central Phoenix location gives us quick access to Tempe via the 101 and I-10. During peak summer, we stage additional trucks closer to the ASU and Maple-Ash areas."
+          },
+          {
+            q: 'Do you pull Tempe permits?',
+            a: "Yes. The City of Tempe Building Safety requires mechanical permits for HVAC equipment replacements, ductwork work, and gas-line modifications. We pull the permit before work begins, coordinate the city inspection, and provide you with the permit closeout documentation."
+          },
+          {
+            q: 'Can you service older rental property equipment in the ASU area?',
+            a: "Yes — this is a significant part of our Tempe business. We service all major brands and system ages, including older R-22 equipment that's still running in some rental units. For landlords managing multiple Tempe properties, ask about our commercial maintenance contracts — they typically save 20–30% versus à la carte service."
+          }
+        ]
+      }
+    },
+    {
+      params: { city: 'chandler' },
+      props: {
+        name: 'Chandler',
+        response: '45 min',
+        neighborhoods: ['Ocotillo', 'Sun Groves', 'Fulton Ranch', 'Price Road Corridor', 'Downtown Chandler', 'Clemente Ranch'],
+        climate: "Chandler's tech-corridor office parks along the Price Road Corridor and upscale master-planned communities like Ocotillo and Fulton Ranch keep us busy year-round on both commercial and residential calls. The city's semiconductor and advanced manufacturing facilities along the 202 have sophisticated building automation and precision HVAC requirements — this isn't your typical residential service territory. On the residential side, Chandler's newer construction tends toward larger square footage and two-story layouts that require proper Manual J calculations to size correctly. The older portions of Downtown Chandler also have their share of aging 1980s and 90s systems entering their first major replacement cycle.",
+        review: {
+          text: '"We replaced our 22-year-old furnace and AC with a Mitsubishi heat pump. Skyhooked\'s team ran a Manual J that came in at 2.5 tons — our old system was 4 tons. The house is more comfortable, quieter, and our combined heating and cooling cost dropped 38% the first year. They handled the IRA tax credit paperwork too."',
+          author: 'Lauren H.',
+          location: 'Ocotillo, Chandler',
+          service: 'Heat Pump Installation'
+        },
+        faqs: [
+          {
+            q: 'How quickly can you get to Chandler?',
+            a: 'Typical emergency response to Chandler is 45 minutes. For South Chandler near the Queen Creek border, add roughly 10 minutes. We dispatch the nearest available technician and provide live ETAs via text.'
+          },
+          {
+            q: 'Do you pull Chandler permits?',
+            a: "Yes. Chandler Building Safety requires mechanical permits for new HVAC equipment installations, ductwork modifications, and gas line work. We handle the entire permit process — application, fees, inspections, and final documentation."
+          },
+          {
+            q: 'Do you service commercial HVAC in the Chandler tech corridor?',
+            a: "Yes. We service office buildings, light industrial facilities, and corporate campuses along the Price Road and Chandler Boulevard corridors. Our commercial team handles RTUs, chiller systems, and preventive maintenance contracts. We also work with property managers at Chandler's mixed-use developments."
+          }
+        ]
+      }
+    },
+    {
+      params: { city: 'gilbert' },
+      props: {
+        name: 'Gilbert',
+        response: '45 min',
+        neighborhoods: ['Agritopia', 'Power Ranch', 'Val Vista Lakes', 'Morrison Ranch', 'Heritage District', 'Adora Trails'],
+        climate: "Gilbert's rapid growth from small farming town to one of the fastest-growing cities in America means newer homes with modern systems — but also a wave of 2000s-era units now entering their first major replacement cycle. Homes built between 2000 and 2010 in Power Ranch, Val Vista Lakes, and Morrison Ranch are now 15–25 years old, and the original equipment is reaching end of life on a compressed timeline due to the Valley's extreme heat exposure. At the same time, Gilbert's newest communities like Adora Trails are installing current-generation variable-speed heat pumps eligible for the 25C federal tax credit. Our Gilbert technicians work across this full equipment spectrum every day.",
+        review: {
+          text: '"We\'ve been in our Power Ranch home since it was built in 2003 — original Trane 2-ton system finally gave out last July. Skyhooked diagnosed the compressor failure, gave us a fair replacement quote the same day, and had a new Carrier installed within 48 hours. Clean work, no surprises on price, and they registered the warranty for us."',
+          author: 'Chris B.',
+          location: 'Power Ranch, Gilbert',
+          service: 'AC Replacement'
+        },
+        faqs: [
+          {
+            q: 'How quickly can you get to Gilbert?',
+            a: 'Typical emergency response to Gilbert is 45 minutes. For far southeast Gilbert near Queen Creek Road, response may be 50–55 minutes. We dispatch the nearest available technician and can often beat the estimate.'
+          },
+          {
+            q: 'Do you pull Gilbert permits?',
+            a: "Yes. The Town of Gilbert Building Safety division requires mechanical permits for HVAC equipment replacements, ductwork work, and gas-line modifications. We handle the full permit process and coordinate the required inspections."
+          },
+          {
+            q: 'Are you familiar with the 2000s-era homes that are now replacing their first systems?',
+            a: "This is one of the most common jobs we run in Gilbert. Homes built from 1998–2010 are hitting the 15–20 year mark and many original systems are failing or inefficient. We provide a full diagnostic, explain repair vs. replace math honestly, and if replacement makes sense, we do a proper Manual J load calculation — not a guess based on the old equipment nameplate."
+          }
+        ]
+      }
+    },
+    {
+      params: { city: 'glendale' },
+      props: {
+        name: 'Glendale',
+        response: '50 min',
+        neighborhoods: ['Arrowhead Ranch', 'Westgate', 'Historic Downtown', 'Thunderbird', 'Sahuaro Ranch', 'Catlin Court'],
+        climate: "Glendale's West Valley heat and older housing stock — including large swaths of 1980s and 1990s homes in the Thunderbird, Sahuaro Ranch, and Historic Downtown areas — means ductwork and equipment upgrades are a significant part of our work here. The city's flat-roof commercial construction around Westgate also keeps our commercial team busy with rooftop unit service and preventive maintenance. Older Glendale homes frequently have original fiberglass duct board that's deteriorating after 30+ years, undersized return air chases, and equipment that's been patched through multiple repair cycles. We see more duct-related comfort complaints in Glendale than in almost any other Valley city.",
+        review: {
+          text: '"Our 1987 home in the Thunderbird area had constant hot and cold spots — some rooms never got below 80° in summer. Skyhooked\'s tech found collapsed flex duct in two attic runs and undersized return air. They replaced the ductwork, and the house is a completely different experience now. Should have done it 10 years ago."',
+          author: 'Michelle F.',
+          location: 'Thunderbird area, Glendale',
+          service: 'Duct Replacement & AC Service'
+        },
+        faqs: [
+          {
+            q: 'How quickly can you get to Glendale?',
+            a: 'Typical emergency response to Glendale is 50 minutes from Phoenix. For Arrowhead Ranch and the far northwest areas near the 101, response is typically 45 minutes since those areas are closer to our northwest-positioned technicians.'
+          },
+          {
+            q: 'Do you pull Glendale permits?',
+            a: "Yes. The City of Glendale Building Safety division requires mechanical permits for new HVAC installations, equipment replacements, and ductwork modifications. We handle the entire permit and inspection process."
+          },
+          {
+            q: 'Are you familiar with the ductwork issues common in 1980s Glendale homes?',
+            a: "Very. Fiberglass duct board from that era is now 35+ years old — we find collapsed sections, delaminated inner liner, disconnected joints at registers, and return air chases that are far too small for modern equipment. We do thorough duct inspections before recommending any equipment replacement, because replacing equipment without fixing bad ductwork just means an expensive new system that still doesn't work properly."
+          }
+        ]
+      }
+    },
+    {
+      params: { city: 'peoria' },
+      props: {
+        name: 'Peoria',
+        response: '50 min',
+        neighborhoods: ['Happy Valley', 'Vistancia', 'Lake Pleasant Heights', 'Sunrise Mountain', 'Arrowhead', 'Terramar'],
+        climate: "Peoria's newer master-planned communities north of the 101 — particularly Vistancia and Lake Pleasant Heights — are increasingly choosing heat pumps to take advantage of APS and federal tax credit incentives, making this one of our highest-volume heat pump installation markets. The terrain also matters: Peoria's northern communities at higher elevation near Lake Pleasant experience more temperature variation than the lower-lying Valley floor, which actually makes heat pumps a particularly good fit — the modulating capacity of variable-speed units handles the wider temperature swings efficiently. Older Peoria communities in the Arrowhead and Sunrise Mountain areas have more conventional replacement work.",
+        review: {
+          text: '"We installed a Mitsubishi heat pump in our Vistancia home after our old gas furnace and AC both needed major repairs in the same year. Skyhooked walked us through the APS rebate plus the federal 25C credit — we ended up getting $3,200 back between the two. The system is noticeably quieter and our monthly bills are lower."',
+          author: 'Kim L.',
+          location: 'Vistancia, Peoria',
+          service: 'Heat Pump Installation'
+        },
+        faqs: [
+          {
+            q: 'How quickly can you get to Peoria?',
+            a: 'Typical emergency response to Central and South Peoria is 50 minutes. For north Peoria communities like Vistancia and Lake Pleasant Heights, response may be 55–60 minutes due to the distance. We dispatch the closest available technician.'
+          },
+          {
+            q: 'Do you pull Peoria permits?',
+            a: "Yes. The City of Peoria Planning and Building department requires mechanical permits for HVAC equipment replacements, new installations, and ductwork modifications. We handle the complete permit process."
+          },
+          {
+            q: 'Can you help me claim the APS heat pump rebate in Peoria?',
+            a: "Yes — this is a common request in Peoria and something we handle routinely. We install equipment that qualifies for the APS residential heat pump rebate and the federal IRA 25C tax credit. We provide the AHRI certificate and all documentation you need to claim both incentives. Most Peoria customers receive $1,500–$3,500 in combined incentives."
+          }
+        ]
+      }
+    },
+    {
+      params: { city: 'surprise' },
+      props: {
+        name: 'Surprise',
+        response: '60 min',
+        neighborhoods: ['Marley Park', 'Sun City Grand', 'Greer Ranch', 'Rancho Gabriela', 'Tierra Verde', 'Mountain Vista'],
+        climate: "Surprise's large active-adult and retirement communities — particularly Sun City Grand, which has thousands of homes averaging 20+ years of age — have specific HVAC needs that we've become well-versed in: consistent comfort, quiet operation, zoned temperature control for mobility-limited residents, and reliable maintenance programs that prevent emergency calls. Many Sun City Grand homes have original equipment that's now 15–25 years old and due for replacement. The city's rapid growth in areas like Marley Park and Rancho Gabriela also brings newer construction with current-generation equipment and APS rebate eligibility.",
+        review: {
+          text: '"We\'re in Sun City Grand and our 2004 Lennox system finally gave out. Skyhooked was recommended by three of our neighbors. The tech was respectful, explained everything clearly, and the install team was in and out in one day. Very quiet new system — exactly what we needed. We\'re now on their maintenance plan."',
+          author: 'Roger and Pat W.',
+          location: 'Sun City Grand, Surprise',
+          service: 'AC Replacement'
+        },
+        faqs: [
+          {
+            q: 'How quickly can you get to Surprise?',
+            a: "Surprise is our furthest west service city — typical emergency response is 60 minutes. For communities along the 303 like Marley Park and Greer Ranch, we're occasionally faster. We keep technicians staged in the West Valley to minimize response times."
+          },
+          {
+            q: 'Do you pull Surprise permits?',
+            a: "Yes. The City of Surprise Building Safety department requires mechanical permits for HVAC equipment replacements and new installations. We handle the full permit and inspection process. Sun City Grand has its own HOA approval process for exterior equipment changes — we're familiar with their requirements."
+          },
+          {
+            q: 'Do you have experience with Sun City Grand HVAC systems?',
+            a: "Yes — Sun City Grand is a significant part of our Surprise service area. We service the full range of equipment ages found in the community, from 2000s-era original systems needing replacement to newer installs. Many of our Sun City Grand customers are on our Comfort Plan maintenance program, which gives them priority dispatch and proactive parts monitoring."
+          }
+        ]
+      }
+    },
+    {
+      params: { city: 'avondale' },
+      props: {
+        name: 'Avondale',
+        response: '55 min',
+        neighborhoods: ['Coldwater Ranch', 'Estrella Mountain Ranch', 'Palm Valley', 'Avondale Meadows', 'Garden Lakes', 'Ranch Circle'],
+        climate: "Avondale's West Valley location puts it among the hottest microclimates in the Phoenix area — ground temperatures in summer can exceed 150°F, which directly stresses outdoor condensing units. Condenser coils that might last 18–20 years in a cooler climate often show significant performance degradation in 12–14 years here. Estrella Mountain Ranch is our most active Avondale market: a large master-planned community with homes from the early 2000s through today, a mix of original equipment nearing end of life and newer high-efficiency systems. Palm Valley's more established housing stock often has first-generation heat pump or conventional split systems that are candidates for the federal 25C tax credit upgrade.",
+        review: {
+          text: '"We\'re in Estrella Mountain Ranch and our AC was struggling to keep up during the July heat waves — running constantly but barely hitting 78°. Skyhooked\'s tech found a dirty condenser coil and low refrigerant from a slow leak at the Schrader valve. Fixed same day, runs perfectly now. Quick, honest, and great price."',
+          author: 'James V.',
+          location: 'Estrella Mountain Ranch, Avondale',
+          service: 'AC Repair & Refrigerant Service'
+        },
+        faqs: [
+          {
+            q: 'How quickly can you get to Avondale?',
+            a: "Typical emergency response to Avondale is 55 minutes from our Phoenix base. For the far southwest reaches of Estrella Mountain Ranch near the I-10/Estrella Pkwy area, it's sometimes slightly longer. We dispatch the closest available technician and aim to beat our estimates."
+          },
+          {
+            q: 'Do you pull Avondale permits?',
+            a: "Yes. The City of Avondale Community Development department requires mechanical permits for HVAC equipment replacements, new installations, and ductwork work. We handle all permit applications, inspections, and closeout documentation."
+          },
+          {
+            q: "Are you familiar with the condenser unit issues caused by Avondale's extreme heat?",
+            a: "Very. West Valley outdoor temps push condensing units harder than almost anywhere in the country. We see more condenser coil fouling, capacitor failures, and compressor wear at earlier equipment ages than in east Valley cities. We check condenser coil condition and electrical component health on every service call in Avondale because preventive replacement of a $25 capacitor beats a $1,800 compressor failure every time."
+          }
+        ]
+      }
+    },
+    {
+      params: { city: 'fountain-hills' },
+      props: {
+        name: 'Fountain Hills',
+        response: '60 min',
+        neighborhoods: ['La Montana', 'Firerock Country Club', 'Eagle Mountain', 'Fountain Hills Downtown', 'McDowell Mountain Ranch adjacent', 'Azure Hills'],
+        climate: "Fountain Hills' higher elevation — roughly 1,500 feet compared to Phoenix's 1,100 feet — provides a few degrees of temperature relief during the hottest Valley days, but it also brings stronger wind loads on outdoor equipment, more temperature swing between day and night, and occasional winter freezes that lower-elevation cities rarely experience. Homes in Firerock Country Club and Eagle Mountain are often large custom builds with premium equipment, high ceilings, and complex zoning systems. The McDowell Mountains also create interesting micro-climate variation: south-facing hillside homes absorb significantly more solar load than north-facing properties, meaning two homes 500 feet apart may need significantly different equipment sizing.",
+        review: {
+          text: '"We have a large home on a south-facing lot in La Montana — it always seemed to run our AC harder than the neighbors. Skyhooked did a proper Manual J and discovered our system was actually undersized for our solar exposure. We replaced it with a correctly-sized unit and the difference in comfort is remarkable. They clearly understand hillside homes."',
+          author: 'Nancy D.',
+          location: 'La Montana, Fountain Hills',
+          service: 'System Replacement with Manual J'
+        },
+        faqs: [
+          {
+            q: 'How quickly can you get to Fountain Hills?',
+            a: "Fountain Hills is roughly 30 miles northeast of Phoenix via Shea Boulevard or the Beeline Highway. Typical emergency response is 60 minutes. We dispatch the earliest-available east Valley technician to minimize your wait."
+          },
+          {
+            q: 'Do you pull Fountain Hills permits?',
+            a: "Yes. The Town of Fountain Hills Community Services department requires mechanical permits for HVAC equipment replacements, new installations, and ductwork modifications. We manage the complete permit and inspection process."
+          },
+          {
+            q: 'Are you experienced with the custom homes and complex zoning systems in Fountain Hills?',
+            a: "Yes. Firerock Country Club, Eagle Mountain, and La Montana have some of the most architecturally complex homes in the Valley — large square footage, multiple wings, high ceilings, and premium communicating HVAC systems from Carrier, Trane, and Mitsubishi. Our senior technicians are factory-certified on these systems and experienced with zoning damper diagnostics and multi-zone thermostat programming."
+          }
+        ]
+      }
+    },
+    {
+      params: { city: 'queen-creek' },
+      props: {
+        name: 'Queen Creek',
+        response: '65 min',
+        neighborhoods: ['Hastings Farms', 'Ironwood Crossing', 'Legado', 'Sossaman Estates', 'Bridle Ranch', 'The Villages at Queen Creek'],
+        climate: "Queen Creek's rapid southeast Valley growth and agricultural heritage create unique HVAC conditions that we encounter in almost no other Valley city. The surrounding farmland and undeveloped desert generate significant dust and particulate loads — air filters clog faster here than in urban Phoenix, outdoor condenser coils accumulate debris more quickly, and indoor air quality is a genuine concern rather than an upsell. Homes in Hastings Farms and Ironwood Crossing are mostly 2010s through recent construction, so we're working with relatively current equipment. But that same dust exposure accelerates wear on electrical components and refrigerant system seals, meaning systems here often need more frequent maintenance than their urban counterparts to reach full design life.",
+        review: {
+          text: '"We moved to Ironwood Crossing three years ago from Scottsdale and didn\'t realize how much dust affects HVAC out here. Skyhooked diagnosed our system\'s efficiency drop — dirty condenser coil, clogged filter media, dust in the evaporator — and walked us through a maintenance schedule for this environment. We\'re now on their Comfort Plan and haven\'t had a problem since."',
+          author: 'Tom and Elise G.',
+          location: 'Ironwood Crossing, Queen Creek',
+          service: 'HVAC Maintenance & IAQ'
+        },
+        faqs: [
+          {
+            q: 'How quickly can you get to Queen Creek?',
+            a: "Queen Creek is our furthest southeast service city — typical emergency response is 65 minutes from Phoenix. For communities south of Ocotillo Road, we're occasionally closer to 70 minutes. We dispatch the nearest available east or southeast Valley technician."
+          },
+          {
+            q: 'Do you pull Queen Creek permits?',
+            a: "Yes. The Town of Queen Creek Building Safety division requires mechanical permits for HVAC equipment replacements, new installations, and ductwork work. We handle the full permit process — application, fees, scheduling of inspections, and closeout documentation."
+          },
+          {
+            q: 'How should I maintain my HVAC system given the dust in the Queen Creek area?',
+            a: "More frequently than Valley average. We recommend checking 1-inch filters every 3–4 weeks rather than monthly, considering a 4-inch media filter upgrade (filters last 6 months but capture far more particulate), and scheduling a condenser coil cleaning every spring before cooling season — or twice a year if you're near active farmland. Our Comfort Plan members in Queen Creek get this built into their maintenance schedule automatically."
+          }
+        ]
+      }
+    }
+  ];
+
+  return cities;
+}
+
+const { name, response, neighborhoods, climate, review, faqs } = Astro.props;
+
+const services = [
+  { name: `AC Repair in ${name}`, href: '/residential/ac-repair', icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l5.653-4.655m5.585-5.586l3.497-3.497a.525.525 0 01.743.743l-3.497 3.497"/>` },
+  { name: `AC Installation in ${name}`, href: '/residential/ac-installation', icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>` },
+  { name: `Heat Pump Installation in ${name}`, href: '/residential/heat-pump-installation', icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z"/>` },
+  { name: `Heating Repair in ${name}`, href: '/residential/heating-repair', icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"/>` },
+  { name: `Indoor Air Quality in ${name}`, href: '/residential/indoor-air-quality', icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/>` },
+  { name: `Commercial HVAC in ${name}`, href: '/commercial', icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z"/>` },
+];
+
+const localBusinessSchema = {
+  name: "Skyhooked on Comfort",
+  "@type": "HVACBusiness",
+  telephone: "(480) 123-4567",
+  url: "https://skyhookedoncomfort.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Phoenix",
+    addressRegion: "AZ",
+    addressCountry: "US",
+  },
+  areaServed: {
+    "@type": "City",
+    name: name,
+    containedInPlace: {
+      "@type": "State",
+      name: "Arizona"
+    }
+  },
+  openingHours: ["Mo-Fr 07:00-19:00", "Sa 08:00-16:00"],
+  description: `Licensed HVAC contractor serving ${name}, AZ. AC repair, installation, heat pumps, heating, and commercial HVAC. 24/7 emergency service.`,
+};
+---
+
+<BaseLayout
+  title={`HVAC Contractor in ${name}, AZ | AC, Heating, Heat Pumps | Skyhooked on Comfort`}
+  description={`Local HVAC technicians in ${name} serving ${neighborhoods.slice(0, 3).join(', ')} and surrounding neighborhoods. ~${response} typical response, EPA-certified, upfront pricing. Call (480) 123-4567.`}
+>
+
+  <script type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", ...localBusinessSchema })} />
+
+  <!-- Hero -->
+  <section
+    class="relative bg-charcoal-dark py-20 lg:py-28 overflow-hidden"
+    style="background: linear-gradient(135deg, oklch(0.12 0.02 253) 0%, oklch(0.18 0.025 253) 50%, oklch(0.30 0.025 253) 100%);"
+  >
+    <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+      <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full opacity-10" style="background: radial-gradient(circle, oklch(0.58 0.13 233), transparent);"></div>
+      <div class="absolute bottom-0 -left-20 w-80 h-80 rounded-full opacity-5" style="background: radial-gradient(circle, oklch(0.58 0.13 233), transparent);"></div>
+    </div>
+    <div class="relative max-w-4xl mx-auto px-4 text-center">
+      <div class="inline-flex items-center gap-2 bg-sky/20 text-sky text-sm font-semibold px-4 py-1.5 rounded-full mb-6 font-body">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        Typical Response: ~{response}
+      </div>
+      <h1 class="font-display font-extrabold text-white text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6">
+        HVAC Contractor in {name}<br class="hidden sm:block"/>
+        <span class="text-sky">Local, Licensed, Available 24/7</span>
+      </h1>
+      <p class="font-body text-charcoal-50 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        Skyhooked on Comfort serves {name} and the surrounding neighborhoods of {neighborhoods.slice(0, 3).join(', ')}, and more. Same-day service on most calls, upfront flat-rate pricing, no overtime fees. License AZ ROC-312489.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="tel:4801234567"
+          class="flex items-center gap-2 bg-sky hover:bg-sky-dark text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg"
+        >
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Call (480) 123-4567
+        </a>
+        <a
+          href="/contact"
+          class="flex items-center gap-2 border-2 border-white text-white hover:bg-white hover:text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors"
+        >
+          Request a Quote →
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Local Intro -->
+  <section class="bg-white py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="grid lg:grid-cols-3 gap-10 items-start">
+        <div class="lg:col-span-2">
+          <h2 class="font-display font-bold text-charcoal text-2xl sm:text-3xl mb-5">
+            HVAC service built for {name}
+          </h2>
+          <p class="font-body text-neutral-600 text-lg leading-relaxed mb-6">{climate}</p>
+          <p class="font-body text-neutral-600 leading-relaxed">
+            Skyhooked on Comfort has served {name} since 2010. We're family-owned, fully licensed (AZ ROC-312489), EPA Section 608 Universal certified, and insured. Every technician passes a background check before they step into your home or business, and every job comes with upfront flat-rate pricing and our 100% satisfaction guarantee.
+          </p>
+        </div>
+        <div class="bg-charcoal-50 rounded-2xl p-6 border border-charcoal/10">
+          <h3 class="font-display font-bold text-charcoal text-base mb-4">Quick facts</h3>
+          <ul class="space-y-3 font-body text-sm text-neutral-700">
+            {[
+              { label: 'Typical response', value: `~${response}` },
+              { label: 'Service hours', value: '24/7 emergency' },
+              { label: 'License', value: 'AZ ROC-312489' },
+              { label: 'Certifications', value: 'EPA Section 608 Universal' },
+              { label: 'Founded', value: '2010' },
+              { label: 'Guarantee', value: '100% satisfaction' },
+            ].map(item => (
+              <li class="flex justify-between items-center border-b border-charcoal/10 pb-2 last:border-0 last:pb-0">
+                <span class="text-neutral-500">{item.label}</span>
+                <span class="font-semibold text-charcoal">{item.value}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Services Grid -->
+  <section class="bg-charcoal-50 py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl mb-3">
+          Services available in {name}
+        </h2>
+        <p class="font-body text-neutral-500 text-lg max-w-xl mx-auto">
+          Full-service HVAC — residential and commercial — backed by our satisfaction guarantee.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {services.map(service => (
+          <a
+            href={service.href}
+            class="group bg-white hover:bg-charcoal rounded-2xl p-6 transition-colors border border-neutral-100 hover:border-charcoal shadow-sm hover:shadow-md"
+          >
+            <div class="w-11 h-11 bg-sky/15 group-hover:bg-sky/20 rounded-xl flex items-center justify-center mb-4 transition-colors">
+              <svg class="w-6 h-6 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true" set:html={service.icon}></svg>
+            </div>
+            <h3 class="font-display font-bold text-charcoal group-hover:text-white text-base mb-1.5 transition-colors">{service.name}</h3>
+            <span class="font-body text-sky text-sm font-semibold">Learn more →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Neighborhoods -->
+  <section class="bg-white py-20">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl mb-3">
+          Neighborhoods we serve in {name}
+        </h2>
+        <p class="font-body text-neutral-500 text-lg max-w-xl mx-auto">
+          We know these neighborhoods — the housing stock, the common system types, and the local permit requirements.
+        </p>
+      </div>
+      <div class="flex flex-wrap justify-center gap-3 mb-8">
+        {neighborhoods.map(neighborhood => (
+          <span class="inline-flex items-center gap-2 bg-charcoal-50 text-charcoal font-body font-semibold text-sm px-4 py-2.5 rounded-xl border border-charcoal/10">
+            <svg class="w-3.5 h-3.5 text-sky flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            {neighborhood}
+          </span>
+        ))}
+        <span class="inline-flex items-center bg-sky/10 text-sky font-body font-semibold text-sm px-4 py-2.5 rounded-xl border border-sky/20">
+          + surrounding areas
+        </span>
+      </div>
+      <p class="font-body text-neutral-500 text-center text-sm">
+        Don't see your neighborhood listed? <a href="tel:4801234567" class="text-sky font-semibold hover:underline">Call us</a> — we likely serve your area.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- Local Review -->
+  <section class="bg-charcoal py-20">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <div class="flex items-center justify-center gap-1 mb-3" aria-label="5 stars">
+          {[...Array(5)].map(() => (
+            <svg class="w-6 h-6 text-sky" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+          ))}
+        </div>
+        <h2 class="font-display font-bold text-white text-2xl sm:text-3xl mb-2">
+          What {name} customers say
+        </h2>
+        <p class="font-body text-charcoal-50 text-base">4.9★ Google rating · 500+ reviews</p>
+      </div>
+      <blockquote class="bg-charcoal-light/40 rounded-2xl p-8 border border-white/10">
+        <div class="flex items-center gap-1 mb-5" aria-label="5 stars">
+          {[...Array(5)].map(() => (
+            <svg class="w-4 h-4 text-sky" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+          ))}
+        </div>
+        <p class="font-body text-charcoal-50 text-lg leading-relaxed mb-6">{review.text}</p>
+        <footer class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-sky/20 flex items-center justify-center text-sky font-display font-bold text-sm">
+            {review.author.split(' ').map((n: string) => n[0]).join('')}
+          </div>
+          <div>
+            <cite class="font-body font-semibold text-white not-italic text-sm">{review.author}</cite>
+            <p class="font-body text-charcoal-50 text-xs">{review.location} · {review.service}</p>
+          </div>
+        </footer>
+      </blockquote>
+      <div class="text-center mt-8">
+        <a href="/reviews" class="font-display font-bold text-sky hover:text-sky-light transition-colors text-sm">
+          Read all {name} area reviews →
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- City FAQs -->
+  <section class="bg-white py-20">
+    <div class="max-w-2xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl mb-3">
+          {name} HVAC questions
+        </h2>
+        <p class="font-body text-neutral-500">Common questions from our {name} customers.</p>
+      </div>
+      <div id="faq-list" class="space-y-3 mb-10">
+        {faqs.map((faq: { q: string; a: string }, i: number) => (
+          <div class="faq-item border border-neutral-200 rounded-xl overflow-hidden">
+            <button
+              class="faq-btn w-full text-left flex items-center justify-between gap-4 p-5 font-display font-semibold text-charcoal hover:bg-charcoal-50 transition-colors"
+              aria-expanded="false"
+              data-index={i}
+            >
+              <span>{faq.q}</span>
+              <svg class="faq-chevron w-5 h-5 flex-shrink-0 text-sky transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-panel hidden px-5 pb-5">
+              <p class="font-body text-neutral-600 leading-relaxed">{faq.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Bottom CTA -->
+  <section class="bg-emergency py-20">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 class="font-display font-extrabold text-white text-3xl sm:text-4xl lg:text-5xl mb-6 leading-tight">
+        Need HVAC service in {name}?<br/>
+        <span class="text-sky">We're ready to dispatch.</span>
+      </h2>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+        <a
+          href="tel:4801234567"
+          class="flex items-center gap-3 bg-sky hover:bg-sky-dark text-charcoal font-display font-extrabold text-xl px-10 py-5 rounded-2xl transition-colors shadow-xl"
+        >
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Call (480) 123-4567
+        </a>
+        <a
+          href="/contact"
+          class="flex items-center gap-2 border-2 border-white text-white hover:bg-white hover:text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors"
+        >
+          Request a Quote →
+        </a>
+      </div>
+      <p class="font-body text-white/80 text-base">
+        Available 24/7 · No overtime fees · License AZ ROC-312489
+      </p>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel = btn.nextElementSibling as HTMLElement;
+      const chevron = btn.querySelector('.faq-chevron') as SVGElement;
+      const isOpen = !panel.classList.contains('hidden');
+
+      document.querySelectorAll('.faq-panel').forEach(p => p.classList.add('hidden'));
+      document.querySelectorAll('.faq-chevron').forEach(c => c.classList.remove('rotate-180'));
+      document.querySelectorAll('.faq-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+
+      if (!isOpen) {
+        panel.classList.remove('hidden');
+        chevron?.classList.add('rotate-180');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>

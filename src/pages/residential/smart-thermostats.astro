@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const devices = [
+  { name: 'Google Nest Learning Thermostat', features: ['Learns your schedule in a week', 'APS/SRP demand response compatible', 'Energy History reports', 'Remote control via app'], best: 'Best for: homeowners who want maximum automation.' },
+  { name: 'ecobee SmartThermostat Premium', features: ['Remote room sensors included', 'Built-in Alexa and air quality monitoring', 'Excellent APS Peak Rewards integration', 'Most accurate multi-room sensing'], best: 'Best for: homes with hot/cold rooms and multiple zones.' },
+  { name: 'Honeywell Home T9', features: ['Smart room sensors for comfort where you are', 'Geofencing auto-setback', 'Compatible with most HVAC systems', 'Simple interface'], best: 'Best for: families who want simple, reliable control.' },
+];
+
+const faqs = [
+  { q: 'Will a smart thermostat work with my existing HVAC system?', a: 'Most Phoenix-area systems installed after 2000 are compatible. We check compatibility during the installation visit — Nest, ecobee, and Honeywell all have compatibility checkers, and we\'ve installed hundreds across every major HVAC brand.' },
+  { q: 'How much can I actually save?', a: 'APS and SRP customers enrolled in demand response programs can earn $50–$150/year in bill credits on top of setback savings. Most Phoenix homeowners see 10–15% reduction in cooling costs from smart scheduling alone — roughly $150–$300/year for a typical Valley home.' },
+  { q: 'Can you enroll me in APS Peak Rewards or SRP EZ-3?', a: 'Yes. We handle the enrollment paperwork for compatible thermostats. APS Peak Rewards and SRP EZ-3 give you bill credits in exchange for letting the utility make brief temperature adjustments during peak demand hours.' },
+  { q: 'How long does installation take?', a: 'Typically 45–90 minutes. We remove the old thermostat, install and configure the new one, connect it to your Wi-Fi, and walk you through the app before we leave.' },
+];
+---
+
+<BaseLayout
+  title="Smart Thermostat Installation in Phoenix, AZ | Skyhooked on Comfort"
+  description="Nest, ecobee, and Honeywell smart thermostat installation in Phoenix. APS and SRP demand response enrollment. Save on cooling bills. Call (480) 123-4567."
+>
+  <script type="application/ld+json" is:inline>
+  { "@context": "https://schema.org", "@type": "Service", "serviceType": "Smart Thermostat Installation", "provider": { "@type": "HVACBusiness", "name": "Skyhooked on Comfort", "telephone": "(480) 123-4567", "address": { "@type": "PostalAddress", "addressLocality": "Phoenix", "addressRegion": "AZ" } }, "areaServed": "Phoenix Valley, AZ" }
+  </script>
+
+  <section class="relative py-24 lg:py-32 overflow-hidden" style="background: linear-gradient(135deg, oklch(0.12 0.02 253) 0%, oklch(0.18 0.025 253) 60%, oklch(0.30 0.025 253) 100%);">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <div class="inline-flex items-center gap-2 bg-sky/20 text-sky text-sm font-semibold px-4 py-1.5 rounded-full mb-6 font-body">Nest · ecobee · Honeywell</div>
+      <h1 class="font-display font-extrabold text-white text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6">Smart Thermostat Installation in <span class="text-sky">Phoenix, AZ</span></h1>
+      <p class="font-body text-neutral-300 text-lg sm:text-xl max-w-2xl mx-auto mb-10">The right smart thermostat in Phoenix doesn't just automate comfort — it plugs into APS and SRP demand response programs that pay you bill credits for smart scheduling during peak summer hours.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="tel:4801234567" class="flex items-center gap-2 bg-sky hover:bg-sky-dark text-white font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg">Call (480) 123-4567</a>
+        <a href="/contact" class="border-2 border-white text-white hover:bg-white hover:text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors">Request a Quote →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Devices -->
+  <section class="bg-white py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl text-center mb-12">Thermostats we install</h2>
+      <div class="grid sm:grid-cols-3 gap-6">
+        {devices.map(d => (
+          <div class="bg-charcoal-50 rounded-2xl p-7 border border-neutral-200 hover:shadow-lg transition-shadow">
+            <h3 class="font-display font-bold text-charcoal text-lg mb-4">{d.name}</h3>
+            <ul class="space-y-2 mb-5">
+              {d.features.map(f => (
+                <li class="flex items-start gap-2 font-body text-neutral-600 text-sm">
+                  <svg class="w-4 h-4 text-sky flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <p class="font-body text-sky text-sm font-semibold">{d.best}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- APS/SRP callout -->
+  <section class="bg-sky py-14">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="font-display font-extrabold text-white text-2xl sm:text-3xl mb-3">APS Peak Rewards & SRP EZ-3 Enrollment</h2>
+      <p class="font-body text-white/90 text-lg mb-6">Phoenix's two main utilities pay you to let them make brief temperature adjustments during peak demand hours — usually 3–8pm in summer. We handle the enrollment during installation. Most households earn $50–$150 per year in bill credits.</p>
+      <a href="/contact" class="inline-flex items-center gap-2 bg-white hover:bg-neutral-100 text-charcoal font-display font-bold px-7 py-3.5 rounded-xl transition-colors">Schedule Installation →</a>
+    </div>
+  </section>
+
+  <!-- Review -->
+  <section class="bg-white py-20">
+    <div class="max-w-3xl mx-auto px-4">
+      <blockquote class="bg-charcoal-50 rounded-2xl p-8 border border-neutral-200">
+        <div class="flex gap-1 mb-4">{Array(5).fill(null).map(() => <svg class="w-5 h-5 text-sky" fill="currentColor" viewBox="0 0 24 24"><path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>)}</div>
+        <p class="font-body text-neutral-700 text-lg leading-relaxed mb-5">"Skyhooked installed an ecobee and enrolled us in APS Peak Rewards in one visit. The tech set up the schedule optimized for our APS TOU-E rate — pre-cooling the house before 3pm and ramping back during peak hours. We got $87 in Peak Rewards credits last summer and our bill actually dropped. No-brainer."</p>
+        <footer class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-charcoal flex items-center justify-center text-white font-display font-bold text-sm">JH</div>
+          <div><cite class="font-body font-semibold text-charcoal not-italic text-sm">James H.</cite><p class="font-body text-neutral-500 text-xs">Scottsdale · ecobee SmartThermostat</p></div>
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-charcoal-50 py-20">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 class="font-display font-bold text-charcoal text-3xl text-center mb-10">Smart thermostat FAQ</h2>
+      <div class="space-y-3">
+        {faqs.map((faq, i) => (
+          <div class="faq-item border border-neutral-200 rounded-xl overflow-hidden bg-white">
+            <button class="faq-btn w-full text-left flex items-center justify-between gap-4 p-5 font-display font-semibold text-charcoal hover:bg-charcoal-50 transition-colors" aria-expanded="false" data-index={i}>
+              <span>{faq.q}</span>
+              <svg class="faq-chevron w-5 h-5 flex-shrink-0 text-sky transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-panel hidden px-5 pb-5"><p class="font-body text-neutral-600 leading-relaxed">{faq.a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-charcoal py-20">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 class="font-display font-extrabold text-white text-3xl sm:text-4xl mb-4">Control your comfort from anywhere.</h2>
+      <p class="font-body text-neutral-300 text-lg mb-8">Installed, connected, and enrolled in utility programs in one visit. Flat-rate pricing, no surprise fees.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="tel:4801234567" class="flex items-center gap-2 bg-sky hover:bg-sky-dark text-white font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors">Call (480) 123-4567</a>
+        <a href="/contact" class="border-2 border-white text-white hover:bg-white hover:text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors">Request a Quote →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel = btn.nextElementSibling as HTMLElement;
+      const chevron = btn.querySelector('.faq-chevron') as SVGElement;
+      const isOpen = !panel.classList.contains('hidden');
+      document.querySelectorAll('.faq-panel').forEach(p => p.classList.add('hidden'));
+      document.querySelectorAll('.faq-chevron').forEach(c => c.classList.remove('rotate-180'));
+      document.querySelectorAll('.faq-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+      if (!isOpen) { panel.classList.remove('hidden'); chevron?.classList.add('rotate-180'); btn.setAttribute('aria-expanded', 'true'); }
+    });
+  });
+</script>

@@ -1,0 +1,354 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const tiers = [
+  {
+    name: 'Good',
+    systems: 'Goodman / Amana, Rheem Classic',
+    seer: 'Standard AFUE 80–95 / HSPF2 7.5+',
+    highlights: ['Reliable single-stage operation', '10-year parts warranty', 'Best upfront value', 'Strong nationwide parts availability'],
+    best: 'Budget-conscious replacements, rental properties, shorter-term ownership plans.',
+  },
+  {
+    name: 'Better',
+    systems: 'Carrier, Trane XR/XB Series, Lennox Merit',
+    seer: 'AFUE 96+ / HSPF2 8.5+',
+    highlights: ['Two-stage operation for better comfort', 'Quieter than single-stage', 'Excellent dealer network', 'Strong warranty + parts support'],
+    best: 'Most Phoenix Valley homeowners — best balance of performance and cost.',
+    popular: true,
+  },
+  {
+    name: 'Best',
+    systems: 'Carrier Infinity, Trane XV Series, Lennox SL280V, Mitsubishi Heat Pump',
+    seer: 'AFUE 98+ / HSPF2 10+',
+    highlights: ['Variable-speed operation — quieter, more efficient', 'Best humidity control', 'Smart thermostat integration', 'Qualifies for IRA tax credit (heat pumps)'],
+    best: 'High-efficiency goals, large homes, comfort-first homeowners, those wanting the 30% federal tax credit.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What heating system makes the most sense for Phoenix?',
+    a: 'Most Phoenix homes are well-served by a heat pump, which handles both heating and cooling efficiently. Gas furnaces remain common in older homes. Electric heat strips are found in many Valley homes but are expensive to run for prolonged cold periods. We\'ll recommend based on your existing infrastructure, usage patterns, and budget.',
+  },
+  {
+    q: 'How important is Manual J sizing for a new heating system?',
+    a: 'Critically important. An oversized furnace or heat pump short-cycles — it heats the home too quickly, shuts off, then restarts. This wastes energy, wears the equipment faster, and leaves you with uneven temperatures. We do a real Manual J load calculation on every install.',
+  },
+  {
+    q: 'Can I qualify for the federal tax credit on a new heating system?',
+    a: 'If you install a qualifying heat pump (meets CEE Tier 2), you qualify for the IRA 25C tax credit — 30% of equipment and install costs, up to $2,000 per year. Gas furnaces qualify for a separate $600 credit at AFUE 97+. We install qualifying equipment and provide AHRI documentation for your tax filing.',
+  },
+  {
+    q: 'How long does a heating system installation take?',
+    a: 'A gas furnace or air handler swap in the same location is typically a single day. Heat pump installations often take one to two days depending on whether line set, electrical, or ductwork changes are needed.',
+  },
+  {
+    q: 'Do you offer financing on heating system installs?',
+    a: 'Yes. We partner with GoodLeap and Synchrony for 0% APR financing on qualified buyers. Apply in 90 seconds on-site, decision in minutes. The federal tax credit comes back separately at tax time — you can finance the install and still claim the full credit.',
+  },
+];
+---
+
+<BaseLayout
+  title="Heating Installation in Phoenix, AZ | Skyhooked on Comfort"
+  description="Furnace and heat pump installation in the Phoenix Valley. Manual J sizing, all major brands, financing available. IRA tax credit eligible. Call (480) 123-4567."
+>
+
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Heating System Installation",
+    "provider": {
+      "@type": "HVACBusiness",
+      "name": "Skyhooked on Comfort",
+      "telephone": "(480) 123-4567",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Phoenix",
+        "addressRegion": "AZ",
+        "addressCountry": "US"
+      }
+    },
+    "areaServed": {
+      "@type": "Place",
+      "name": "Phoenix Valley, AZ"
+    },
+    "description": "Gas furnace and heat pump installation across the Phoenix Valley. Manual J load calculation, all major brands, IRA tax credit eligible, financing available."
+  }
+  </script>
+
+  <!-- Hero -->
+  <section
+    class="relative min-h-[55vh] flex flex-col justify-center overflow-hidden"
+    style="background: linear-gradient(135deg, oklch(0.12 0.02 253) 0%, oklch(0.18 0.025 253) 60%, oklch(0.24 0.025 253) 100%);"
+  >
+    <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+      <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full opacity-10" style="background: radial-gradient(circle, oklch(0.58 0.13 233), transparent);"></div>
+    </div>
+    <div class="relative max-w-5xl mx-auto px-4 py-24 text-center">
+      <div class="inline-flex items-center gap-2 bg-sky/20 text-sky text-sm font-semibold px-4 py-1.5 rounded-full mb-6 font-body">
+        Furnaces · Heat Pumps · Hybrid Systems · Financing Available
+      </div>
+      <h1 class="font-display font-extrabold text-white text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6">
+        Heating Installation in Phoenix, AZ
+      </h1>
+      <p class="font-body text-charcoal-50 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        Gas furnaces, heat pumps, and hybrid dual-fuel systems — installed right with a Manual J load calculation on every project. Financing available. Federal tax credits on qualifying heat pumps.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="tel:4801234567" class="flex items-center gap-2 bg-sky hover:bg-sky-dark text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Call (480) 123-4567
+        </a>
+        <a href="/contact" class="flex items-center gap-2 border-2 border-white text-white hover:bg-white hover:text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors">
+          Free Consultation →
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- What's Included -->
+  <section class="bg-white py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl mb-3">What's included in every installation</h2>
+        <p class="font-body text-neutral-500 text-lg max-w-xl mx-auto">One flat-rate price. Everything listed below is included — no surprise line items.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          'Free in-home consultation and system assessment',
+          'Manual J heat-loss / heat-gain load calculation',
+          'Manual S equipment selection — right-sized, not oversized',
+          'Gas furnace or heat pump installation',
+          'Air handler replacement when needed',
+          'Ductwork inspection and minor repairs',
+          'Gas line connection (furnace installs)',
+          'Electrical disconnect and wiring',
+          'Flue and venting (gas systems)',
+          'Thermostat installation or upgrade',
+          'Permit pulled and inspection scheduled',
+          'Old system removal and haul-away',
+          '10-year manufacturer warranty registration',
+          'AHRI certificate for tax credit filing',
+          '1-year workmanship warranty',
+        ].map(item => (
+          <div class="flex items-start gap-3 bg-charcoal-50 rounded-xl p-4">
+            <svg class="w-5 h-5 text-sky flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+            </svg>
+            <span class="font-body text-neutral-700 text-sm">{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Equipment Tiers -->
+  <section class="bg-charcoal-50 py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl mb-3">Equipment tiers — Good, Better, Best</h2>
+        <p class="font-body text-neutral-500 text-lg max-w-xl mx-auto">We present three options on every install. You choose based on your budget and goals — no pressure toward the most expensive option.</p>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-5">
+        {tiers.map(tier => (
+          <div class={`relative rounded-2xl p-7 border-2 ${tier.popular ? 'border-sky bg-charcoal text-white shadow-xl' : 'border-neutral-200 bg-white'}`}>
+            {tier.popular && (
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-sky text-charcoal text-xs font-display font-bold px-4 py-1 rounded-full whitespace-nowrap">
+                Most Popular
+              </div>
+            )}
+            <h3 class={`font-display font-bold text-xl mb-1 ${tier.popular ? 'text-sky' : 'text-charcoal'}`}>{tier.name}</h3>
+            <p class={`font-body text-sm mb-2 ${tier.popular ? 'text-charcoal-50' : 'text-neutral-500'}`}>{tier.systems}</p>
+            <p class={`font-display font-bold text-sm mb-4 ${tier.popular ? 'text-sky' : 'text-sky'}`}>{tier.seer}</p>
+            <ul class={`font-body text-sm space-y-2 mb-5 ${tier.popular ? 'text-charcoal-50' : 'text-neutral-600'}`}>
+              {tier.highlights.map(h => (
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                  {h}
+                </li>
+              ))}
+            </ul>
+            <p class={`font-body text-xs ${tier.popular ? 'text-charcoal-50' : 'text-neutral-500'}`}><strong>Best for:</strong> {tier.best}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Process -->
+  <section class="bg-charcoal py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-white text-3xl sm:text-4xl mb-3">Our installation process</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[
+          { num: '01', h: 'Free In-Home Consultation', b: 'We visit your home, inspect your current system and ductwork, discuss your goals.' },
+          { num: '02', h: 'Manual J Calculation', b: 'Real heat-loss math for your specific home — insulation, windows, orientation, infiltration.' },
+          { num: '03', h: '3 Equipment Options', b: 'Good / Better / Best comparison with flat-rate pricing, efficiency data, and annual cost model.' },
+          { num: '04', h: 'Permit & Scheduling', b: 'We pull the permit and schedule the inspection. Most installs within a week of approval.' },
+          { num: '05', h: 'Installation Day', b: 'EPA-certified tech installs your system. Old equipment removed. Area left clean.' },
+          { num: '06', h: 'Test & Warranty', b: 'Full commissioning test. Warranty registered. AHRI certificate provided for tax credit.' },
+        ].map(step => (
+          <div class="bg-charcoal-light/40 rounded-2xl p-6 border border-white/10">
+            <div class="font-display font-extrabold text-sky text-3xl mb-3">{step.num}</div>
+            <h3 class="font-display font-bold text-white text-base mb-2">{step.h}</h3>
+            <p class="font-body text-charcoal-50 text-sm leading-relaxed">{step.b}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Financing Strip -->
+  <section class="bg-sky py-16">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="font-display font-extrabold text-charcoal text-3xl sm:text-4xl mb-4">New heating system? Pay over time.</h2>
+      <p class="font-body text-charcoal/80 text-lg mb-8 max-w-xl mx-auto">
+        Most Phoenix Valley heating installs run $3,500–$8,000 depending on system type and home size. 0% APR financing options through GoodLeap and Synchrony.
+        Heat pump installs also qualify for the 30% federal IRA tax credit — up to $2,000 back at tax time.
+      </p>
+      <a href="/financing" class="inline-flex items-center gap-2 bg-charcoal hover:bg-charcoal-dark text-white font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg">
+        See Financing Options →
+      </a>
+    </div>
+  </section>
+
+
+  <!-- Reviews -->
+  <section class="bg-white py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl text-center mb-10">What homeowners say</h2>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <blockquote class="bg-charcoal-50 rounded-2xl p-7 border border-charcoal/10">
+          <div class="flex items-center gap-1 mb-4" aria-label="5 stars">
+            {[...Array(5)].map(() => (
+              <svg class="w-4 h-4 text-sky" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+            ))}
+          </div>
+          <p class="font-body text-neutral-700 text-base leading-relaxed mb-5">
+            "We replaced a 20-year-old gas furnace with a Trane XV variable-speed system. Skyhooked did the Manual J, found our old system was massively oversized, and recommended a smaller unit. It runs quieter and our heating bills dropped noticeably. Marcus walked us through everything."
+          </p>
+          <footer class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-charcoal flex items-center justify-center text-white font-display font-bold text-sm">PW</div>
+            <div>
+              <cite class="font-body font-semibold text-charcoal not-italic text-sm">Patricia W.</cite>
+              <p class="font-body text-neutral-500 text-xs">North Phoenix · Trane XV Install</p>
+            </div>
+          </footer>
+        </blockquote>
+
+        <blockquote class="bg-charcoal-50 rounded-2xl p-7 border border-charcoal/10">
+          <div class="flex items-center gap-1 mb-4" aria-label="5 stars">
+            {[...Array(5)].map(() => (
+              <svg class="w-4 h-4 text-sky" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+            ))}
+          </div>
+          <p class="font-body text-neutral-700 text-base leading-relaxed mb-5">
+            "We were on electric heat strips and our bills were brutal every December and January. Switched to a Lennox heat pump with Skyhooked's help. The IRA tax credit brought the cost down significantly. Now our heating bills in winter are a fraction of what they used to be."
+          </p>
+          <footer class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-charcoal flex items-center justify-center text-white font-display font-bold text-sm">MJ</div>
+            <div>
+              <cite class="font-body font-semibold text-charcoal not-italic text-sm">Maria J.</cite>
+              <p class="font-body text-neutral-500 text-xs">Tempe · Lennox Heat Pump Install</p>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FAQ -->
+  <section class="bg-charcoal-50 py-20">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl text-center mb-10">Common questions</h2>
+      <div class="space-y-3 mb-10">
+        {faqs.map((faq, i) => (
+          <div class="faq-item border border-neutral-200 rounded-xl overflow-hidden bg-white">
+            <button
+              class="faq-btn w-full text-left flex items-center justify-between gap-4 p-5 font-display font-semibold text-charcoal hover:bg-charcoal-50 transition-colors"
+              aria-expanded="false"
+              data-index={i}
+            >
+              <span>{faq.q}</span>
+              <svg class="faq-chevron w-5 h-5 flex-shrink-0 text-sky transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-panel hidden px-5 pb-5">
+              <p class="font-body text-neutral-600 leading-relaxed">{faq.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Related + CTA -->
+  <section class="bg-white py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="font-display font-bold text-charcoal text-2xl mb-8 text-center">Related services</h2>
+      <div class="grid sm:grid-cols-3 gap-4">
+        {[
+          { href: '/residential/heat-pump-installation', name: 'Heat Pump Installation', desc: 'Full heat pump installs with 30% federal tax credit.' },
+          { href: '/residential/heating-repair', name: 'Heating Repair', desc: 'Same-day repair on furnaces, heat pumps, and heat strips.' },
+          { href: '/residential/zoning-controls', name: 'Zoning Controls', desc: 'Get more from your new system with multi-zone control.' },
+        ].map(s => (
+          <a href={s.href} class="group bg-charcoal-50 hover:bg-charcoal rounded-xl p-5 border border-charcoal/10 hover:border-charcoal transition-colors">
+            <h3 class="font-display font-bold text-charcoal group-hover:text-white text-sm mb-1 transition-colors">{s.name}</h3>
+            <p class="font-body text-neutral-500 group-hover:text-charcoal-50 text-xs transition-colors">{s.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-charcoal py-20">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 class="font-display font-extrabold text-white text-3xl sm:text-4xl mb-6">
+        Ready for a new heating system? Start with a free in-home consultation.
+      </h2>
+      <p class="font-body text-charcoal-50 text-lg mb-8">
+        Manual J load calculation, three equipment options, flat-rate pricing. No pressure.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="tel:4801234567" class="flex items-center gap-2 bg-sky hover:bg-sky-dark text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Call (480) 123-4567
+        </a>
+        <a href="/contact" class="flex items-center gap-2 border-2 border-white text-white hover:bg-white hover:text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors">
+          Request a Quote →
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel = btn.nextElementSibling as HTMLElement;
+      const chevron = btn.querySelector('.faq-chevron') as SVGElement;
+      const isOpen = !panel.classList.contains('hidden');
+      document.querySelectorAll('.faq-panel').forEach(p => p.classList.add('hidden'));
+      document.querySelectorAll('.faq-chevron').forEach(c => c.classList.remove('rotate-180'));
+      document.querySelectorAll('.faq-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+      if (!isOpen) {
+        panel.classList.remove('hidden');
+        chevron?.classList.add('rotate-180');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>

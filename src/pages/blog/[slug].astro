@@ -1,0 +1,589 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  return [
+    {
+      params: { slug: 'heat-pump-vs-furnace-ac-phoenix' },
+      props: {
+        category: 'Buying Guides',
+        categorySlug: 'buying-guides',
+        title: "Heat Pump vs Furnace + AC in Phoenix: A Licensed Tech's Honest Take",
+        author: 'Marcus Torres',
+        authorTitle: 'Master Technician',
+        authorCredentials: 'EPA 608 Universal, NATE Certified',
+        authorYears: '14 years with Skyhooked on Comfort',
+        authorBio: "Marcus Torres has been servicing and installing HVAC systems in the Phoenix Valley since 2012. He has installed over 400 heat pump systems and holds EPA 608 Universal and NATE certifications. He leads Skyhooked's heat pump installation team and trains junior technicians on inverter-driven system diagnostics.",
+        date: 'May 8, 2026',
+        readTime: '9 min read',
+        relatedPosts: ['manual-j-load-calculation', 'federal-heat-pump-tax-credit', 'seer-vs-seer2-explained'],
+        content: {
+          intro: `If you're replacing a 15-year-old furnace and AC in Phoenix and someone tries to sell you a new gas furnace paired with a new split-system air conditioner, ask them one question: "Did you run a Manual J?" If the answer is no — or a blank stare — walk away. They're not sizing your system; they're moving inventory. Here's the honest comparison between heat pumps and traditional furnace+AC systems in the Phoenix Valley, from someone who's installed hundreds of both.`,
+          sections: [
+            {
+              heading: 'The 30-Second Answer',
+              body: `For most Phoenix homes built after 1995 with functional ductwork, a heat pump is the better choice right now. The federal 25C tax credit (up to $2,000), APS and SRP utility rebates ($500–$2,000 combined), and lower operating costs on the APS TOU-E rate plan make the economics compelling in a way they weren't five years ago. If your home has undersized ducts, a very large square footage (5,000+ SF), or relies heavily on natural gas for other appliances, a hybrid dual-fuel setup may still make sense — heat pump for the shoulder seasons, gas furnace backup for the coldest nights.`
+            },
+            {
+              heading: "What a Heat Pump Actually Does in Phoenix's Climate",
+              body: `A heat pump moves heat rather than generating it. In cooling mode, it works exactly like a central AC — it extracts heat from inside your home and dumps it outside. In heating mode, it reverses: it extracts heat from outdoor air (even at 30°F there's substantial heat energy available) and moves it inside. This is why heat pumps are 2–4x more efficient than electric resistance heat. In Phoenix, the heating season is mild enough (typical lows of 40–55°F in December and January) that even a basic heat pump operates at 250–350% efficiency all winter. There are zero days in a typical Phoenix winter where a modern cold-climate heat pump can't handle the load. The "heat pumps don't work in cold weather" concern is completely inapplicable to the Valley. Where Phoenix is different is the cooling season: 115°F-rated heat pumps need to be selected carefully. Not all units maintain rated capacity above 105°F ambient. We spec units tested to AHRI 210/240 at 95°F and 115°F ratings specifically, and verify the outdoor unit can handle prolonged exposure on 115°F days.`
+            },
+            {
+              heading: 'Real Cost Comparison in Phoenix',
+              body: `A mid-tier variable-speed heat pump (Carrier Infinity or equivalent, 3-ton, 18 SEER2) installed in a typical Phoenix home runs $9,500–$13,500 before incentives. A comparable furnace+AC combo runs $8,000–$11,500. That seems like a heat pump premium, until you factor in: the 30% federal 25C tax credit (up to $2,000), the APS heat pump rebate ($400–$1,200 depending on SEER2 rating), the SRP heat pump rebate ($300–$600) — and those are just the day-one numbers. On operating cost, a heat pump running on APS's TOU-E rate plan replaces gas heating with electricity at roughly 3.5x efficiency. In Phoenix, where winter heating loads are modest, most homeowners see their combined heating and cooling costs drop 15–30% after switching from a furnace+AC to a heat pump. The payback period on the premium, after incentives, is typically 4–7 years.`
+            },
+            {
+              heading: 'When a Traditional Furnace + AC Still Makes Sense',
+              body: `There are legitimate scenarios where we still recommend furnace+AC. First, homes larger than 5,000 SF with complex multi-zone needs sometimes do better with a hybrid dual-fuel system — heat pump primary with a gas furnace as backup for design-day conditions, particularly if they're on SRP and gas costs are low. Second, if you have an existing gas furnace that's 5 years old and only the AC has failed, replacing just the AC with a matching unit and waiting until both need replacement to convert to a heat pump is a reasonable call. Third, if your utility is not APS or SRP and doesn't have a heat pump rebate program, the economics shift. We always run the numbers for your specific home, utility, and usage before recommending either path.`
+            }
+          ],
+          pullQuote: '"In Phoenix, the \'heat pumps don\'t work in cold weather\' concern is completely inapplicable. And with the 25C credit and APS rebates stacked, the upfront cost difference largely disappears."',
+          conclusion: `The Phoenix market is one of the best in the country for heat pumps right now. Mild winters, long cooling seasons, strong utility rebate programs, and the federal 25C credit all point the same direction. If you're replacing an aging system, it's worth doing the math before defaulting to what you already have. We offer free in-home consultations that include a Manual J load calculation — you'll leave knowing exactly what size system your home needs and what it'll cost after incentives. No sales pressure, no upsell. Call (480) 123-4567 or request a quote online.`
+        }
+      }
+    },
+    {
+      params: { slug: 'manual-j-load-calculation' },
+      props: {
+        category: 'Buying Guides',
+        categorySlug: 'buying-guides',
+        title: 'What Is a Manual J Load Calculation (and Why You Should Demand One)?',
+        author: 'Diego Ramirez',
+        authorTitle: 'NATE Certified Service Technician',
+        authorCredentials: 'EPA 608 Universal, NATE Certified, ACCA Certified',
+        authorYears: '11 years with Skyhooked on Comfort',
+        authorBio: "Diego Ramirez joined Skyhooked on Comfort in 2015 after earning his EPA 608 certification and NATE credentials. He specializes in residential diagnostics, duct system assessment, and equipment sizing. He's run Manual J calculations on over 600 homes across the Phoenix Valley.",
+        date: 'May 2, 2026',
+        readTime: '7 min read',
+        relatedPosts: ['heat-pump-vs-furnace-ac-phoenix', 'oversized-ac-problems', 'seer-vs-seer2-explained'],
+        content: {
+          intro: `Every licensed HVAC contractor in Arizona knows they're supposed to run a Manual J load calculation before sizing and installing new equipment. Most don't. Here's what a Manual J is, what it catches, and why skipping it is one of the most expensive mistakes homeowners make when replacing HVAC systems.`,
+          sections: [
+            {
+              heading: 'What Manual J Actually Is',
+              body: `Manual J is the industry-standard method for calculating how much heating and cooling capacity a home actually needs — not a guess, not a rule of thumb, not the size of the old equipment. It was developed by ACCA (Air Conditioning Contractors of America) and is required by code in most Arizona jurisdictions for new HVAC installations. A real Manual J measures your home's square footage, ceiling heights, wall and attic insulation R-values, window U-values and SHGC ratings, floor construction, orientation to the sun, infiltration rate, and internal heat gains from occupants and appliances. Phoenix-specific inputs include the extreme design day temperature (115°F for cooling, 34°F for heating), the intense solar radiation load that's far higher than most of the US, and monsoon-season latent (humidity) loads. The output is a target BTU capacity for the cooling system and the heating system — often different numbers — that will keep your home comfortable under the most demanding conditions without short-cycling.`
+            },
+            {
+              heading: 'Why Most Contractors Skip It',
+              body: `The honest answer: it takes time and requires training to do correctly. A real Manual J takes 45–90 minutes on-site plus 30–60 minutes of calculation work afterward. Contractors who are running 10 estimates a day can't afford that time per call. Instead, most "size" systems by looking at the old equipment's nameplate or using a quick rule of thumb like "400 square feet per ton." That rule of thumb produces a system 20–40% oversized for most Phoenix homes — and oversizing is one of the most expensive things you can do to a homeowner. An oversized system short-cycles. It turns on, slams the space down to setpoint in 8 minutes, then shuts off. The 8-minute cycle isn't long enough for the system to properly dehumidify, so you get cold but clammy air and active mold risk during monsoon season. The compressor starts and stops dozens of times a day instead of running in long, efficient cycles, which dramatically accelerates wear. And the homeowner pays 15–30% more in electricity for the privilege.`
+            },
+            {
+              heading: 'What Happens When You Skip Manual J in Phoenix',
+              body: `Phoenix solar loads are enormous. A west-facing 2,200 SF ranch home at 115°F may need a 3.5-ton system. A north-facing 2,200 SF home with higher insulation two blocks away may only need 2.5 tons. A contractor who doesn't measure just rounds up to 4 tons for both — and now you have two homes with oversized equipment that will cycle poorly for 15 years, accumulate mold risk during the monsoon, and wear out faster than a properly-sized system. We've seen homes in Chandler with 4-ton systems that should have 2.5 tons, homes in Scottsdale with 5-ton systems that should have 3.5. In every case, the homeowners reported that certain rooms were always uncomfortable, humidity was hard to control in the summer, and energy bills were higher than neighbors with similar homes.`
+            },
+            {
+              heading: 'How to Tell If Your Contractor Actually Did One',
+              body: `Ask for the output. A real Manual J produces a written report — not a number scrawled on a piece of paper, but a full room-by-room load calculation with inputs documented. We use ACCA-approved software (typically Wrightsoft or similar) and provide clients a summary of the key inputs and outputs. If a contractor says they "did the Manual J in their head" or tells you the load is "X tons based on your square footage," they didn't do one. The required AHRI documentation for the federal 25C heat pump tax credit specifically requires equipment to be installed per ACCA Manual S (equipment selection based on Manual J) — meaning if you're claiming the tax credit and no Manual J was done, your claim could be challenged. We document everything.`
+            }
+          ],
+          pullQuote: '"An oversized AC short-cycles, dehumidifies poorly, and wears out faster. In Phoenix monsoon season, that means cold, clammy air and active mold risk. The Manual J prevents all of it."',
+          conclusion: `Demanding a Manual J load calculation before any HVAC installation is the single most protective thing you can do as a homeowner. It takes us longer, which is why plenty of contractors skip it — but it's the only way to know your new system is actually sized for your home. Every installation we do starts with a Manual J. If you're getting quotes and not one of them mentions Manual J, call us. We'll tell you what your home actually needs. Call (480) 123-4567 or visit our <a href="/residential/ac-installation" class="text-sky hover:underline">AC installation page</a> to learn more about our process.`
+        }
+      }
+    },
+    {
+      params: { slug: 'federal-heat-pump-tax-credit' },
+      props: {
+        category: 'Tax Credits & Rebates',
+        categorySlug: 'tax-credits-rebates',
+        title: 'How to Claim the 30% Federal Heat Pump Tax Credit Step-by-Step',
+        author: 'Jasmine Lee',
+        authorTitle: 'Senior Service Technician',
+        authorCredentials: 'EPA 608 Universal, NATE Certified',
+        authorYears: '9 years with Skyhooked on Comfort',
+        authorBio: "Jasmine Lee has been with Skyhooked on Comfort since 2017. She is EPA 608 and NATE certified and has helped hundreds of Phoenix Valley homeowners navigate the paperwork for federal tax credits and APS/SRP utility rebates. She routinely trains new technicians on rebate documentation procedures.",
+        date: 'April 25, 2026',
+        readTime: '8 min read',
+        relatedPosts: ['heat-pump-vs-furnace-ac-phoenix', 'aps-srp-hvac-rebate-guide', 'mini-split-vs-central-ac-phoenix'],
+        content: {
+          intro: `The Inflation Reduction Act's Section 25C tax credit is one of the most valuable home improvement incentives in recent memory — and one of the most confusing to actually claim. This is a step-by-step guide from someone who has walked hundreds of Phoenix Valley homeowners through the process. Note: this is educational information, not tax advice. Consult your CPA or tax professional for your specific situation.`,
+          sections: [
+            {
+              heading: 'What the 25C Credit Actually Covers',
+              body: `Section 25C of the IRS tax code, as modified by the Inflation Reduction Act of 2022, provides a tax credit of 30% of the cost of qualifying energy-efficient home improvements, including heat pumps, up to $2,000 per year for heat pumps and heat pump water heaters combined. This is a non-refundable tax credit — it reduces your tax liability dollar-for-dollar, but doesn't generate a refund beyond your tax owed. The credit covers both equipment and installation labor. If your heat pump installation totals $10,000, the credit is $3,000 — but it's capped at $2,000 for heat pumps. Qualifying equipment must meet CEE (Consortium for Energy Efficiency) Tier 2 or higher efficiency standards. For central air-source heat pumps, that currently means SEER2 ≥ 15.2, EER2 ≥ 10, and HSPF2 ≥ 7.8. We install equipment that qualifies as a matter of course.`
+            },
+            {
+              heading: 'The AHRI Certificate: Your Most Important Document',
+              body: `The AHRI (Air-Conditioning, Heating, and Refrigeration Institute) certificate is the official documentation that your specific equipment combination — outdoor unit, indoor unit (or air handler), and coil — has been tested and meets the rated efficiency specifications. You need this for the tax credit. AHRI certificates are specific to matched equipment combinations, not individual units. This is why we handle equipment selection carefully: we verify the outdoor unit, air handler, and coil are an AHRI-certified matched system at the qualifying efficiency level before we order equipment. After installation, we provide you with the AHRI certificate as part of your installation package. You'll need the certificate number, the rated SEER2/HSPF2, and the equipment model numbers when filing. We also provide a written installation summary that documents the system specifications and the address of installation.`
+            },
+            {
+              heading: 'How to Actually File the Credit',
+              body: `The 25C credit is claimed on IRS Form 5695 (Residential Energy Credits) and then carried to Schedule 3 of your Form 1040. Line 22a on Form 5695 (current version) is for qualified heat pump equipment. You'll enter the total cost (equipment + installation labor) and the form calculates your credit. Attach Form 5695 to your federal return. You do not submit the AHRI certificate to the IRS with your return — you keep it with your records in case of an audit. The IRS has recently increased scrutiny of energy credit claims, so keep your installation invoice, AHRI certificate, and contractor information together in one folder. Arizona does not currently have a state-level heat pump tax credit, but the federal credit stacks with APS and SRP utility rebates, which are separate programs you apply for directly with the utility.`
+            },
+            {
+              heading: 'Stacking with APS and SRP Rebates',
+              body: `The 25C credit and utility rebates can be used together, which is where the real savings add up. APS (Arizona Public Service) currently offers a rebate of $400–$1,200 for qualifying heat pump installations, depending on SEER2 rating and equipment type. SRP (Salt River Project) offers $300–$600. These rebates are applied after installation — you submit a rebate application with documentation (installation invoice, AHRI certificate, and contractor license information) within 90 days of installation. The rebate is paid as a credit on your utility bill or a check. We provide all the documentation you need to apply. A typical Phoenix homeowner installing a qualifying 18 SEER2 heat pump system at $11,000 installed might receive: $2,000 federal 25C credit + $1,000 APS rebate + $500 SRP rebate = $3,500 in total incentives, reducing net cost to $7,500. We track current rebate levels for both utilities and build this into every heat pump quote.`
+            }
+          ],
+          pullQuote: '"A typical Phoenix homeowner can receive $2,000 federal credit + $1,000 APS + $500 SRP = $3,500 in incentives on a qualifying heat pump installation. Most don\'t claim all three."',
+          conclusion: `The 25C credit is available through 2032, but rebate programs from APS and SRP can change annually. If you're considering a heat pump installation in the Phoenix Valley, now is a particularly good time — the stacked incentives are as strong as they've been. Skyhooked on Comfort handles all the documentation: AHRI certificate, installation summary, and rebate application assistance. Visit our <a href="/residential/heat-pump-installation" class="text-sky hover:underline">heat pump installation page</a> or call (480) 123-4567 to get a free in-home quote that includes the full incentive picture for your specific home and utility.`
+        }
+      }
+    },
+    {
+      params: { slug: 'oversized-ac-problems' },
+      props: {
+        category: 'Troubleshooting',
+        categorySlug: 'troubleshooting',
+        title: 'Why an Oversized AC Is Worse Than No AC at All',
+        author: 'Marcus Torres',
+        authorTitle: 'Master Technician',
+        authorCredentials: 'EPA 608 Universal, NATE Certified',
+        authorYears: '14 years with Skyhooked on Comfort',
+        authorBio: "Marcus Torres has been servicing and installing HVAC systems in the Phoenix Valley since 2012. He holds EPA 608 Universal and NATE certifications and leads Skyhooked's installation team. He has diagnosed more oversized-AC problems in Phoenix homes than he can count.",
+        date: 'April 18, 2026',
+        readTime: '6 min read',
+        relatedPosts: ['manual-j-load-calculation', 'ac-tune-up-checklist', 'heat-pump-vs-furnace-ac-phoenix'],
+        content: {
+          intro: `This is the conversation I have at least twice a week in Phoenix. A homeowner got a new AC installed 3 years ago. It was "the biggest unit" the contractor had. Now their house feels cold but clammy in July. Some rooms never cool down while others are freezing. The system runs for 10 minutes, shuts off, runs for 10 minutes. Energy bills are high. What went wrong? The system is oversized, and it's ruining their comfort, their air quality, and their equipment.`,
+          sections: [
+            {
+              heading: 'What Short-Cycling Is and Why It Destroys Comfort',
+              body: `An air conditioning system works best when it runs in long, steady cycles — 20–40 minutes at a stretch under typical conditions. During that run time, it cools the air AND removes humidity. Dehumidification is a critical part of AC comfort, especially in Phoenix during monsoon season (July–September) when relative humidity can spike from 10% to 50% or higher in a matter of hours. Dehumidification requires the evaporator coil to get cold enough that water vapor condenses on it. That takes time — about 15 minutes of run time for the coil to reach peak dehumidification performance. An oversized system hits your temperature setpoint in 8–10 minutes and shuts off. The coil never reaches maximum dehumidification efficiency. The result: the thermostat says 74°F, but the air feels muggy and uncomfortable at 74°F because the humidity is 55–60% instead of the ideal 40–50%.`
+            },
+            {
+              heading: 'The Equipment Damage Oversizing Causes',
+              body: `Every compressor start is a high-stress event. Oil hasn't fully circulated, pressures are unequal, and the motor draws 4–6x its running amperage during the first few seconds. A properly-sized system in Phoenix might start 4–6 times per hour on a very hot day. An oversized system might start 12–15 times per hour because each run cycle is so short. Compressors are typically rated for a certain number of starts per day; dramatically exceeding that rating accelerates wear and ultimately causes early compressor failure. We see this in Phoenix regularly: a homeowner bought a brand-new 5-ton system when their home needed 3.5 tons. Five years later, the compressor has failed — not from heat damage or lack of maintenance, but from accelerated wear due to constant short-cycling. The replacement cost is $1,800–$3,500, and the new compressor will fail early too if the root cause (oversizing) isn't corrected.`
+            },
+            {
+              heading: 'The Phoenix Monsoon Problem',
+              body: `Standard humid climates in the southeast US experience 70–80% relative humidity for months at a time. AC systems there are designed with latent (humidity removal) capacity as a key parameter. Phoenix is classified as a dry desert climate — but monsoon season from July through September regularly brings afternoon and evening humidity spikes that stress AC systems in ways their sizing didn't account for. A properly-sized AC in Phoenix should handle both the sensible load (actual air temperature cooling) and the latent load (humidity removal) during monsoon conditions. An oversized system slams the sensible load down fast and shuts off before addressing the latent load. The result is that during the Valley's entire monsoon season — which often coincides with the hottest stretch of the year — you have a house that's technically at your setpoint temperature but feels hot and uncomfortable because the humidity is uncontrolled.`
+            },
+            {
+              heading: 'How to Know If Your System Is Oversized',
+              body: `Warning signs: Short run times — if your system runs fewer than 15 minutes before shutting off on a typical summer afternoon, it may be oversized. Uneven temperatures room-to-room. High humidity inside despite the AC running. Higher-than-expected electricity bills. The system feels like it's "blasting" when it comes on rather than providing steady airflow. The definitive test is a Manual J load calculation for your home. If the calculated load is significantly smaller than your installed equipment capacity, you have an oversized system. The fix depends on the severity: for mild oversizing, adding a two-speed or variable-speed system on replacement can mitigate the problem. For severe oversizing, the duct system may also need evaluation — oversized equipment often gets paired with undersized ductwork, which creates additional problems.`
+            }
+          ],
+          pullQuote: '"An oversized AC short-cycles and never removes humidity properly. In Phoenix monsoon season, you get cold, clammy air — the worst of both worlds. Bigger is not better."',
+          conclusion: `If your new AC doesn't feel right, don't assume it's a defective unit — ask about the sizing. A diagnostic call from Skyhooked on Comfort includes an evaluation of both the equipment and the duct system. If your home was oversized, we'll tell you honestly and explain your options. Visit our <a href="/residential/ac-repair" class="text-sky hover:underline">AC repair page</a> or our <a href="/service-areas/phoenix" class="text-sky hover:underline">Phoenix service area page</a> for more. Call (480) 123-4567 — we're available 24/7.`
+        }
+      }
+    },
+    {
+      params: { slug: 'ac-tune-up-checklist' },
+      props: {
+        category: 'Seasonal Tips',
+        categorySlug: 'seasonal-tips',
+        title: 'AC Tune-Up Checklist: What a Real $79 Tune-Up Should Include',
+        author: 'Diego Ramirez',
+        authorTitle: 'NATE Certified Service Technician',
+        authorCredentials: 'EPA 608 Universal, NATE Certified, ACCA Certified',
+        authorYears: '11 years with Skyhooked on Comfort',
+        authorBio: "Diego Ramirez joined Skyhooked on Comfort in 2015. He specializes in residential diagnostics and preventive maintenance and has performed thousands of tune-ups across the Phoenix Valley.",
+        date: 'April 10, 2026',
+        readTime: '5 min read',
+        relatedPosts: ['oversized-ac-problems', 'ac-freezing-up-causes', 'day-in-life-hvac-technician'],
+        content: {
+          intro: `Every spring, Phoenix homeowners see ads for $49 and $59 AC tune-ups. Some of those are legitimate loss-leader offers from good companies. Others are "trip fee disguised as a tune-up" operations — a tech shows up, checks the thermostat, looks at the unit for 10 minutes, and recommends $400 in additional services. Here's the 22-point checklist that a real AC tune-up should cover before Phoenix summer hits.`,
+          sections: [
+            {
+              heading: 'Outdoor Unit (Condenser) — 9 Checks',
+              body: `1. Inspect and clean condenser coil fins (this is the most critical step for Phoenix — a dirty condenser can reduce cooling capacity by 15–20% and the Valley's dust and pollen clogs them every season). 2. Measure amperage draw on the compressor and compare to nameplate. Elevated draw is an early indicator of compressor stress. 3. Check and measure capacitor microfarads — capacitors degrade over time and are the single most common failure part in Phoenix heat. Replace if within 10% of minimum tolerance. 4. Inspect and test the contactor — pitted contacts cause voltage drop and compressor damage. 5. Check refrigerant pressures and compare to manufacturer spec for current ambient temperature. Low charge or high subcooling both indicate issues. 6. Measure supply and return air temperatures across the system (temperature split check). 7. Inspect disconnect, fuses, and electrical connections at the unit. Loose connections arc under load and cause failures. 8. Check fan motor amperage and blade condition. A failing fan motor can run 20 amperes over spec. 9. Inspect refrigerant line insulation on the suction line — degraded insulation causes heat absorption and reduced efficiency.`
+            },
+            {
+              heading: 'Indoor Unit (Air Handler / Evaporator) — 8 Checks',
+              body: `10. Inspect and clean evaporator coil — dirty coils restrict airflow and freeze up. In Phoenix, attic dust accumulates on indoor coils seasonally. 11. Flush and treat condensate drain line — Phoenix attic temperatures exceed 150°F in summer, which accelerates biological growth in drain pans. A blocked condensate drain causes water overflow and ceiling/drywall damage. 12. Check condensate pump operation (where installed). 13. Measure static pressure across the filter and evaporator — reveals duct restriction or airflow problems. 14. Inspect and replace air filter (we install the replacement filter you provide or use a standard pleated filter). 15. Check blower motor amperage and wheel condition. Dirty blower wheels are common in dusty Phoenix attics and dramatically reduce airflow. 16. Inspect electrical connections at the air handler — loose terminals arc and cause component failures. 17. Verify thermostat calibration and operation — check setpoint accuracy, delay settings, and proper stage sequencing on two-stage units.`
+            },
+            {
+              heading: 'System Performance — 5 Checks',
+              body: `18. Measure supply and return static pressure — the standard diagnostic for overall duct health and system airflow. 19. Check temperature split across the system (typically 16–22°F in Phoenix conditions). Outside that range indicates refrigerant, airflow, or coil issues. 20. Verify refrigerant charge by superheat or subcooling method (varies by system type) — not just pressure, which can be misleading. 21. Run full cooling cycle and monitor system behavior — listen for unusual sounds, check for short-cycling, verify both stages operate on two-stage systems. 22. Document all readings in a written report — every measurement, any findings, and any recommended work with the flat-rate price for each item. This report is yours and protects you if a different company tries to upsell the same issues next year.`
+            },
+            {
+              heading: 'When to Schedule in Phoenix',
+              body: `The ideal window for a Phoenix spring AC tune-up is March through April. By late April, temperatures start hitting the 90s regularly and our schedule fills up fast. If you call in June with a tune-up request, you'll wait — and you may be waiting during the first 110°F week. Members of our Comfort Plan get priority spring scheduling and their tune-up automatically booked. For homeowners not on a plan, we recommend booking in February or early March. A spring tune-up on a Phoenix system that was running all last summer will almost always find at least one issue — a degraded capacitor, low refrigerant from a slow leak, a dirty condenser coil — that's much cheaper to address proactively than reactively in July.`
+            }
+          ],
+          pullQuote: '"A dirty Phoenix condenser coil reduces cooling capacity by 15–20%. In 115°F heat, that\'s the difference between comfortable and borderline dangerous. Cleaning it is step one."',
+          conclusion: `A real tune-up takes 60–90 minutes and produces a written report with all measurement readings. If a "tune-up" takes 20 minutes and produces no documentation, it wasn't a tune-up — it was a marketing visit. Skyhooked on Comfort's $79 tune-up covers all 22 items above, produces a written report, and the dispatch fee is credited toward any recommended work you approve same-day. <a href="/service-areas/phoenix" class="text-sky hover:underline">Phoenix</a> and the entire Valley, scheduled online or by calling (480) 123-4567.`
+        }
+      }
+    },
+    {
+      params: { slug: 'seer-vs-seer2-explained' },
+      props: {
+        category: 'Buying Guides',
+        categorySlug: 'buying-guides',
+        title: 'SEER vs SEER2: What Changed and What It Means for Your Next AC',
+        author: 'Jasmine Lee',
+        authorTitle: 'Senior Service Technician',
+        authorCredentials: 'EPA 608 Universal, NATE Certified',
+        authorYears: '9 years with Skyhooked on Comfort',
+        authorBio: "Jasmine Lee joined Skyhooked on Comfort in 2017. She is EPA 608 and NATE certified and specializes in helping homeowners understand efficiency ratings, equipment selection, and incentive programs.",
+        date: 'April 3, 2026',
+        readTime: '6 min read',
+        relatedPosts: ['heat-pump-vs-furnace-ac-phoenix', 'manual-j-load-calculation', 'federal-heat-pump-tax-credit'],
+        content: {
+          intro: `If you bought an AC before January 1, 2023, you saw SEER ratings. If you're shopping today, you see SEER2 ratings. The numbers look lower for the same equipment, and homeowners naturally wonder if new ACs got less efficient. They didn't. Here's what actually changed and what it means when you're shopping for a new system in Phoenix.`,
+          sections: [
+            {
+              heading: 'What SEER Was and Why It Changed',
+              body: `SEER stands for Seasonal Energy Efficiency Ratio — it measures how many BTUs of cooling a system produces per watt-hour of electricity consumed over a cooling season. Higher SEER = more efficient. The original SEER test standard (ARI 210/240) was established in the 1980s and used test conditions that didn't fully reflect how systems operate in real homes with real ductwork. The external static pressure used in testing (the resistance the blower motor works against) was 0.1 inches of water column — far lower than what most real duct systems impose. Systems rated under this easy test condition would then perform significantly worse in actual homes with higher static pressure. Effective January 1, 2023, the Department of Energy mandated the new SEER2 standard under AHRI 210/240 2023, which uses 0.5 inches of external static pressure — much closer to real-world conditions. The test is harder, so the SEER2 numbers are lower for the same physical equipment. A 16 SEER unit under the old standard is typically equivalent to a 14.3–14.7 SEER2 unit under the new standard.`
+            },
+            {
+              heading: 'The Minimum Efficiency Standard Change',
+              body: `Along with the new test standard, DOE also raised the minimum efficiency requirements for new residential AC equipment in the Southwest (which includes Arizona). As of January 2023, new central air conditioners must meet a minimum of 14 SEER2 (previously 14 SEER under the old standard, which is equivalent to roughly 13 SEER2). In practice, this means the cheapest entry-level systems sold today are more efficient than the cheapest systems sold before 2023. The practical impact for Phoenix homeowners: you cannot buy a new 13 SEER2 central AC (it doesn't exist in the new market). The floor is 14 SEER2. Most mainstream contractor-grade equipment starts at 15 SEER2 and runs up to 22–26 SEER2 for premium variable-speed units.`
+            },
+            {
+              heading: 'How to Compare Old and New Ratings When Shopping',
+              body: `If you're comparing a quote from today to a quote you got three years ago, or comparing a new unit to your old unit's nameplate, use this rough conversion: SEER2 ≈ SEER × 0.92. So a 16 SEER system is roughly equivalent to a 14.7 SEER2 system. A 20 SEER system is roughly equivalent to an 18.4 SEER2 system. When comparing quotes from different contractors today, make sure both are quoting SEER2 ratings — any quote using SEER (not SEER2) is either quoting old inventory or using the old standard deliberately to make the number look bigger. When evaluating efficiency levels for the federal 25C tax credit, the qualifying threshold is SEER2 ≥ 15.2 for central air-source heat pumps. For central ACs (not heat pumps), the 25C credit does not apply to AC-only equipment — only heat pumps qualify for the heat pump portion of the credit.`
+            },
+            {
+              heading: 'What Efficiency Level to Buy in Phoenix',
+              body: `The right SEER2 level depends on how much you run your system, your electricity rate, and your budget. Phoenix runs cooling systems 8–10 months per year and 10–16 hours per day during summer. This is the highest utilization rate in the US for residential HVAC. The payback period for upgrading from 14 SEER2 to 18 SEER2 in Phoenix is significantly shorter than it would be in, say, Seattle. Our rough math: on APS's tiered rate plan, upgrading from 14 SEER2 to 18 SEER2 on a 3.5-ton system saves approximately $240–$360 per year in electricity. The upfront premium for 18 SEER2 over 14 SEER2 is typically $800–$1,400. That's a 3–5 year payback in Phoenix conditions — excellent by any ROI measure. The jump from 18 SEER2 to 22 SEER2 has a longer payback (6–8 years) and is harder to justify purely on economics unless you're planning to stay in the home 10+ years.`
+            }
+          ],
+          pullQuote: '"SEER2 numbers look lower because the test is harder — not because the equipment is less efficient. A 16 SEER2 system beats a 16 SEER system in real-world performance."',
+          conclusion: `The SEER2 transition improved the accuracy of efficiency ratings and raised the floor for new equipment — both good things for consumers. When you're shopping, focus on SEER2 ratings, verify they're under the current standard (not old SEER numbers), and run the payback math for Phoenix's usage pattern. We include a full efficiency comparison in every installation quote. Visit our <a href="/residential/ac-installation" class="text-sky hover:underline">AC installation page</a> or our <a href="/service-areas/scottsdale" class="text-sky hover:underline">Scottsdale service area page</a> for more. Call (480) 123-4567 to schedule a free consultation.`
+        }
+      }
+    },
+    {
+      params: { slug: 'ac-freezing-up-causes' },
+      props: {
+        category: 'Troubleshooting',
+        categorySlug: 'troubleshooting',
+        title: 'Why Your AC Freezes Up — and the 4 Causes',
+        author: 'Marcus Torres',
+        authorTitle: 'Master Technician',
+        authorCredentials: 'EPA 608 Universal, NATE Certified',
+        authorYears: '14 years with Skyhooked on Comfort',
+        authorBio: "Marcus Torres is a Master Technician with 14 years of Phoenix Valley HVAC experience. He holds EPA 608 Universal and NATE certifications and leads Skyhooked's residential service team.",
+        date: 'March 27, 2026',
+        readTime: '5 min read',
+        relatedPosts: ['oversized-ac-problems', 'ac-tune-up-checklist', 'manual-j-load-calculation'],
+        content: {
+          intro: `Ice forming on your air conditioner in the middle of a Phoenix July sounds impossible — and yet it's one of our most common emergency calls. Here's what's actually happening when your AC freezes up, the four most common causes, and what to do while you wait for a technician.`,
+          sections: [
+            {
+              heading: 'What Happens When an AC Freezes Up',
+              body: `Your AC's evaporator coil (the indoor coil) operates by circulating refrigerant that is much colder than the air passing over it. Under normal conditions, the coil surface temperature is 35–45°F — cold enough to cool the air but above freezing, so moisture condenses as liquid water and drains away. When the coil gets too cold (below 32°F), that condensing moisture freezes instead of draining. Ice accumulates on the coil, then spreads to the refrigerant lines, then can work its way down to the outdoor unit. Once a coil is significantly iced over, airflow through the system is blocked — the system can no longer cool effectively even though it's running. If you see ice on your indoor unit or on the copper refrigerant lines between indoor and outdoor units, turn the system off immediately (or switch to fan-only mode to melt the ice without running the compressor) and call for service. Running a frozen AC can damage the compressor.`
+            },
+            {
+              heading: 'Cause 1: Restricted Airflow',
+              body: `The most common cause of freezing, by a wide margin. If the evaporator coil can't get enough warm air flowing across it, the coil gets too cold and freezes. The most frequent airflow restrictors: a clogged or dirty air filter (check this first — if your filter is gray and dense, replace it immediately), a dirty evaporator coil (annual cleaning prevents this), closed or blocked supply and return registers (never close more than 20% of your registers), a failing blower motor (if the blower isn't spinning at the right speed, airflow drops). In Phoenix's dusty environment — especially in homes near undeveloped land or during monsoon season — air filters clog faster than the manufacturers' schedules suggest. We recommend Phoenix homeowners check 1-inch filters every 3–4 weeks in summer rather than monthly.`
+            },
+            {
+              heading: 'Cause 2: Low Refrigerant Charge',
+              body: `If your system has a refrigerant leak — however slow — the refrigerant charge drops over time. Low refrigerant causes the evaporator coil pressure to drop below normal operating range, which drops the coil temperature below freezing. The leak needs to be located and repaired (not just the refrigerant topped off — adding refrigerant to a leaking system is an EPA violation for sealed refrigerants and a temporary fix at best). Common leak locations in Phoenix HVAC systems: the Schrader valve cores on the service ports (very common; a $15 fix), flare fittings at the line set connections that have loosened over years of thermal expansion and contraction, pinhole leaks in the evaporator coil (more common in hard-water areas and aggressive-condensate environments). A low-refrigerant system also produces the symptom of running constantly without cooling your home to setpoint — a sign the system is struggling.`
+            },
+            {
+              heading: 'Causes 3 and 4: Dirty Coil and Low Outdoor Temperature',
+              body: `A heavily fouled evaporator coil acts like a dirty filter — it restricts air movement through the coil surface, drops coil temperature, and can cause freezing even with a clean filter installed. Annual coil cleaning prevents this and is part of our standard tune-up. The fourth cause is less common in Phoenix but relevant during mild spring and fall evenings: running AC when outdoor temperatures drop below 60°F at night. Most residential AC systems aren't designed to operate efficiently below 60°F outdoor ambient. The reduced heat load on a cool night, combined with the already-cold refrigerant, can cause coil icing. If you're running AC on a spring night when outdoor temps are in the 50s, consider switching to a window open or fan mode instead — you don't need the AC, and running it below its rated range causes problems.`
+            }
+          ],
+          pullQuote: '"Ice on your AC means airflow is blocked, refrigerant is low, the coil is fouled, or it\'s too cold outside to be running AC. Turn it off before you run the compressor on liquid refrigerant."',
+          conclusion: `If your AC freezes up: turn the system to fan-only (not off entirely) to melt the ice, then turn it fully off after 30–60 minutes of fan-only mode. Check your filter first. If the filter is clean and it freezes again after restarting, call for service — you likely have a refrigerant leak or coil problem. Skyhooked on Comfort runs same-day diagnostics across the <a href="/service-areas/mesa" class="text-sky hover:underline">Mesa</a>, <a href="/service-areas/tempe" class="text-sky hover:underline">Tempe</a>, and Phoenix areas. Call (480) 123-4567 or visit our <a href="/residential/ac-repair" class="text-sky hover:underline">AC repair page</a>.`
+        }
+      }
+    },
+    {
+      params: { slug: 'aps-srp-hvac-rebate-guide' },
+      props: {
+        category: 'Indoor Air Quality',
+        categorySlug: 'indoor-air-quality',
+        title: 'APS & SRP HVAC Rebate Guide: All the Money Left on the Table',
+        author: 'Jasmine Lee',
+        authorTitle: 'Senior Service Technician',
+        authorCredentials: 'EPA 608 Universal, NATE Certified',
+        authorYears: '9 years with Skyhooked on Comfort',
+        authorBio: "Jasmine Lee has been with Skyhooked on Comfort since 2017 and has helped hundreds of Phoenix Valley homeowners navigate APS, SRP, and federal incentive programs for HVAC upgrades.",
+        date: 'March 20, 2026',
+        readTime: '7 min read',
+        relatedPosts: ['federal-heat-pump-tax-credit', 'heat-pump-vs-furnace-ac-phoenix', 'mini-split-vs-central-ac-phoenix'],
+        content: {
+          intro: `Phoenix homeowners leave thousands of dollars in HVAC rebates unclaimed every year. APS and SRP both run incentive programs for energy-efficient heating and cooling equipment, and those rebates stack with the federal 25C tax credit. This is a current guide to what's available from both utilities and how to claim it.`,
+          sections: [
+            {
+              heading: 'APS (Arizona Public Service) HVAC Rebates',
+              body: `APS offers rebates for residential customers replacing or installing qualifying HVAC equipment. Current APS residential rebates include: Central air conditioners rated 16+ SEER2: $200–$400 (higher rebate for higher efficiency). Air-source heat pumps rated 16+ SEER2 and 8.5+ HSPF2: $400–$1,200 (tiered by efficiency). Mini-split heat pumps rated 18+ SEER2: $200–$500 per unit. Smart thermostats: $35–$75. To qualify, APS residential customers must use an APS-approved contractor (we are), install equipment that meets the minimum efficiency thresholds, and submit a rebate application with installation invoice and AHRI certificate within 90 days of installation. APS rebates are paid as a credit on your utility bill, typically within 4–6 weeks of application approval. Important: APS rebate amounts and eligibility change periodically. The figures above reflect current program levels as of spring 2026. Confirm current amounts at aps.com/savemoney before committing to an installation.`
+            },
+            {
+              heading: 'SRP (Salt River Project) HVAC Rebates',
+              body: `SRP customers have a separate rebate program with comparable incentives. Current SRP residential rebates: Central AC systems 15+ SEER2: $150–$300. Heat pumps 15+ SEER2 / 8.2+ HSPF2: $300–$600. Mini-split systems 18+ SEER2: $150–$300 per head unit. Smart thermostats compatible with SRP Time-of-Use plans: $25–$50. SRP rebate applications are submitted through SRP's online customer portal within 90 days of installation, with installation invoice and AHRI certificate documentation. SRP rebates are issued as a check or bill credit within 60 days. If you're an SRP customer on SRP's EZ-3 or M-Power time-of-use plan, there are additional bill savings from shifting cooling to off-peak hours — a heat pump combined with a smart thermostat and a time-of-use plan can reduce your annual cooling bill by 20–30% beyond equipment efficiency gains alone.`
+            },
+            {
+              heading: 'Stacking APS/SRP Rebates with the Federal 25C Credit',
+              body: `The federal IRA 25C tax credit is completely separate from utility rebates and can be claimed in addition to them. If you receive an APS rebate of $1,000 on a qualifying heat pump installation, that rebate is technically taxable income in the year received — but even so, the net value of the combined incentive stack (federal credit + utility rebate) is significantly positive. A sample calculation for an APS customer installing a qualifying 18 SEER2 heat pump at $11,500 installed: Federal 25C credit: $2,000 (30% of $11,500, capped at $2,000 for heat pumps). APS rebate: $800 (current level for 18 SEER2 heat pump). Combined day-one incentive: $2,800. Net effective cost: $8,700. Over the system's life, operating savings from higher efficiency add another $200–$400 per year versus a 14 SEER2 minimum-code system. Total 15-year value: $2,800 upfront + $3,000–$6,000 in operating savings = $5,800–$9,800 in total financial benefit versus buying the cheapest qualifying system.`
+            },
+            {
+              heading: 'Low-Income and Income-Qualified Programs',
+              body: `Both APS and SRP have additional programs for income-qualified customers that can provide significantly larger incentives. APS's Energy Support program offers bill discounts and enhanced rebates for customers below certain income thresholds. SRP's Customer Assistance programs include equipment replacement assistance and enhanced rebates. The IRA's HEEHRA (High-Efficiency Electric Home Rebate Act) program, once Arizona launches its state-level administration, will provide point-of-sale rebates of up to $8,000 for heat pump installations for income-qualified households. We track the Arizona HEEHRA rollout timeline and will update our customers when it becomes available. If you believe you may qualify for income-based programs, ask us when scheduling — we'll verify current availability and help you apply.`
+            }
+          ],
+          pullQuote: '"A Phoenix homeowner installing a qualifying heat pump today can receive $2,000 federal + $800 APS = $2,800 in incentives on day one. Most don\'t claim all of it."',
+          conclusion: `The rebate landscape changes regularly, so we verify current program levels before every heat pump quote and include the full incentive picture in your written estimate. We also handle all the documentation: AHRI certificate, installation summary, and rebate application assistance. Visit our <a href="/residential/heat-pump-installation" class="text-sky hover:underline">heat pump installation page</a> for a full overview of our process, or check our <a href="/service-areas/peoria" class="text-sky hover:underline">Peoria service area page</a> where heat pump adoption is particularly strong. Call (480) 123-4567 to get a quote that includes every available incentive.`
+        }
+      }
+    },
+    {
+      params: { slug: 'mini-split-vs-central-ac-phoenix' },
+      props: {
+        category: 'Heat Pumps',
+        categorySlug: 'heat-pumps',
+        title: 'Mini-Split vs Central AC for a Phoenix Addition or ADU',
+        author: 'Diego Ramirez',
+        authorTitle: 'NATE Certified Service Technician',
+        authorCredentials: 'EPA 608 Universal, NATE Certified, ACCA Certified',
+        authorYears: '11 years with Skyhooked on Comfort',
+        authorBio: "Diego Ramirez joined Skyhooked on Comfort in 2015. He specializes in residential diagnostics and has installed and serviced ductless mini-split systems across the Phoenix Valley for over a decade.",
+        date: 'March 12, 2026',
+        readTime: '7 min read',
+        relatedPosts: ['heat-pump-vs-furnace-ac-phoenix', 'federal-heat-pump-tax-credit', 'manual-j-load-calculation'],
+        content: {
+          intro: `You're adding a room, finishing a garage, or building an ADU (accessory dwelling unit) on your Phoenix Valley property. Your existing central AC system is either maxed out, too old to extend, or simply too far away to reach the new space efficiently. Should you extend the existing duct system or install a ductless mini-split? Here's the honest comparison.`,
+          sections: [
+            {
+              heading: 'The Core Differences',
+              body: `Central AC uses a network of ducts to distribute conditioned air from a single air handler throughout the home. Extending a central system to a new space means running new ductwork from the air handler — possible if the system has available capacity and the physical path for ductwork isn't too long or complex. A ductless mini-split is a separate system: an outdoor condenser unit connected via a refrigerant line set (no ductwork) to one or more indoor air handler units (heads) mounted on the wall or ceiling of the space being conditioned. Each head conditions its space directly, with no duct losses. Mini-splits are typically heat pump systems, meaning they both heat and cool. For an addition or ADU in Phoenix, the key variables are: distance from the existing air handler, available capacity in the existing system, whether the space needs dedicated temperature control, and your budget.`
+            },
+            {
+              heading: 'When a Mini-Split Is the Right Answer for Phoenix',
+              body: `Mini-splits win in several common Phoenix scenarios. First, garage conversions or ADUs. A detached or semi-detached ADU typically can't be efficiently served by the main home's central system — the duct run would be long, the load calculations don't work for a shared system, and an ADU often has separate occupancy. A mini-split serves it as an independent system with independent temperature control, energy metering, and no impact on the main home's AC capacity. Mitsubishi, Daikin, and LG units rated for Phoenix's 115°F ambient are our standard specs for Valley installations. Second, new additions with complex routing. If extending ductwork would require penetrating multiple walls, running through the attic for 40+ feet, or creating duct system imbalances in the existing home, a mini-split is often cleaner and cheaper. Third, spaces with different occupancy schedules. A home office that's occupied 8 hours a day doesn't benefit from being on the same zone as the rest of the house. A mini-split that only runs when the room is occupied saves energy year-round.`
+            },
+            {
+              heading: 'When Extending Central AC Makes More Sense',
+              body: `Central system extension wins when: The addition is physically close to the air handler (within 20–30 feet), the duct path is straightforward, and the existing system has available capacity after a load calculation. The aesthetic preference is for no visible wall units. The homeowner wants everything on one thermostat and one system. The system is new enough that the extension won't stress it. A well-designed duct extension with proper Manual D calculations can work perfectly and is often $1,500–$2,500 less expensive than a mini-split for a single room. The risk is that most contractors extend duct systems without doing load calculations, which results in the new room either getting too much or too little airflow, and the rest of the house getting worse distribution.`
+            },
+            {
+              heading: 'Cost Comparison in Phoenix',
+              body: `A typical single-zone ductless mini-split installation in Phoenix (one outdoor unit + one indoor head, 9,000–18,000 BTU for a garage or ADU, quality brand like Mitsubishi or Daikin) runs $3,500–$5,500 installed. Multi-zone systems (one outdoor unit serving 2–4 indoor heads) run $6,500–$12,000 for the full system. A duct extension for a single room addition (straightforward path, properly designed) runs $1,800–$3,500. For ADUs requiring a full independent system (not an extension), mini-splits are almost always the right call — the duct infrastructure for a separate structure would cost as much as the mini-split anyway. Heat pump mini-splits are eligible for the federal 25C tax credit if they meet CEE Tier 2 efficiency thresholds (most Mitsubishi and Daikin units qualify). This can recover 30% of the installed cost up to $2,000.`
+            }
+          ],
+          pullQuote: '"For a Phoenix ADU or detached garage conversion, a mini-split is almost always the right answer — independent control, no duct losses, and eligible for the 30% federal tax credit."',
+          conclusion: `The right answer depends on your specific addition — there's no universal winner. We offer free consultations that include a load calculation for the new space and an honest comparison of both options with installed cost estimates. Visit our <a href="/residential/heat-pump-installation" class="text-sky hover:underline">heat pump installation page</a> for more on our mini-split installations, or our <a href="/service-areas/gilbert" class="text-sky hover:underline">Gilbert service area page</a> — Gilbert's rapid new construction makes this a frequent question there. Call (480) 123-4567 to schedule a free consultation.`
+        }
+      }
+    },
+    {
+      params: { slug: 'day-in-life-hvac-technician' },
+      props: {
+        category: 'Behind the Scenes',
+        categorySlug: 'behind-the-scenes',
+        title: 'Behind the Scenes: A Day in the Life of a Skyhooked on Comfort Technician',
+        author: 'Marcus Torres',
+        authorTitle: 'Master Technician',
+        authorCredentials: 'EPA 608 Universal, NATE Certified',
+        authorYears: '14 years with Skyhooked on Comfort',
+        authorBio: "Marcus Torres has been a technician and team lead with Skyhooked on Comfort since 2012. He leads the residential service team and has run thousands of service calls across the Phoenix Valley.",
+        date: 'March 5, 2026',
+        readTime: '8 min read',
+        relatedPosts: ['ac-tune-up-checklist', 'oversized-ac-problems', 'ac-freezing-up-causes'],
+        content: {
+          intro: `This is the part of the job most customers never see. What actually happens from the moment the dispatch notification hits my phone to the moment I close the truck door on a finished call. This particular day is a Tuesday in July — which in Phoenix HVAC is the equivalent of a surgeon's worst shift on the worst week of the year.`,
+          sections: [
+            {
+              heading: '5:45am — The Truck Check',
+              body: `I start every day with a 20-minute truck inspection before I leave the lot. Service call documentation from yesterday logged and closed. Parts inventory checked — I carry a specific Phoenix-market stock: extra capacitors (the most common failure in Valley heat), contactors, Schrader valve cores, UV light bulbs, 1-inch and 4-inch filters in the most common sizes, 3-ton and 4-ton TXVs, condensate drain flush tablets, refrigerant manifold gauges calibrated. The Phoenix summer kit also includes extra capacitors — I said this already, but I mean it. In July, I replace 6–10 capacitors per week. The heat accelerates capacitor degradation to the point where I carry three times the quantity I carry in winter. By 6:30am, I'm on the road. The dispatcher has already routed my first call — it came in at 10pm last night, standard call, no cooling. Tempe, near the ASU campus. Student housing, of course. AC went out on a 109°F day and the tenant is desperate.`
+            },
+            {
+              heading: '7:15am — The Tempe Call (Standard Capacitor Failure)',
+              body: `This one is a 1980s apartment complex near Apache Boulevard. The system is a 2.5-ton Goodman from 2011, which in Phoenix terms means it's been living hard for 14 summers. Before I even open the electrical panel, I know from the symptoms (unit tries to start, hums, then shuts off) that I'm likely looking at a failed run capacitor. Dual capacitor, out of tolerance on the compressor side — microfarad reading is 23 on a 35/5 rated cap. Replace the capacitor (on the truck, 10-minute job), unit starts clean, check refrigerant pressures, measure temperature split (18°F — excellent for a 14-year-old unit on a hot morning), document everything in the service report app. Total call time: 47 minutes. The tenant is already texting the landlord before I'm back at the truck. This is the best part of the job. Someone's morning went from hot and miserable to fixed in under an hour.`
+            },
+            {
+              heading: 'Noon — The Complicated One',
+              body: `My fourth call is in Chandler. New construction 2019, 4-bedroom, the owner says the upstairs is always 6–8°F hotter than the downstairs. This is not an equipment failure — this is a design problem. I spend 45 minutes doing diagnostics: static pressure measurements at every supply and return register, temperature readings in each room, checking the system's airflow balance. What I find: the upstairs supply registers are getting about 60% of the design airflow because the contractor who built the duct system didn't properly balance the dampers. Two of the upstairs runs also have a sharp 90-degree flex duct turn that's crushing the airflow. I can increase damper positions to improve upstairs flow, but the duct design issue will require a return visit with a crew to reroute one run. I document everything with photos, write the repair quote, explain it to the owner — the flat-rate price for the damper adjustment is $185, and the duct modification is a separate $650 project he'll schedule. He appreciates the honest breakdown. This call took me 90 minutes but the owner finally has an answer after two years of "we can't figure out why it's hot upstairs."'`
+            },
+            {
+              heading: '5:30pm — The Monsoon Call',
+              body: `The afternoon thunderstorm system moved through around 4pm. Humidity jumped from 18% to 52% in about 20 minutes — a classic Phoenix monsoon spike. My phone lights up with three new dispatch calls. One of them is a Glendale home where the AC was "barely keeping up" before the storm and now "can't cool below 82." I know before I arrive: coil is either dirty, refrigerant is low, or both. The combination of pre-storm heat load and monsoon latent load has pushed the marginal system past its limit. It's a 2003 Trane 3-ton that hasn't been serviced in at least two years. Condenser coil is packed with cottonwood seed and dust — common in west Glendale. I clean the coil with the pressure wash rig I carry, check refrigerant pressures (slightly low — Schrader leak at the service port), tighten and replace the valve core, recheck pressures. By 7pm, the system is running at design parameters and the house is at 74°F. I'm driving home in the kind of sunset you only get after a monsoon storm — the whole sky is pink and orange over the Estrella Mountains. This is why Phoenix.`
+            }
+          ],
+          pullQuote: '"In July, I replace 6–10 capacitors per week. Phoenix summers push these components harder than almost anywhere in the US. The heat accelerates everything."',
+          conclusion: `A good Phoenix HVAC day isn't just about fixing things — it's about diagnosing accurately so you fix the right thing, explaining it honestly so the customer understands, and documenting everything so there's no confusion about what was done and what it cost. Skyhooked on Comfort's technicians operate the same way. If your AC is struggling this summer, call (480) 123-4567 for same-day service across the Valley. We serve <a href="/service-areas/phoenix" class="text-sky hover:underline">Phoenix</a>, <a href="/service-areas/tempe" class="text-sky hover:underline">Tempe</a>, <a href="/service-areas/chandler" class="text-sky hover:underline">Chandler</a>, and the full Phoenix Valley. Our <a href="/residential/ac-repair" class="text-sky hover:underline">AC repair page</a> has more on how we handle diagnostics.`
+        }
+      }
+    }
+  ];
+}
+
+const { category, categorySlug, title, author, authorTitle, authorCredentials, authorYears, authorBio, date, readTime, relatedPosts: relatedSlugs, content } = Astro.props;
+
+const allPosts = [
+  { slug: 'heat-pump-vs-furnace-ac-phoenix', title: "Heat Pump vs Furnace + AC in Phoenix: A Licensed Tech's Honest Take", category: 'Buying Guides', author: 'Marcus Torres', date: 'May 8, 2026' },
+  { slug: 'manual-j-load-calculation', title: 'What Is a Manual J Load Calculation?', category: 'Buying Guides', author: 'Diego Ramirez', date: 'May 2, 2026' },
+  { slug: 'federal-heat-pump-tax-credit', title: 'How to Claim the 30% Federal Heat Pump Tax Credit', category: 'Tax Credits & Rebates', author: 'Jasmine Lee', date: 'April 25, 2026' },
+  { slug: 'oversized-ac-problems', title: 'Why an Oversized AC Is Worse Than No AC at All', category: 'Troubleshooting', author: 'Marcus Torres', date: 'April 18, 2026' },
+  { slug: 'ac-tune-up-checklist', title: 'AC Tune-Up Checklist: What a Real $79 Tune-Up Should Include', category: 'Seasonal Tips', author: 'Diego Ramirez', date: 'April 10, 2026' },
+  { slug: 'seer-vs-seer2-explained', title: 'SEER vs SEER2: What Changed', category: 'Buying Guides', author: 'Jasmine Lee', date: 'April 3, 2026' },
+  { slug: 'ac-freezing-up-causes', title: 'Why Your AC Freezes Up — and the 4 Causes', category: 'Troubleshooting', author: 'Marcus Torres', date: 'March 27, 2026' },
+  { slug: 'aps-srp-hvac-rebate-guide', title: 'APS & SRP HVAC Rebate Guide', category: 'Indoor Air Quality', author: 'Jasmine Lee', date: 'March 20, 2026' },
+  { slug: 'mini-split-vs-central-ac-phoenix', title: 'Mini-Split vs Central AC for a Phoenix Addition or ADU', category: 'Heat Pumps', author: 'Diego Ramirez', date: 'March 12, 2026' },
+  { slug: 'day-in-life-hvac-technician', title: 'Behind the Scenes: A Day in the Life of a Skyhooked Technician', category: 'Behind the Scenes', author: 'Marcus Torres', date: 'March 5, 2026' },
+];
+
+const relatedPostsData = allPosts.filter(p => relatedSlugs.includes(p.slug));
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: title,
+  author: {
+    "@type": "Person",
+    name: author,
+    jobTitle: authorTitle,
+    worksFor: {
+      "@type": "Organization",
+      name: "Skyhooked on Comfort"
+    }
+  },
+  datePublished: date,
+  publisher: {
+    "@type": "Organization",
+    name: "Skyhooked on Comfort",
+    url: "https://skyhookedoncomfort.com"
+  }
+};
+---
+
+<BaseLayout
+  title={`${title} | Skyhooked on Comfort`}
+  description={`${content.intro.slice(0, 155)}...`}
+>
+
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
+  <!-- Article Header -->
+  <section class="bg-charcoal-50 border-b border-charcoal/10 py-12">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="mb-5">
+        <a
+          href={`/blog/category/${categorySlug}`}
+          class="inline-block bg-sky text-charcoal text-xs font-display font-bold px-3 py-1 rounded-full hover:bg-sky-dark transition-colors"
+        >
+          {category}
+        </a>
+      </div>
+      <h1 class="font-display font-extrabold text-charcoal text-3xl sm:text-4xl lg:text-5xl leading-tight mb-6">
+        {title}
+      </h1>
+      <!-- Author & meta -->
+      <div class="flex flex-wrap items-center gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full bg-charcoal flex items-center justify-center text-white font-display font-bold text-sm flex-shrink-0">
+            {author.split(' ').map((n: string) => n[0]).join('')}
+          </div>
+          <div>
+            <p class="font-body font-semibold text-charcoal text-sm">{author}</p>
+            <p class="font-body text-neutral-500 text-xs">{authorTitle} · {authorCredentials}</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 font-body text-neutral-500 text-sm border-l border-neutral-200 pl-4 ml-2">
+          <span>{date}</span>
+          <span>·</span>
+          <span>{readTime}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero Image Placeholder -->
+  <div class="max-w-3xl mx-auto px-4 mt-10">
+    <div class="h-72 sm:h-96 bg-gradient-to-br from-charcoal to-charcoal-light rounded-2xl flex items-end p-8">
+      <span class="inline-block bg-sky text-charcoal text-xs font-display font-bold px-3 py-1 rounded-full">
+        {category}
+      </span>
+    </div>
+  </div>
+
+  <!-- Article Body -->
+  <article class="max-w-3xl mx-auto px-4 py-12">
+
+    <!-- Intro -->
+    <div class="font-body text-neutral-700 text-lg leading-relaxed mb-10 prose-lg">
+      <p>{content.intro}</p>
+    </div>
+
+    <!-- Body Sections -->
+    {content.sections.map((section: { heading: string; body: string }) => (
+      <div class="mb-10">
+        <h2 class="font-display font-bold text-charcoal text-2xl sm:text-3xl mb-4">{section.heading}</h2>
+        <div class="font-body text-neutral-700 leading-relaxed text-base">
+          <p set:html={section.body}></p>
+        </div>
+      </div>
+    ))}
+
+    <!-- Pull Quote -->
+    <blockquote class="my-12 border-l-4 border-sky pl-6 py-2">
+      <p class="font-display font-semibold text-charcoal text-xl sm:text-2xl leading-snug italic">
+        {content.pullQuote}
+      </p>
+    </blockquote>
+
+    <!-- Conclusion -->
+    <div class="mb-12">
+      <h2 class="font-display font-bold text-charcoal text-2xl sm:text-3xl mb-4">Bottom Line</h2>
+      <div class="font-body text-neutral-700 leading-relaxed text-base">
+        <p set:html={content.conclusion}></p>
+      </div>
+    </div>
+
+    <!-- Service CTA -->
+    <div class="bg-charcoal rounded-2xl p-8 mb-12 text-center">
+      <h3 class="font-display font-bold text-white text-xl sm:text-2xl mb-3">
+        Have an HVAC question or issue?
+      </h3>
+      <p class="font-body text-charcoal-50 mb-6">
+        We dispatch same-day across the Phoenix Valley. Real humans answer the phone, 24/7.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a
+          href="tel:4801234567"
+          class="flex items-center gap-2 bg-sky hover:bg-sky-dark text-charcoal font-display font-bold px-6 py-3 rounded-xl transition-colors"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Call (480) 123-4567
+        </a>
+        <a
+          href="/contact"
+          class="flex items-center gap-2 border-2 border-white text-white hover:bg-white hover:text-charcoal font-display font-bold px-6 py-3 rounded-xl transition-colors"
+        >
+          Request a Quote →
+        </a>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <div class="bg-charcoal-50 rounded-2xl p-7 border border-charcoal/10 mb-12">
+      <div class="flex items-start gap-5">
+        <div class="w-14 h-14 rounded-full bg-charcoal flex items-center justify-center text-white font-display font-bold text-lg flex-shrink-0">
+          {author.split(' ').map((n: string) => n[0]).join('')}
+        </div>
+        <div>
+          <p class="font-display font-bold text-charcoal text-base mb-0.5">{author}</p>
+          <p class="font-body text-sky text-sm font-semibold mb-1">{authorTitle} · {authorYears}</p>
+          <p class="font-body text-neutral-500 text-xs mb-3">{authorCredentials}</p>
+          <p class="font-body text-neutral-600 text-sm leading-relaxed">{authorBio}</p>
+        </div>
+      </div>
+    </div>
+
+  </article>
+
+
+  <!-- Related Posts -->
+  <section class="bg-neutral-50 py-16 border-t border-neutral-100">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="font-display font-bold text-charcoal text-2xl mb-8">Related articles</h2>
+      <div class="grid sm:grid-cols-3 gap-5">
+        {relatedPostsData.map(post => (
+          <a href={`/blog/${post.slug}`} class="group bg-white rounded-2xl overflow-hidden border border-neutral-100 hover:shadow-lg transition-shadow">
+            <div class="h-36 bg-gradient-to-br from-charcoal to-charcoal-light flex items-end p-4">
+              <span class="inline-block bg-sky text-charcoal text-xs font-display font-bold px-2.5 py-1 rounded-full">
+                {post.category}
+              </span>
+            </div>
+            <div class="p-4">
+              <h3 class="font-display font-bold text-charcoal text-sm mb-2 group-hover:text-charcoal-light transition-colors leading-snug">
+                {post.title}
+              </h3>
+              <p class="font-body text-neutral-400 text-xs mb-2">{post.author} · {post.date}</p>
+              <span class="font-body text-sky text-xs font-semibold">Read more →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const team = [
+  {
+    name: 'Marcus Torres',
+    role: 'Founder & Master Technician',
+    initials: 'MT',
+    years: '15+ years',
+    certs: ['EPA 608 Universal', 'NATE Certified', 'AZ ROC-312489'],
+    dept: 'Leadership',
+    note: "Marcus founded Skyhooked on Comfort in 2010 after growing frustrated with the oversell-first culture at large HVAC companies. His rule is simple: recommend what actually fits the home. When he's not on a job, he's restoring a 1968 Airstream in his garage and trying to convince his kids that fixing things is more satisfying than buying new ones.",
+  },
+  {
+    name: 'Diego Ramirez',
+    role: 'Lead Installer',
+    initials: 'DR',
+    years: '8 years',
+    certs: ['EPA 608 Universal', 'NATE Certified — Installation', 'Carrier Factory Trained'],
+    dept: 'Installations',
+    note: "Diego leads our residential install crews and has put in more Mitsubishi and Carrier heat pump systems than anyone on the team. He's meticulous about startup procedures, commissioning, and making sure every system is comfort-tested before he leaves a job site. Phoenix-born and raised, Diego knows how hard the summer heat is on systems that weren't installed right.",
+  },
+  {
+    name: 'Jasmine Lee',
+    role: 'Senior Service Technician',
+    initials: 'JL',
+    years: '6 years',
+    certs: ['EPA 608 Universal', 'NATE Certified — Service', 'Trane Comfort Specialist Trained'],
+    dept: 'Residential Service',
+    note: "Jasmine runs the most complex diagnostic calls on the residential side. Her specialty is systems nobody else can figure out — she's solved intermittent failures that stumped three previous techs more than once. Outside of work she's a competitive cyclist who can tell you which Phoenix neighborhoods have the best bike infrastructure.",
+  },
+  {
+    name: 'Carlos Vega',
+    role: 'Commercial Lead Technician',
+    initials: 'CV',
+    years: '11 years',
+    certs: ['EPA 608 Universal', 'NATE Certified — Commercial', 'Daikin VRF Specialist'],
+    dept: 'Commercial',
+    note: "Carlos runs our commercial division and has worked on everything from small restaurant RTUs to multi-building VRF systems. He's the person restaurant owners call when their walk-in cooler is down on a Saturday afternoon. Carlos keeps notes on every commercial property he services — so when he shows up, he already knows the quirks.",
+  },
+  {
+    name: 'Sofia Mendez',
+    role: 'Service Technician',
+    initials: 'SM',
+    years: '3 years',
+    certs: ['EPA 608 Universal', 'NATE Certified — Service'],
+    dept: 'Residential Service',
+    note: "Sofia joined us straight out of the trade program at Mesa Community College and has been one of our fastest-learning techs. She handles tune-ups, diagnostics, and repairs across the East Valley. Customers consistently mention her patience explaining what's wrong and what it's going to cost before anything gets started.",
+  },
+  {
+    name: 'Jordan Kim',
+    role: 'Installer',
+    initials: 'JK',
+    years: '4 years',
+    certs: ['EPA 608 Universal', 'Lennox Premier Trained'],
+    dept: 'Installations',
+    note: "Jordan specializes in tight-access installs and ductwork modifications — the jobs that require creative problem-solving in attic spaces where most people wouldn't fit. He's particularly good at mini-split multi-zone layouts where line routing is a puzzle. Off the clock he's an avid rock climber.",
+  },
+];
+---
+
+<BaseLayout
+  title="Meet the Team | Skyhooked on Comfort HVAC in Phoenix, AZ"
+  description="Meet every Skyhooked on Comfort technician who might be at your door. Certifications, experience, and a personal note on every member of our Phoenix Valley team."
+>
+
+  <!-- Hero -->
+  <section class="bg-charcoal py-20">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h1 class="font-display font-extrabold text-white text-4xl sm:text-5xl leading-tight mb-6">
+        Meet every technician you might see in your driveway.
+      </h1>
+      <p class="font-body text-charcoal-50 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
+        Real people with real names, real certifications, and a real stake in making your experience go well. No contractors, no day laborers — everyone on this page is a Skyhooked on Comfort employee.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- Team Grid -->
+  <section class="bg-white py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {team.map(member => (
+          <div class="bg-charcoal-50 rounded-2xl p-6 border border-charcoal/10 hover:shadow-lg transition-shadow">
+            <div class="flex items-center gap-4 mb-5">
+              <div class="w-14 h-14 rounded-full bg-charcoal flex items-center justify-center text-white font-display font-bold text-lg flex-shrink-0">
+                {member.initials}
+              </div>
+              <div>
+                <div class="font-display font-bold text-charcoal text-base">{member.name}</div>
+                <div class="font-body text-neutral-600 text-sm">{member.role}</div>
+                <div class="inline-flex items-center gap-1 mt-1 bg-sky/15 text-sky text-xs font-semibold px-2 py-0.5 rounded-full">{member.dept}</div>
+              </div>
+            </div>
+            <div class="mb-4">
+              <div class="font-body text-xs font-semibold text-neutral-500 uppercase tracking-wide mb-2">Certifications</div>
+              <ul class="space-y-1">
+                {member.certs.map(cert => (
+                  <li class="flex items-center gap-2 text-xs font-body text-neutral-700">
+                    <svg class="w-3 h-3 text-sky flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                    {cert}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="pt-4 border-t border-charcoal/10">
+              <div class="font-body text-xs font-semibold text-neutral-500 uppercase tracking-wide mb-2">With us {member.years}</div>
+              <p class="font-body text-neutral-600 text-sm leading-relaxed">{member.note}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Dispatch Team Note -->
+  <section class="bg-charcoal-50 py-16">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="font-display font-bold text-charcoal text-2xl sm:text-3xl mb-4">Behind every call, there's a dispatcher who knows the Valley.</h2>
+      <p class="font-body text-neutral-600 leading-relaxed mb-6">
+        Our customer service and dispatch team handles every call, text, and online request. They're based in Phoenix, know the service area, and are the first real humans you'll talk to when you reach out. They take ownership of making sure the right tech gets to you with the right parts.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- CTA to Careers -->
+  <section class="bg-charcoal py-20">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 class="font-display font-bold text-white text-3xl sm:text-4xl mb-4">Want to join the team?</h2>
+      <p class="font-body text-charcoal-50 text-lg mb-8">
+        We're hiring technicians, installers, and CSRs who want a career, not just a job. Top pay, real benefits, take-home truck.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/about/careers" class="bg-sky hover:bg-sky-dark text-charcoal font-display font-bold px-8 py-4 rounded-xl transition-colors">
+          See Open Positions →
+        </a>
+        <a href="/contact" class="border-2 border-white text-white hover:bg-white hover:text-charcoal font-display font-bold px-8 py-4 rounded-xl transition-colors">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

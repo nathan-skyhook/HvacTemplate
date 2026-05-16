@@ -1,0 +1,395 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const commonProblems = [
+  {
+    problem: 'Capacitor or Contactor Failure',
+    cause: 'Capacitors and contactors are the most common AC failure points in Phoenix. Our intense heat degrades them faster than national averages — often within 5–7 years on older systems.',
+    fix: 'Single-visit repair. We carry these parts on every truck.',
+  },
+  {
+    problem: 'Refrigerant Leak',
+    cause: 'Vibration, corrosion, or physical damage to copper line sets causes slow leaks. Low refrigerant means the system can\'t transfer heat and your home stays warm.',
+    fix: 'We locate the leak, repair it, and recharge with the correct refrigerant (R-410A, R-22, or R-454B). Adding refrigerant without fixing the leak is a temporary band-aid.',
+  },
+  {
+    problem: 'Frozen Evaporator Coil',
+    cause: 'Restricted airflow (dirty filter, closed vents) or low refrigerant causes the evaporator coil to drop below freezing and ice over. The AC blows air but doesn\'t cool.',
+    fix: 'Shut the system down to thaw, then diagnose and fix the root cause — filter change, airflow correction, or refrigerant recharge.',
+  },
+  {
+    problem: 'Dirty Condenser Coils',
+    cause: 'Phoenix\'s dust storms (haboobs) pack the outdoor condenser coil with debris, reducing the system\'s ability to reject heat. High discharge pressures, high energy bills, and premature compressor failure follow.',
+    fix: 'Professional coil cleaning. Included in our tune-up service — or done standalone as part of a repair visit.',
+  },
+  {
+    problem: 'Blower Motor or Fan Failure',
+    cause: 'The indoor blower motor moves conditioned air through your ductwork. The outdoor fan motor keeps the condenser from overheating. Either failure causes the system to stop working or overheat.',
+    fix: 'Motor replacement — typically a same-day repair if we have the motor on the truck. We carry a wide range of replacement motors.',
+  },
+  {
+    problem: 'Compressor Failure',
+    cause: 'The compressor is the most expensive AC component. It fails from years of wear, chronic low refrigerant, overheating (often from dirty coils), or electrical problems. If the compressor is gone on a system over 10 years old, replacement usually beats repair.',
+    fix: 'We\'ll give you an honest repair-vs-replace recommendation with real numbers — not a push toward the most expensive option.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Can you come the same day?',
+    a: 'Yes, on most calls. Book before noon to virtually guarantee same-day service. Emergency slots are available 24/7 for no-cool situations — especially critical in Phoenix\'s 110°+ summers.',
+  },
+  {
+    q: 'Do you service all AC brands?',
+    a: 'Yes. Carrier, Trane, Lennox, Goodman, Rheem, American Standard, York, Bryant, Daikin, Mitsubishi, and all other major brands. Our technicians are EPA 608 Universal certified and trained across all major manufacturers.',
+  },
+  {
+    q: 'Should I repair or replace my AC?',
+    a: 'General rule: if it\'s 10+ years old, has needed multiple repairs in recent years, uses R-22 refrigerant, or the repair cost exceeds 50% of a new system, replacement usually makes more financial sense. We\'ll show you the math for your specific unit — no pressure either way.',
+  },
+  {
+    q: 'What does the diagnostic fee cover?',
+    a: 'Our flat dispatch fee covers the technician\'s travel and a full system diagnostic. That fee is waived when you approve any repair. You\'ll receive a written flat-rate quote before any work starts.',
+  },
+  {
+    q: 'Do you offer a warranty on repairs?',
+    a: 'Yes. All repairs carry a 1-year workmanship warranty. Parts are covered by manufacturer warranty (typically 1–5 years depending on the part). Comfort Plan members receive extended coverage.',
+  },
+];
+---
+
+<BaseLayout
+  title="AC Repair in Phoenix, AZ | Skyhooked on Comfort"
+  description="Same-day AC repair across the Phoenix Valley. All brands, flat-rate pricing, dispatch fee waived on repair approval. EPA-certified techs. Call (480) 123-4567."
+>
+
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "AC Repair",
+    "provider": {
+      "@type": "HVACBusiness",
+      "name": "Skyhooked on Comfort",
+      "telephone": "(480) 123-4567",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Phoenix",
+        "addressRegion": "AZ",
+        "addressCountry": "US"
+      }
+    },
+    "areaServed": {
+      "@type": "Place",
+      "name": "Phoenix Valley, AZ"
+    },
+    "description": "Same-day residential AC repair across the Phoenix Valley. All brands serviced, flat-rate pricing, dispatch fee waived on repair approval."
+  }
+  </script>
+
+  <!-- ==========================================
+       Hero
+       ========================================== -->
+  <section
+    class="relative min-h-[55vh] flex flex-col justify-center overflow-hidden"
+    style="background: linear-gradient(135deg, oklch(0.12 0.02 253) 0%, oklch(0.18 0.025 253) 60%, oklch(0.24 0.025 253) 100%);"
+  >
+    <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+      <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full opacity-10" style="background: radial-gradient(circle, oklch(0.58 0.13 233), transparent);"></div>
+    </div>
+    <div class="relative max-w-5xl mx-auto px-4 py-24 text-center">
+      <div class="inline-flex items-center gap-2 bg-sky/20 text-sky text-sm font-semibold px-4 py-1.5 rounded-full mb-6 font-body">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-sky"></span>
+        </span>
+        Same-Day Service Available
+      </div>
+      <h1 class="font-display font-extrabold text-white text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6">
+        AC Repair in Phoenix, AZ
+      </h1>
+      <p class="font-body text-charcoal-50 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        A full diagnostic + flat-rate repair on any residential air conditioner, any brand. Most Phoenix Valley calls are on-site the same day. Dispatch fee waived when you approve the repair.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="tel:4801234567" class="flex items-center gap-2 bg-sky hover:bg-sky-dark text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Call (480) 123-4567
+        </a>
+        <a href="/contact" class="flex items-center gap-2 border-2 border-white text-white hover:bg-white hover:text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors">
+          Request a Quote →
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       What's Included
+       ========================================== -->
+  <section class="bg-white py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl mb-6">
+            What your AC repair includes
+          </h2>
+          <p class="font-body text-neutral-600 text-lg leading-relaxed mb-6">
+            We don't patch symptoms and leave. Every repair starts with a full system diagnostic to understand exactly what failed and why — so the fix holds.
+          </p>
+          <ul class="space-y-3">
+            {[
+              'Full system diagnostic — indoor and outdoor units, electrical, refrigerant',
+              'Identify root cause, not just the failed part',
+              'Written flat-rate quote before any work starts',
+              'Repairs on all major brands with parts stocked on the truck',
+              'Refrigerant handling by EPA 608 Universal certified technicians',
+              'Post-repair performance test — we confirm the system is cooling to spec',
+              '1-year workmanship warranty on every repair',
+              'Dispatch fee waived when you approve any repair',
+            ].map(item => (
+              <li class="flex items-start gap-3 font-body text-neutral-700">
+                <svg class="w-5 h-5 text-sky flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="bg-charcoal rounded-2xl p-8">
+          <h3 class="font-display font-bold text-white text-xl mb-6">Pricing structure</h3>
+          <div class="space-y-4">
+            {[
+              { label: 'Dispatch / Diagnostic Fee', value: 'Flat fee — waived on repair approval' },
+              { label: 'Repair Quote', value: 'Written flat-rate before work starts' },
+              { label: 'After-Hours / Weekend', value: 'Same price — no surcharges' },
+              { label: 'Parts Warranty', value: '1–5 years (manufacturer)' },
+              { label: 'Workmanship Warranty', value: '1 year standard' },
+            ].map(row => (
+              <div class="flex justify-between items-start gap-4 border-b border-white/10 pb-4 last:border-0 last:pb-0">
+                <span class="font-body text-charcoal-50 text-sm">{row.label}</span>
+                <span class="font-display font-bold text-sky text-sm text-right">{row.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       Common AC Problems
+       ========================================== -->
+  <section class="bg-charcoal-50 py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl mb-3">
+          Common AC problems we fix in Phoenix
+        </h2>
+        <p class="font-body text-neutral-500 text-lg max-w-xl mx-auto">
+          Phoenix's extreme heat puts unique stress on air conditioners. These are the failures we see most often.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-5">
+        {commonProblems.map(item => (
+          <div class="bg-white rounded-2xl p-6 border border-neutral-100 hover:shadow-lg transition-shadow">
+            <h3 class="font-display font-bold text-charcoal text-base mb-2">{item.problem}</h3>
+            <p class="font-body text-neutral-600 text-sm leading-relaxed mb-3"><strong class="text-charcoal">Why it happens:</strong> {item.cause}</p>
+            <p class="font-body text-sky text-sm font-semibold">{item.fix}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       Our Process
+       ========================================== -->
+  <section class="bg-charcoal py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-white text-3xl sm:text-4xl mb-3">Our repair process</h2>
+        <p class="font-body text-charcoal-50 text-lg max-w-xl mx-auto">From your call to a working AC — here's exactly what to expect.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {[
+          { num: '01', h: 'Call & Schedule', b: 'Real human answers 24/7. We book your window — same day on most calls.' },
+          { num: '02', h: 'Arrive & Diagnose', b: 'Tech texts you an ETA and photo. Full system diagnostic when we arrive.' },
+          { num: '03', h: 'Quote & Approve', b: 'Written flat-rate quote explained clearly. Work starts after your approval.' },
+          { num: '04', h: 'Repair & Test', b: 'Repair completed, system performance tested. 1-year workmanship warranty issued.' },
+        ].map(step => (
+          <div class="bg-charcoal-light/40 rounded-2xl p-6 border border-white/10">
+            <div class="font-display font-extrabold text-sky text-3xl mb-3">{step.num}</div>
+            <h3 class="font-display font-bold text-white text-base mb-2">{step.h}</h3>
+            <p class="font-body text-charcoal-50 text-sm leading-relaxed">{step.b}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       Brands Serviced
+       ========================================== -->
+  <section class="bg-white py-16">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="font-display font-bold text-charcoal text-2xl sm:text-3xl mb-4">Brands we service</h2>
+      <p class="font-body text-neutral-500 mb-8">We service every major residential AC brand — if it cools air, our technicians can fix it.</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        {['Carrier', 'Trane', 'Lennox', 'Goodman', 'Rheem', 'American Standard', 'York', 'Bryant', 'Mitsubishi', 'Daikin', 'LG', 'Fujitsu', 'Bosch', 'Amana'].map(brand => (
+          <span class="bg-charcoal-50 border border-charcoal/15 text-charcoal font-body font-semibold text-sm px-4 py-2 rounded-lg">{brand}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       Reviews
+       ========================================== -->
+  <section class="bg-charcoal-50 py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl text-center mb-10">
+        What Phoenix homeowners say
+      </h2>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <blockquote class="bg-white rounded-2xl p-7 border border-charcoal/10">
+          <div class="flex items-center gap-1 mb-4" aria-label="5 stars">
+            {[...Array(5)].map(() => (
+              <svg class="w-4 h-4 text-sky" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+            ))}
+          </div>
+          <p class="font-body text-neutral-700 text-base leading-relaxed mb-5">
+            "Our AC went out on a 108° day in August. Skyhooked had a tech here within the hour. He diagnosed a bad capacitor, showed me the part, explained the price before touching anything, and fixed it in 30 minutes. No upsell, no drama. I've been a Comfort Plan member ever since."
+          </p>
+          <footer class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-charcoal flex items-center justify-center text-white font-display font-bold text-sm">SK</div>
+            <div>
+              <cite class="font-body font-semibold text-charcoal not-italic text-sm">Sarah K.</cite>
+              <p class="font-body text-neutral-500 text-xs">Ahwatukee · AC Repair</p>
+            </div>
+          </footer>
+        </blockquote>
+
+        <blockquote class="bg-white rounded-2xl p-7 border border-charcoal/10">
+          <div class="flex items-center gap-1 mb-4" aria-label="5 stars">
+            {[...Array(5)].map(() => (
+              <svg class="w-4 h-4 text-sky" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+            ))}
+          </div>
+          <p class="font-body text-neutral-700 text-base leading-relaxed mb-5">
+            "Three different HVAC companies told me I needed a whole new AC. Skyhooked diagnosed a refrigerant leak and a dirty condenser coil, fixed both, and saved me about $4,000. They showed me exactly what they found and why a repair made sense over replacement for my 7-year-old Trane."
+          </p>
+          <footer class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-charcoal flex items-center justify-center text-white font-display font-bold text-sm">TM</div>
+            <div>
+              <cite class="font-body font-semibold text-charcoal not-italic text-sm">Tom M.</cite>
+              <p class="font-body text-neutral-500 text-xs">Tempe · AC Repair</p>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       FAQ
+       ========================================== -->
+  <section class="bg-white py-20">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl text-center mb-10">
+        AC repair — common questions
+      </h2>
+      <div class="space-y-3 mb-10">
+        {faqs.map((faq, i) => (
+          <div class="faq-item border border-neutral-200 rounded-xl overflow-hidden">
+            <button
+              class="faq-btn w-full text-left flex items-center justify-between gap-4 p-5 font-display font-semibold text-charcoal hover:bg-charcoal-50 transition-colors"
+              aria-expanded="false"
+              data-index={i}
+            >
+              <span>{faq.q}</span>
+              <svg class="faq-chevron w-5 h-5 flex-shrink-0 text-sky transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-panel hidden px-5 pb-5">
+              <p class="font-body text-neutral-600 leading-relaxed">{faq.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       Related Services
+       ========================================== -->
+  <section class="bg-charcoal-50 py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="font-display font-bold text-charcoal text-2xl mb-8 text-center">Related services</h2>
+      <div class="grid sm:grid-cols-3 gap-4">
+        {[
+          { href: '/residential/ac-installation', name: 'AC Installation', desc: 'High-efficiency systems with financing and Manual J sizing.' },
+          { href: '/residential/tune-ups-maintenance', name: 'Tune-Ups & Maintenance', desc: 'Prevent repairs with a twice-yearly precision tune-up.' },
+          { href: '/residential/emergency-hvac', name: 'Emergency HVAC', desc: '24/7 emergency service, no overtime fees.' },
+        ].map(s => (
+          <a href={s.href} class="group bg-white hover:bg-charcoal rounded-xl p-5 border border-charcoal/10 hover:border-charcoal transition-colors">
+            <h3 class="font-display font-bold text-charcoal group-hover:text-white text-sm mb-1 transition-colors">{s.name}</h3>
+            <p class="font-body text-neutral-500 group-hover:text-charcoal-50 text-xs transition-colors">{s.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       Bottom CTA
+       ========================================== -->
+  <section class="bg-charcoal py-20">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 class="font-display font-extrabold text-white text-3xl sm:text-4xl mb-6">
+        AC not cooling? Let's fix it today.
+      </h2>
+      <p class="font-body text-charcoal-50 text-lg mb-8">
+        Same-day service on most calls. Dispatch fee waived when you approve the repair. No surprises.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="tel:4801234567" class="flex items-center gap-2 bg-sky hover:bg-sky-dark text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Call (480) 123-4567
+        </a>
+        <a href="/contact" class="flex items-center gap-2 border-2 border-white text-white hover:bg-white hover:text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors">
+          Request a Quote →
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel = btn.nextElementSibling as HTMLElement;
+      const chevron = btn.querySelector('.faq-chevron') as SVGElement;
+      const isOpen = !panel.classList.contains('hidden');
+      document.querySelectorAll('.faq-panel').forEach(p => p.classList.add('hidden'));
+      document.querySelectorAll('.faq-chevron').forEach(c => c.classList.remove('rotate-180'));
+      document.querySelectorAll('.faq-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+      if (!isOpen) {
+        panel.classList.remove('hidden');
+        chevron?.classList.add('rotate-180');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>

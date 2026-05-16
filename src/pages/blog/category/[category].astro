@@ -1,0 +1,131 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { category: 'maintenance-tips' }, props: { label: 'Maintenance Tips' } },
+    { params: { category: 'buying-guides' }, props: { label: 'Buying Guides' } },
+    { params: { category: 'phoenix-hvac' }, props: { label: 'Phoenix HVAC' } },
+    { params: { category: 'energy-savings' }, props: { label: 'Energy Savings' } },
+    { params: { category: 'company-news' }, props: { label: 'Company News' } },
+  ];
+}
+
+const { category } = Astro.params;
+const { label } = Astro.props;
+
+// Placeholder posts — replace with real CMS/collection query
+const allPosts = [
+  {
+    slug: 'when-to-replace-vs-repair-ac-phoenix',
+    category: 'buying-guides',
+    title: 'When to Replace vs. Repair Your AC in Phoenix',
+    date: 'May 1, 2025',
+    excerpt: 'The 5,000-rule says repair if cost × remaining years < $5,000. But in Phoenix, the calculus is different — here\'s how to think through it.',
+    readTime: '6 min',
+  },
+  {
+    slug: 'phoenix-ac-tune-up-checklist',
+    category: 'maintenance-tips',
+    title: 'The Phoenix Homeowner\'s Spring AC Tune-Up Checklist',
+    date: 'March 15, 2025',
+    excerpt: 'What to check yourself, what to leave for the tech, and why March matters more than any other month for Phoenix HVAC maintenance.',
+    readTime: '5 min',
+  },
+  {
+    slug: 'aps-peak-rewards-explained',
+    category: 'energy-savings',
+    title: 'APS Peak Rewards Explained: How to Get Bill Credits This Summer',
+    date: 'February 28, 2025',
+    excerpt: 'APS pays you real money to pre-cool your home and raise setpoints during peak demand hours. Here\'s exactly how to enroll and maximize your credits.',
+    readTime: '7 min',
+  },
+  {
+    slug: 'seer2-ratings-phoenix-heat',
+    category: 'buying-guides',
+    title: 'SEER2 Ratings and Phoenix Heat: What Actually Matters',
+    date: 'January 20, 2025',
+    excerpt: 'SEER2 is now the law. But what does it mean for Phoenix homeowners replacing a system? Here\'s what to look for — and what the salesperson might not tell you.',
+    readTime: '8 min',
+  },
+  {
+    slug: 'haboob-hvac-protection',
+    category: 'phoenix-hvac',
+    title: 'Protecting Your HVAC System During Haboob Season',
+    date: 'April 10, 2025',
+    excerpt: 'Phoenix dust storms can wreck an HVAC system fast — clogged condenser coils, destroyed filters, intake blockages. Here\'s what to do before, during, and after.',
+    readTime: '5 min',
+  },
+  {
+    slug: 'heat-pump-phoenix-2025',
+    category: 'buying-guides',
+    title: 'Do Heat Pumps Make Sense in Phoenix? A 2025 Honest Assessment',
+    date: 'December 5, 2024',
+    excerpt: 'Modern heat pumps work well down to the low 20s°F — Phoenix winters are mild. But is a heat pump the right call for Valley homeowners in 2025?',
+    readTime: '9 min',
+  },
+];
+
+const categoryPosts = allPosts.filter(p => p.category === category);
+const otherCategories = [
+  { slug: 'maintenance-tips', label: 'Maintenance Tips' },
+  { slug: 'buying-guides', label: 'Buying Guides' },
+  { slug: 'phoenix-hvac', label: 'Phoenix HVAC' },
+  { slug: 'energy-savings', label: 'Energy Savings' },
+  { slug: 'company-news', label: 'Company News' },
+].filter(c => c.slug !== category);
+---
+
+<BaseLayout
+  title={`${label} — HVAC Blog | Skyhooked on Comfort`}
+  description={`${label} articles from Skyhooked on Comfort — Phoenix Valley HVAC experts. Honest advice for homeowners and businesses.`}
+>
+  <section class="bg-charcoal-50 py-16 border-b border-neutral-200">
+    <div class="max-w-4xl mx-auto px-4">
+      <a href="/blog" class="inline-flex items-center gap-1 font-body text-sky text-sm mb-6 hover:underline">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+        All Articles
+      </a>
+      <div class="inline-flex items-center gap-2 bg-sky/10 text-sky text-xs font-semibold px-3 py-1 rounded-full mb-3 font-body">{label}</div>
+      <h1 class="font-display font-extrabold text-charcoal text-3xl sm:text-4xl">{label}</h1>
+    </div>
+  </section>
+
+  <section class="bg-white py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      {categoryPosts.length > 0 ? (
+        <div class="space-y-6">
+          {categoryPosts.map(post => (
+            <article class="border border-neutral-200 rounded-2xl p-6 hover:shadow-lg transition-shadow bg-charcoal-50">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="font-body text-xs text-sky font-semibold uppercase tracking-wide">{label}</span>
+                <span class="font-body text-xs text-neutral-400">{post.date}</span>
+                <span class="font-body text-xs text-neutral-400">{post.readTime} read</span>
+              </div>
+              <h2 class="font-display font-bold text-charcoal text-xl mb-2">
+                <a href={`/blog/${post.slug}`} class="hover:text-sky transition-colors">{post.title}</a>
+              </h2>
+              <p class="font-body text-neutral-600 text-sm leading-relaxed mb-4">{post.excerpt}</p>
+              <a href={`/blog/${post.slug}`} class="font-body text-sky text-sm font-semibold hover:underline">Read article →</a>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-20">
+          <p class="font-body text-neutral-500 text-lg mb-6">No articles yet in this category. Check back soon.</p>
+          <a href="/blog" class="font-display font-bold text-sky hover:underline">← Browse all articles</a>
+        </div>
+      )}
+
+      <!-- Other categories -->
+      <div class="mt-16 pt-10 border-t border-neutral-200">
+        <h2 class="font-display font-bold text-charcoal text-lg mb-4">Other categories</h2>
+        <div class="flex flex-wrap gap-2">
+          {otherCategories.map(c => (
+            <a href={`/blog/category/${c.slug}`} class="bg-charcoal-50 border border-neutral-200 rounded-full px-4 py-1.5 font-body text-sm text-charcoal hover:border-sky hover:text-sky transition-colors">{c.label}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

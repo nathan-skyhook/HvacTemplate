@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const sections = [
+  {
+    title: 'Residential Services',
+    links: [
+      { label: 'Residential HVAC Overview', href: '/residential' },
+      { label: 'AC Repair', href: '/residential/ac-repair' },
+      { label: 'AC Installation & Replacement', href: '/residential/ac-installation' },
+      { label: 'Heating Repair', href: '/residential/heating-repair' },
+      { label: 'Heating Installation', href: '/residential/heating-installation' },
+      { label: 'Heat Pump Installation', href: '/residential/heat-pump-installation' },
+      { label: 'Ductless Mini-Splits', href: '/residential/ductless-mini-splits' },
+      { label: 'Indoor Air Quality', href: '/residential/indoor-air-quality' },
+      { label: 'Duct Cleaning & Sealing', href: '/residential/duct-cleaning-sealing' },
+      { label: 'Smart Thermostats', href: '/residential/smart-thermostats' },
+      { label: 'Tune-Ups & Maintenance', href: '/residential/tune-ups-maintenance' },
+      { label: 'Zoning Controls', href: '/residential/zoning-controls' },
+      { label: 'Emergency HVAC (Residential)', href: '/residential/emergency-hvac' },
+    ],
+  },
+  {
+    title: 'Commercial Services',
+    links: [
+      { label: 'Commercial HVAC Overview', href: '/commercial' },
+      { label: 'Commercial AC Systems', href: '/commercial/commercial-ac-systems' },
+      { label: 'Commercial Heating & Boilers', href: '/commercial/commercial-heating-boilers' },
+      { label: 'Chiller Services', href: '/commercial/chiller-services' },
+      { label: 'VRF/VRV Systems', href: '/commercial/vrf-vrv-systems' },
+      { label: 'Commercial Refrigeration', href: '/commercial/commercial-refrigeration' },
+      { label: 'Preventive Maintenance', href: '/commercial/preventive-maintenance' },
+      { label: 'Indoor Air Quality (Commercial)', href: '/commercial/indoor-air-quality-commercial' },
+      { label: 'New Construction & Tenant Improvement', href: '/commercial/new-construction-tenant-improvement' },
+      { label: 'Industries Served', href: '/commercial/industries-served' },
+      { label: 'Emergency HVAC (Commercial)', href: '/commercial/emergency-hvac' },
+    ],
+  },
+  {
+    title: 'Service Areas',
+    links: [
+      { label: 'All Service Areas', href: '/service-areas' },
+      { label: 'Phoenix', href: '/service-areas/phoenix' },
+      { label: 'Scottsdale', href: '/service-areas/scottsdale' },
+      { label: 'Tempe', href: '/service-areas/tempe' },
+      { label: 'Mesa', href: '/service-areas/mesa' },
+      { label: 'Chandler', href: '/service-areas/chandler' },
+      { label: 'Gilbert', href: '/service-areas/gilbert' },
+      { label: 'Glendale', href: '/service-areas/glendale' },
+      { label: 'Peoria', href: '/service-areas/peoria' },
+      { label: 'Surprise', href: '/service-areas/surprise' },
+      { label: 'Avondale', href: '/service-areas/avondale' },
+      { label: 'Goodyear', href: '/service-areas/goodyear' },
+      { label: 'Ahwatukee', href: '/service-areas/ahwatukee' },
+    ],
+  },
+  {
+    title: 'About Skyhooked',
+    links: [
+      { label: 'About Us', href: '/about' },
+      { label: 'Our Team', href: '/about/team' },
+      { label: 'Why Choose Us', href: '/about/why-us' },
+      { label: 'Careers', href: '/about/careers' },
+      { label: 'Reviews', href: '/reviews' },
+    ],
+  },
+  {
+    title: 'Plans & Promotions',
+    links: [
+      { label: 'Maintenance Plans', href: '/maintenance-plans' },
+      { label: 'Financing', href: '/financing' },
+      { label: 'Current Promotions', href: '/promotions' },
+    ],
+  },
+  {
+    title: 'Resources',
+    links: [
+      { label: 'Blog', href: '/blog' },
+      { label: 'FAQ', href: '/faq' },
+      { label: 'Emergency HVAC', href: '/emergency' },
+      { label: 'Contact Us', href: '/contact' },
+    ],
+  },
+  {
+    title: 'Legal',
+    links: [
+      { label: 'Privacy Policy', href: '/privacy' },
+      { label: 'Terms of Service', href: '/terms-of-service' },
+      { label: 'Accessibility', href: '/accessibility' },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Sitemap | Skyhooked on Comfort"
+  description="Complete sitemap for Skyhooked on Comfort — Phoenix Valley HVAC services for residential and commercial customers."
+>
+  <section class="bg-charcoal-50 py-16 border-b border-neutral-200">
+    <div class="max-w-4xl mx-auto px-4">
+      <h1 class="font-display font-extrabold text-charcoal text-3xl sm:text-4xl mb-2">Sitemap</h1>
+      <p class="font-body text-neutral-500">All pages on the Skyhooked on Comfort website.</p>
+    </div>
+  </section>
+
+  <section class="bg-white py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {sections.map(section => (
+          <div>
+            <h2 class="font-display font-bold text-charcoal text-lg mb-4 pb-2 border-b border-neutral-200">{section.title}</h2>
+            <ul class="space-y-2">
+              {section.links.map(link => (
+                <li>
+                  <a href={link.href} class="font-body text-neutral-600 text-sm hover:text-sky transition-colors">{link.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

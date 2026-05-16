@@ -1,0 +1,326 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Commercial Heating and Boilers",
+  "name": "Commercial Heating & Boiler Service Phoenix AZ",
+  "provider": {
+    "@type": "HVACBusiness",
+    "name": "Skyhooked on Comfort",
+    "telephone": "(480) 123-4567",
+    "address": { "@type": "PostalAddress", "addressLocality": "Phoenix", "addressRegion": "AZ" }
+  },
+  "areaServed": { "@type": "State", "name": "Phoenix Valley, AZ" }
+};
+
+const systems = [
+  { name: 'Commercial Boilers', desc: 'Hot water and steam boilers for office complexes, multifamily, healthcare, and industrial buildings. Gas-fired and electric boiler service, repair, and replacement. Combustion analysis on every maintenance visit.' },
+  { name: 'Commercial Furnaces', desc: 'High-capacity gas furnaces for retail, office, and light industrial applications. All brands, all BTU ranges. Annual combustion safety inspection included with every maintenance contract.' },
+  { name: 'Commercial Heat Pumps', desc: 'Air-source and ground-source commercial heat pumps for Phoenix Valley office and multifamily buildings. High-efficiency variable-speed systems for buildings targeting energy benchmarking compliance.' },
+];
+
+const boilerTypes = [
+  {
+    name: 'Hot Water Boilers',
+    body: 'The most common commercial boiler type in Phoenix Valley buildings. Heat water for hydronic distribution systems, fan coil units, and radiant heating. Lower operating pressures, simpler maintenance, and safer operation than steam systems.',
+  },
+  {
+    name: 'Steam Boilers',
+    body: 'Found primarily in older multifamily, hospital, and industrial facilities. Higher pressure systems requiring licensed boiler operators in some applications. We hold all necessary certifications for steam boiler service and repair.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Do commercial buildings in Phoenix really need heating systems?',
+    a: 'Yes. Phoenix winters regularly see temperatures in the 30s°F at night, and lows below 40°F for extended periods in December and January. Commercial buildings with large glass facades and high ceiling volumes lose heat quickly. Healthcare, multifamily, and hospitality buildings have heating requirements regardless of climate.',
+  },
+  {
+    q: 'How often should commercial boilers be serviced in Arizona?',
+    a: 'Annual combustion analysis and safety inspection at minimum. Boilers in healthcare and multifamily with continuous operation benefit from semi-annual inspections. We document all combustion readings for compliance records.',
+  },
+  {
+    q: 'Do you pull commercial heating permits in Phoenix?',
+    a: 'Yes. Commercial heating installations and significant modifications require mechanical permits. We pull all required permits, schedule inspections, and manage AHJ correspondence. AZ ROC-312489.',
+  },
+  {
+    q: 'What brands of commercial boilers do you service?',
+    a: 'Weil-McLain, Burnham, Lochinvar, Navien, HTP, Viessmann, Lennox, and others. For less common or older boilers, we source parts and can advise on replacement cost vs. continued repair.',
+  },
+  {
+    q: 'Can you coordinate commercial heating work around occupied building schedules?',
+    a: 'Yes. This is standard for all our commercial work. Healthcare and occupied multifamily buildings get coordinated downtime windows. We schedule work to minimize impact on occupants.',
+  },
+];
+---
+
+<BaseLayout
+  title="Commercial Heating & Boilers in Phoenix, AZ | Skyhooked on Comfort"
+  description="Commercial heating, boiler service, and repair in Phoenix Valley. Hot water and steam boilers, commercial furnaces, heat pumps. AZ ROC-312489. Call (480) 123-4567."
+>
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+
+  <!-- Hero -->
+  <section
+    class="relative min-h-[60vh] flex flex-col justify-center overflow-hidden"
+    style="background: linear-gradient(135deg, oklch(0.12 0.02 253) 0%, oklch(0.18 0.025 253) 50%, oklch(0.30 0.025 253) 100%);"
+  >
+    <div class="relative max-w-5xl mx-auto px-4 py-24 text-center">
+      <h1 class="font-display font-extrabold text-white text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6">
+        Commercial Heating &amp; Boilers<br class="hidden sm:block"/>
+        <span class="text-sky">in Phoenix, AZ</span>
+      </h1>
+      <p class="font-body text-charcoal-50 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        Phoenix winters are mild but not zero. Office towers, multifamily complexes, healthcare facilities, and industrial buildings throughout the Phoenix Valley all have commercial heating requirements that demand licensed, experienced service. Skyhooked on Comfort services and installs commercial boilers, furnaces, and heat pumps — with proper permits, documentation, and compliance records on every project.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="tel:4801234567" class="flex items-center gap-2 bg-sky hover:bg-sky-dark text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Call (480) 123-4567
+        </a>
+        <a href="/contact" class="flex items-center gap-2 border-2 border-white text-white hover:bg-white hover:text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors">
+          Request a Bid →
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Systems Covered -->
+  <section class="bg-white py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl mb-3">Commercial Heating Systems We Service</h2>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-6">
+        {systems.map(s => (
+          <div class="bg-charcoal-50 rounded-2xl p-7 border border-neutral-100">
+            <h3 class="font-display font-bold text-charcoal text-lg mb-3">{s.name}</h3>
+            <p class="font-body text-neutral-600 text-sm leading-relaxed">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Applications -->
+  <section class="bg-charcoal py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-white text-3xl sm:text-4xl mb-3">Commercial Heating Applications</h2>
+        <p class="font-body text-charcoal-50 text-lg max-w-xl mx-auto">The right heating solution depends on building type, occupancy, and budget cycles.</p>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-6">
+        {[
+          { name: 'Office Buildings', body: 'Rooftop package units with gas heat or heat pump staging. Controls integration for occupancy scheduling. Phoenix office buildings benefit from heat pump heating during mild winters — lower operating cost than gas for the hours actually needed.' },
+          { name: 'Industrial & Manufacturing', body: 'High-capacity unit heaters, radiant heating for large warehouse volumes, and makeup air units with gas heat to temper large volumes of outside air. Ventilation exhaust load calculations included.' },
+          { name: 'Multifamily & Mixed-Use', body: 'Boiler-based hydronic systems for older multifamily buildings, and heat pump RTU or VRF systems for newer construction. Service contracts cover common-area equipment plus tenant-unit coordination.' },
+        ].map(item => (
+          <div class="bg-charcoal-light/40 rounded-2xl p-6 border border-white/10">
+            <h3 class="font-display font-bold text-white text-base mb-3">{item.name}</h3>
+            <p class="font-body text-charcoal-50 text-sm leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Boiler Types -->
+  <section class="bg-charcoal-50 py-20">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl mb-8 text-center">Boiler Types We Service</h2>
+      <div class="grid sm:grid-cols-2 gap-6">
+        {boilerTypes.map(b => (
+          <div class="bg-white rounded-2xl p-7 border border-neutral-100 hover:shadow-lg transition-shadow">
+            <h3 class="font-display font-bold text-charcoal text-xl mb-3">{b.name}</h3>
+            <p class="font-body text-neutral-600 leading-relaxed">{b.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Brands -->
+  <section class="bg-white py-16">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="font-display font-bold text-charcoal text-2xl mb-6">Brands We Install & Service</h2>
+      <div class="flex flex-wrap justify-center gap-3">
+        {['Carrier', 'Trane', 'Lennox', 'York', 'Weil-McLain', 'Burnham', 'Lochinvar', 'Navien', 'Viessmann', 'HTP', 'Daikin', 'Goodman'].map(b => (
+          <span class="bg-charcoal-50 border border-neutral-200 text-charcoal font-body font-semibold text-sm px-4 py-2 rounded-xl">{b}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Process -->
+  <section class="bg-charcoal-50 py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl mb-3">Our Commercial Heating Process</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { n: '01', heading: 'Site Assessment', body: 'Survey all heating equipment, document BTU capacity, fuel type, age, and condition. Identify code compliance gaps.' },
+          { n: '02', heading: 'Written Proposal', body: 'Equipment options with efficiency comparisons, operating cost projections, permit and inspection plan, and flat-rate pricing.' },
+          { n: '03', heading: 'Installation', body: 'Licensed installation with permits pulled, inspections scheduled, combustion safety verified. Scheduled around your operation.' },
+          { n: '04', heading: 'Compliance Records', body: 'Combustion analysis report, permit closeout, warranty registration, and service report delivered to facilities team.' },
+        ].map(step => (
+          <div>
+            <div class="text-6xl font-display font-extrabold text-sky/20 leading-none mb-3">{step.n}</div>
+            <h3 class="font-display font-bold text-charcoal text-base mb-2">{step.heading}</h3>
+            <p class="font-body text-neutral-500 text-sm leading-relaxed">{step.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Compliance -->
+  <section class="bg-charcoal py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="font-display font-bold text-white text-3xl mb-6 text-center">Compliance & Permits</h2>
+      <div class="grid sm:grid-cols-3 gap-6">
+        {[
+          { heading: 'Arizona Mechanical Code', body: 'All commercial heating installations comply with the current Arizona Mechanical Code. Permits pulled before work starts, inspections scheduled, copies of inspection reports provided at closeout.' },
+          { heading: 'Combustion Safety Records', body: 'Every gas-fired heating system gets a combustion analysis. Results documented in writing. Carbon monoxide levels, flue gas temperatures, and efficiency readings on file.' },
+          { heading: 'AZ ROC-312489', body: 'Skyhooked on Comfort holds Arizona contractor license AZ ROC-312489. Fully insured and bonded for commercial projects. Certificate of insurance available before work begins.' },
+        ].map(item => (
+          <div class="bg-charcoal-light/40 rounded-2xl p-6 border border-white/10">
+            <h3 class="font-display font-bold text-white text-base mb-2">{item.heading}</h3>
+            <p class="font-body text-charcoal-50 text-sm leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Reviews -->
+  <section class="bg-white py-20">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="font-display font-bold text-charcoal text-3xl mb-2">What Commercial Clients Say</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <blockquote class="bg-charcoal-50 rounded-2xl p-7 border border-charcoal/10">
+          <div class="flex items-center gap-1 mb-4">
+            {[...Array(5)].map(() => (<svg class="w-4 h-4 text-sky" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>))}
+          </div>
+          <p class="font-body text-neutral-700 text-base leading-relaxed mb-5">
+            "Replaced the boiler in our 1990s multifamily building — tight mechanical room, old steam system. Skyhooked assessed it properly, recommended a modern condensing hot water conversion, managed the permits, and scheduled all work between 10 PM and 6 AM so residents weren't impacted. Combustion records and inspection reports delivered same week."
+          </p>
+          <footer class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-charcoal flex items-center justify-center text-white font-display font-bold text-sm">AV</div>
+            <div>
+              <cite class="font-body font-semibold text-charcoal not-italic text-sm">Andrea V.</cite>
+              <p class="font-body text-neutral-500 text-xs">Property Manager · Phoenix Multifamily Complex</p>
+            </div>
+          </footer>
+        </blockquote>
+        <blockquote class="bg-charcoal-50 rounded-2xl p-7 border border-charcoal/10">
+          <div class="flex items-center gap-1 mb-4">
+            {[...Array(5)].map(() => (<svg class="w-4 h-4 text-sky" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>))}
+          </div>
+          <p class="font-body text-neutral-700 text-base leading-relaxed mb-5">
+            "Annual combustion analysis on our industrial facility's unit heaters — the kind of documentation our insurance carrier requires. Skyhooked shows up on schedule, documents everything correctly, and the reports are clean enough to hand directly to our risk team."
+          </p>
+          <footer class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-charcoal flex items-center justify-center text-white font-display font-bold text-sm">DN</div>
+            <div>
+              <cite class="font-body font-semibold text-charcoal not-italic text-sm">David N.</cite>
+              <p class="font-body text-neutral-500 text-xs">Facilities Manager · Chandler Industrial</p>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FAQ -->
+  <section class="bg-charcoal-50 py-20">
+    <div class="max-w-2xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="font-display font-bold text-charcoal text-3xl mb-3">Commercial Heating FAQ</h2>
+      </div>
+      <div id="faq-list" class="space-y-3 mb-10">
+        {faqs.map((faq, i) => (
+          <div class="faq-item border border-neutral-200 rounded-xl overflow-hidden bg-white">
+            <button class="faq-btn w-full text-left flex items-center justify-between gap-4 p-5 font-display font-semibold text-charcoal hover:bg-charcoal-50 transition-colors" aria-expanded="false" data-index={i}>
+              <span>{faq.q}</span>
+              <svg class="faq-chevron w-5 h-5 flex-shrink-0 text-sky transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-panel hidden px-5 pb-5">
+              <p class="font-body text-neutral-600 leading-relaxed">{faq.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Related -->
+  <section class="bg-white py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="font-display font-bold text-charcoal text-2xl mb-6 text-center">Related Commercial Services</h2>
+      <div class="grid sm:grid-cols-3 gap-4">
+        {[
+          { href: '/commercial/commercial-ac-systems', name: 'Commercial AC Systems', desc: 'RTUs, package units, and AHUs.' },
+          { href: '/commercial/preventive-maintenance', name: 'Preventive Maintenance', desc: 'Annual combustion analysis included.' },
+          { href: '/commercial/indoor-air-quality-commercial', name: 'Commercial IAQ', desc: 'Ventilation and combustion air standards.' },
+        ].map(link => (
+          <a href={link.href} class="bg-charcoal-50 rounded-xl p-5 hover:shadow-md transition-shadow border border-neutral-100">
+            <h3 class="font-display font-bold text-charcoal text-sm mb-1">{link.name}</h3>
+            <p class="font-body text-neutral-500 text-xs">{link.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section class="bg-charcoal py-20">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 class="font-display font-extrabold text-white text-3xl sm:text-4xl mb-6">Commercial heating project in Phoenix?</h2>
+      <p class="font-body text-charcoal-50 text-lg mb-8">Boilers, furnaces, heat pumps — all covered. Site walk within 48 hours. Permits handled.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="tel:4801234567" class="flex items-center gap-2 bg-sky hover:bg-sky-dark text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Call (480) 123-4567
+        </a>
+        <a href="/contact" class="flex items-center gap-2 border-2 border-white text-white hover:bg-white hover:text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors">
+          Request a Bid →
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel = btn.nextElementSibling as HTMLElement;
+      const chevron = btn.querySelector('.faq-chevron') as SVGElement;
+      const isOpen = !panel.classList.contains('hidden');
+      document.querySelectorAll('.faq-panel').forEach(p => p.classList.add('hidden'));
+      document.querySelectorAll('.faq-chevron').forEach(c => c.classList.remove('rotate-180'));
+      document.querySelectorAll('.faq-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+      if (!isOpen) {
+        panel.classList.remove('hidden');
+        chevron?.classList.add('rotate-180');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>

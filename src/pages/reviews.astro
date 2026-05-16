@@ -1,0 +1,298 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const featured = [
+  {
+    quote: "We replaced a 22-year-old AC and furnace with a Mitsubishi Hyper-Heat system through Skyhooked. They ran a real Manual J — three previous contractors had quoted us a system 1.5 tons too big. New system runs quieter, the house is more comfortable, and our combined heating and cooling cost dropped 35% the first year. They also walked us through the federal tax credit and the SRP rebate. Marcus's team is in a different league.",
+    name: 'Lauren H.',
+    location: 'Chandler',
+    service: 'Full Heat Pump Conversion',
+    initials: 'LH',
+  },
+  {
+    quote: "AC died on July 8th — a Friday evening with 112° in the forecast. I called four HVAC companies and got voicemails or 'next available Tuesday.' Skyhooked picked up on the first ring, had a tech here in 45 minutes, replaced the capacitor, and ran a full diagnostic for the flat-rate price. We've been on their Comfort Plan ever since and haven't had an emergency call since.",
+    name: 'Tom M.',
+    location: 'Tempe',
+    service: 'Emergency AC Repair',
+    initials: 'TM',
+  },
+  {
+    quote: "Best HVAC company in the Valley, full stop. We use Skyhooked across four restaurant locations in the Phoenix area. Quarterly maintenance has kept our RTUs and walk-in coolers running through three Phoenix summers without a single peak-hours failure. Their service reports are detailed enough that I can hand them to corporate without editing anything.",
+    name: 'James O.',
+    location: 'Phoenix',
+    service: 'Commercial Maintenance — 4 Locations',
+    initials: 'JO',
+  },
+];
+
+const additional = [
+  {
+    quote: "Called at 9pm on a Sunday, fully expecting a callback the next morning. A real person answered on the second ring, had a tech dispatched, and by 11pm my furnace was running again. My kids didn't even know it happened. No extra charge for Sunday — exactly what they promised.",
+    name: 'Rachel W.',
+    location: 'Gilbert',
+    service: 'Emergency Furnace Repair',
+    initials: 'RW',
+    filter: 'Heating',
+  },
+  {
+    quote: "Three companies quoted me a 5-ton heat pump. Skyhooked was the only one who actually measured the house and came in at 3 tons. Saved $4,200 on the install, and the house is more comfortable than it ever was with the oversized system running. Diego on the install crew was outstanding.",
+    name: 'Brian K.',
+    location: 'North Scottsdale',
+    service: 'Heat Pump Installation',
+    initials: 'BK',
+    filter: 'Heat Pumps',
+  },
+  {
+    quote: "Jasmine came out for an AC repair and was honest that our 14-year-old unit could go another 2–3 years with a repair. She could have pushed for a replacement. She didn't. Two years later when the system finally gave out, Skyhooked was the first call I made.",
+    name: 'Patricia R.',
+    location: 'Ahwatukee',
+    service: 'AC Repair',
+    initials: 'PR',
+    filter: 'AC Repair',
+  },
+  {
+    quote: "Signed up for the Silver Comfort Plan after our first tune-up. During the spring inspection, Diego found a cracked heat exchanger that our previous HVAC company had missed for two years. That's a carbon monoxide risk. Skyhooked caught it, quoted the repair honestly, and got it fixed the same week.",
+    name: 'Sandra L.',
+    location: 'Mesa',
+    service: 'Maintenance Plan / Safety',
+    initials: 'SL',
+    filter: 'Maintenance',
+  },
+  {
+    quote: "New Mitsubishi 4-zone mini-split for our office addition. Jordan ran a clean install — no visible line sets, proper condensate routing, and took the time to explain the remote controls to every person in the office. Six months in, zero issues.",
+    name: 'Chris D.',
+    location: 'Scottsdale',
+    service: 'Commercial Mini-Split Install',
+    initials: 'CD',
+    filter: 'Commercial',
+  },
+  {
+    quote: "Had them install an iWave air purifier and upgrade our filtration when we bought our house. Carlos explained the options clearly without overselling. Indoor air quality has noticeably improved — my allergies are much better and the house feels cleaner. Highly recommend.",
+    name: 'Megan T.',
+    location: 'Peoria',
+    service: 'Indoor Air Quality',
+    initials: 'MT',
+    filter: 'Other',
+  },
+];
+
+const filters = ['All', 'AC Repair', 'AC Install', 'Heating', 'Heat Pumps', 'Commercial', 'Maintenance'];
+
+const awards = [
+  { name: 'BBB A+', sub: 'Better Business Bureau Accredited' },
+  { name: 'Google 4.9★', sub: '500+ verified reviews' },
+  { name: 'ACCA Member', sub: 'Air Conditioning Contractors of America' },
+  { name: 'Angi Top-Rated', sub: 'Super Service Award' },
+  { name: 'HomeAdvisor', sub: 'Top Rated Pro' },
+  { name: 'Carrier Authorized', sub: 'Factory Authorized Dealer' },
+  { name: 'Mitsubishi Diamond', sub: 'Diamond Contractor' },
+  { name: 'Trane Specialist', sub: 'Comfort Specialist' },
+];
+---
+
+<BaseLayout
+  title="Customer Reviews & Testimonials | Skyhooked on Comfort HVAC Phoenix"
+  description="Read what Phoenix Valley homeowners and businesses say about Skyhooked on Comfort. 4.9-star average across 500+ Google, Yelp, and BBB reviews."
+>
+
+  <!-- Aggregate Rating Header -->
+  <section class="bg-charcoal py-20">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <div class="flex items-center justify-center gap-1.5 mb-4" aria-label="4.9 out of 5 stars">
+        {[...Array(5)].map(() => (
+          <svg class="w-8 h-8 text-sky" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+        ))}
+      </div>
+      <h1 class="font-display font-extrabold text-white text-4xl sm:text-5xl leading-tight mb-4">
+        4.9 ★★★★★ — 500+ Reviews
+      </h1>
+      <p class="font-body text-charcoal-50 text-xl mb-8">Real customers. Real reviews. Phoenix Valley homeowners and businesses.</p>
+      <div class="flex flex-wrap items-center justify-center gap-6">
+        {[
+          { platform: 'Google', rating: '4.9', count: '380+' },
+          { platform: 'Yelp', rating: '4.8', count: '85+' },
+          { platform: 'BBB', rating: 'A+', count: 'Accredited' },
+        ].map(src => (
+          <div class="bg-white/10 rounded-xl px-6 py-3 text-center">
+            <div class="font-display font-extrabold text-sky text-2xl">{src.rating}</div>
+            <div class="font-display font-bold text-white text-sm">{src.platform}</div>
+            <div class="font-body text-charcoal-50 text-xs">{src.count}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Featured Reviews -->
+  <section class="bg-white py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl text-center mb-12">Featured reviews.</h2>
+      <div class="grid sm:grid-cols-3 gap-6">
+        {featured.map(review => (
+          <blockquote class="bg-charcoal-50 rounded-2xl p-7 border border-charcoal/10 flex flex-col">
+            <div class="flex items-center gap-1 mb-4" aria-label="5 stars">
+              {[...Array(5)].map(() => (
+                <svg class="w-4 h-4 text-sky" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+              ))}
+            </div>
+            <p class="font-body text-neutral-700 leading-relaxed mb-5 text-sm flex-1">"{review.quote}"</p>
+            <footer class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-charcoal flex items-center justify-center text-white font-display font-bold text-xs">{review.initials}</div>
+              <div>
+                <cite class="font-body font-semibold text-charcoal not-italic text-sm">{review.name}</cite>
+                <p class="font-body text-neutral-500 text-xs">{review.location} · {review.service}</p>
+              </div>
+            </footer>
+          </blockquote>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Filter Bar + Additional Reviews -->
+  <section class="bg-charcoal-50 py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="font-display font-bold text-charcoal text-3xl mb-8 text-center">More from our customers.</h2>
+
+      <!-- Filter nav -->
+      <div class="flex flex-wrap gap-2 justify-center mb-10" role="tablist" aria-label="Filter reviews by service type">
+        {filters.map((f, i) => (
+          <button
+            class={`review-filter font-body font-semibold text-sm px-4 py-2 rounded-full border transition-colors ${i === 0 ? 'bg-charcoal text-white border-charcoal' : 'bg-white text-charcoal border-neutral-200 hover:border-charcoal'}`}
+            data-filter={f}
+            role="tab"
+            aria-selected={i === 0 ? 'true' : 'false'}
+          >
+            {f}
+          </button>
+        ))}
+      </div>
+
+      <!-- Review grid -->
+      <div id="review-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {additional.map(review => (
+          <blockquote class="review-card bg-white rounded-2xl p-6 border border-charcoal/10 hover:shadow-lg transition-shadow flex flex-col" data-service={review.filter}>
+            <div class="flex items-center gap-1 mb-3" aria-label="5 stars">
+              {[...Array(5)].map(() => (
+                <svg class="w-3.5 h-3.5 text-sky" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+              ))}
+            </div>
+            <p class="font-body text-neutral-700 leading-relaxed mb-4 text-sm flex-1">"{review.quote}"</p>
+            <footer class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full bg-charcoal flex items-center justify-center text-white font-display font-bold text-xs">{review.initials}</div>
+              <div>
+                <cite class="font-body font-semibold text-charcoal not-italic text-xs">{review.name}</cite>
+                <p class="font-body text-neutral-500 text-xs">{review.location} · {review.service}</p>
+              </div>
+            </footer>
+          </blockquote>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Leave a Review -->
+  <section class="bg-white py-20">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="font-display font-bold text-charcoal text-3xl sm:text-4xl mb-4">Leave us a review.</h2>
+      <p class="font-body text-neutral-600 text-lg mb-8 max-w-xl mx-auto">
+        Reviews are how small family-owned businesses like ours grow. Even one sentence helps the next Phoenix family find us when they need HVAC help.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a
+          href="https://www.google.com/maps/search/Skyhooked+on+Comfort"
+          target="_blank"
+          rel="noopener"
+          class="flex items-center gap-2 bg-charcoal hover:bg-charcoal-light text-white font-display font-bold px-6 py-3 rounded-xl transition-colors"
+        >
+          Review on Google →
+        </a>
+        <a
+          href="https://www.yelp.com/biz/skyhooked-on-comfort"
+          target="_blank"
+          rel="noopener"
+          class="flex items-center gap-2 border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-white font-display font-bold px-6 py-3 rounded-xl transition-colors"
+        >
+          Review on Yelp →
+        </a>
+        <a
+          href="https://www.facebook.com/SkyHookedOnComfort"
+          target="_blank"
+          rel="noopener"
+          class="flex items-center gap-2 border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-white font-display font-bold px-6 py-3 rounded-xl transition-colors"
+        >
+          Review on Facebook →
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Awards & Badges -->
+  <section class="bg-charcoal-50 py-16">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="font-display font-bold text-charcoal text-2xl text-center mb-10">Awards & recognition.</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        {awards.map(award => (
+          <div class="bg-white rounded-xl p-5 border border-neutral-200 text-center hover:shadow-md transition-shadow">
+            <div class="w-10 h-10 bg-sky/15 rounded-lg flex items-center justify-center mx-auto mb-3">
+              <svg class="w-5 h-5 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+            </div>
+            <div class="font-display font-bold text-charcoal text-sm mb-0.5">{award.name}</div>
+            <div class="font-body text-neutral-500 text-xs">{award.sub}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Bottom CTA -->
+  <section class="bg-charcoal py-16">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 class="font-display font-bold text-white text-3xl mb-4">Ready to become our next 5-star review?</h2>
+      <p class="font-body text-charcoal-50 text-lg mb-8">Call us or request a quote — same-day service in most Phoenix Valley locations.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="tel:4801234567" class="flex items-center gap-2 bg-sky hover:bg-sky-dark text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Call (480) 123-4567
+        </a>
+        <a href="/contact" class="border-2 border-white text-white hover:bg-white hover:text-charcoal font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors">
+          Request a Quote →
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.review-filter');
+  const cards = document.querySelectorAll<HTMLElement>('.review-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+
+      filterBtns.forEach(b => {
+        b.classList.remove('bg-charcoal', 'text-white', 'border-charcoal');
+        b.classList.add('bg-white', 'text-charcoal', 'border-neutral-200');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('bg-charcoal', 'text-white', 'border-charcoal');
+      btn.classList.remove('bg-white', 'text-charcoal', 'border-neutral-200');
+      btn.setAttribute('aria-selected', 'true');
+
+      cards.forEach(card => {
+        if (filter === 'All' || card.dataset.service === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

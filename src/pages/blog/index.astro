@@ -1,0 +1,329 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const categories = [
+  { label: 'All', slug: null },
+  { label: 'Buying Guides', slug: 'buying-guides' },
+  { label: 'Seasonal Tips', slug: 'seasonal-tips' },
+  { label: 'Troubleshooting', slug: 'troubleshooting' },
+  { label: 'Heat Pumps', slug: 'heat-pumps' },
+  { label: 'Indoor Air Quality', slug: 'indoor-air-quality' },
+  { label: 'Tax Credits & Rebates', slug: 'tax-credits-rebates' },
+  { label: 'Behind the Scenes', slug: 'behind-the-scenes' },
+];
+
+const featuredPost = {
+  category: 'Buying Guides',
+  categorySlug: 'buying-guides',
+  title: "Heat Pump vs Furnace + AC in Phoenix: A Licensed Tech's Honest Take",
+  excerpt: "We break down the real costs, efficiency numbers, and Phoenix climate factors — including APS and SRP utility rebates — so you can make the call without the sales pressure. Hint: heat pumps win for most Valley homes built after 1995.",
+  author: 'Marcus Torres',
+  authorTitle: 'Master Tech',
+  date: 'May 8, 2026',
+  readTime: '9 min read',
+  slug: 'heat-pump-vs-furnace-ac-phoenix',
+};
+
+const posts = [
+  {
+    category: 'Buying Guides',
+    categorySlug: 'buying-guides',
+    title: 'What Is a Manual J Load Calculation (and Why You Should Demand One)?',
+    excerpt: 'The single most important thing a contractor does before sizing your new AC or heat pump — and most skip it entirely.',
+    author: 'Diego Ramirez',
+    authorTitle: 'NATE Certified',
+    date: 'May 2, 2026',
+    readTime: '7 min read',
+    slug: 'manual-j-load-calculation',
+  },
+  {
+    category: 'Tax Credits & Rebates',
+    categorySlug: 'tax-credits-rebates',
+    title: 'How to Claim the 30% Federal Heat Pump Tax Credit Step-by-Step',
+    excerpt: "The IRA's 25C credit puts up to $2,000 back in your pocket. Here's exactly how to claim it — from the AHRI certificate to your tax return.",
+    author: 'Jasmine Lee',
+    authorTitle: 'Senior Tech',
+    date: 'April 25, 2026',
+    readTime: '8 min read',
+    slug: 'federal-heat-pump-tax-credit',
+  },
+  {
+    category: 'Troubleshooting',
+    categorySlug: 'troubleshooting',
+    title: 'Why an Oversized AC Is Worse Than No AC at All',
+    excerpt: "Bigger isn't better when it comes to air conditioning. Here's what short-cycling actually does to your comfort, your humidity, and your electric bill.",
+    author: 'Marcus Torres',
+    authorTitle: 'Master Tech',
+    date: 'April 18, 2026',
+    readTime: '6 min read',
+    slug: 'oversized-ac-problems',
+  },
+  {
+    category: 'Seasonal Tips',
+    categorySlug: 'seasonal-tips',
+    title: 'AC Tune-Up Checklist: What a Real $79 Tune-Up Should Include',
+    excerpt: 'Not all tune-ups are equal. Here are the 22 specific steps a real AC tune-up should cover before Phoenix summer hits.',
+    author: 'Diego Ramirez',
+    authorTitle: 'NATE Certified',
+    date: 'April 10, 2026',
+    readTime: '5 min read',
+    slug: 'ac-tune-up-checklist',
+  },
+  {
+    category: 'Buying Guides',
+    categorySlug: 'buying-guides',
+    title: 'SEER vs SEER2: What Changed and What It Means for Your Next AC',
+    excerpt: 'The efficiency rating standard changed in 2023. Here is what SEER2 actually means, how it compares to old SEER ratings, and what to look for when shopping.',
+    author: 'Jasmine Lee',
+    authorTitle: 'Senior Tech',
+    date: 'April 3, 2026',
+    readTime: '6 min read',
+    slug: 'seer-vs-seer2-explained',
+  },
+  {
+    category: 'Troubleshooting',
+    categorySlug: 'troubleshooting',
+    title: 'Why Your AC Freezes Up — and the 4 Causes',
+    excerpt: "Ice on your AC in 110° Phoenix heat seems backwards. Here's what's actually happening and what to do while you wait for a technician.",
+    author: 'Marcus Torres',
+    authorTitle: 'Master Tech',
+    date: 'March 27, 2026',
+    readTime: '5 min read',
+    slug: 'ac-freezing-up-causes',
+  },
+  {
+    category: 'Indoor Air Quality',
+    categorySlug: 'indoor-air-quality',
+    title: 'APS & SRP HVAC Rebate Guide: All the Money Left on the Table',
+    excerpt: 'Most Phoenix homeowners leave $500–$2,000 in utility rebates unclaimed every year. Here is every current APS and SRP incentive for HVAC upgrades.',
+    author: 'Jasmine Lee',
+    authorTitle: 'Senior Tech',
+    date: 'March 20, 2026',
+    readTime: '7 min read',
+    slug: 'aps-srp-hvac-rebate-guide',
+  },
+  {
+    category: 'Heat Pumps',
+    categorySlug: 'heat-pumps',
+    title: 'Mini-Split vs Central AC for a Phoenix Addition or ADU',
+    excerpt: 'Adding a room or converting a garage? Here is the honest comparison — upfront cost, install complexity, efficiency, and comfort for Phoenix climate.',
+    author: 'Diego Ramirez',
+    authorTitle: 'NATE Certified',
+    date: 'March 12, 2026',
+    readTime: '7 min read',
+    slug: 'mini-split-vs-central-ac-phoenix',
+  },
+  {
+    category: 'Behind the Scenes',
+    categorySlug: 'behind-the-scenes',
+    title: 'Behind the Scenes: A Day in the Life of a Skyhooked on Comfort Technician',
+    excerpt: 'From the 5:45am truck check to the 7pm monsoon-emergency call. What a real Phoenix HVAC service day actually looks like in July.',
+    author: 'Marcus Torres',
+    authorTitle: 'Master Tech',
+    date: 'March 5, 2026',
+    readTime: '8 min read',
+    slug: 'day-in-life-hvac-technician',
+  },
+];
+---
+
+<BaseLayout
+  title="HVAC Tips, Guides & News | Skyhooked on Comfort"
+  description="Real HVAC advice from licensed technicians. AC, heating, heat pumps, IAQ, tax credits, and seasonal tips for Phoenix Valley homes and businesses."
+>
+
+  <!-- Hero -->
+  <section
+    class="relative bg-charcoal-dark py-20 lg:py-28 overflow-hidden"
+    style="background: linear-gradient(135deg, oklch(0.12 0.02 253) 0%, oklch(0.18 0.025 253) 50%, oklch(0.30 0.025 253) 100%);"
+  >
+    <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+      <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full opacity-10" style="background: radial-gradient(circle, oklch(0.58 0.13 233), transparent);"></div>
+    </div>
+    <div class="relative max-w-4xl mx-auto px-4 text-center">
+      <div class="inline-flex items-center gap-2 bg-sky/20 text-sky text-sm font-semibold px-4 py-1.5 rounded-full mb-6 font-body">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+        </svg>
+        Written by Licensed Technicians
+      </div>
+      <h1 class="font-display font-extrabold text-white text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6">
+        HVAC Tips from the Technicians<br class="hidden sm:block"/>
+        <span class="text-sky">Who Actually Do the Work</span>
+      </h1>
+      <p class="font-body text-charcoal-50 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
+        Buying guides, seasonal maintenance, troubleshooting, and the occasional rant about why oversized AC is worse than no AC at all. Written by our master technicians — not a content farm.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- Featured Post -->
+  <section class="bg-white py-16">
+    <div class="max-w-5xl mx-auto px-4">
+      <p class="font-body text-sky font-semibold text-sm uppercase tracking-wide mb-5">Featured Post</p>
+      <a
+        href={`/blog/${featuredPost.slug}`}
+        class="group grid lg:grid-cols-2 gap-8 bg-charcoal-50 rounded-2xl overflow-hidden border border-charcoal/10 hover:shadow-xl transition-shadow"
+      >
+        <!-- Image placeholder -->
+        <div class="h-64 lg:h-auto bg-gradient-to-br from-charcoal to-charcoal-light flex items-end p-8 min-h-[280px]">
+          <div>
+            <span class="inline-block bg-sky text-charcoal text-xs font-display font-bold px-3 py-1 rounded-full mb-3">
+              {featuredPost.category}
+            </span>
+            <p class="font-body text-charcoal-50/70 text-sm">{featuredPost.date} · {featuredPost.readTime}</p>
+          </div>
+        </div>
+        <!-- Content -->
+        <div class="p-8 flex flex-col justify-center">
+          <h2 class="font-display font-bold text-charcoal text-2xl sm:text-3xl mb-4 group-hover:text-charcoal-light transition-colors leading-snug">
+            {featuredPost.title}
+          </h2>
+          <p class="font-body text-neutral-600 text-base leading-relaxed mb-6">{featuredPost.excerpt}</p>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-charcoal flex items-center justify-center text-white font-display font-bold text-sm">
+                {featuredPost.author.split(' ').map(n => n[0]).join('')}
+              </div>
+              <div>
+                <p class="font-body font-semibold text-charcoal text-sm">{featuredPost.author}</p>
+                <p class="font-body text-neutral-500 text-xs">{featuredPost.authorTitle}</p>
+              </div>
+            </div>
+            <span class="font-body text-sky font-semibold text-sm group-hover:text-sky-dark transition-colors">Read more →</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- Category Filter -->
+  <section class="bg-charcoal-50 border-b border-charcoal/10 py-6 sticky top-0 z-10">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="flex flex-wrap gap-2 items-center">
+        <span class="font-body text-neutral-500 text-sm mr-1">Filter:</span>
+        {categories.map(cat => (
+          <a
+            href={cat.slug ? `/blog/category/${cat.slug}` : '/blog'}
+            class={`font-body text-sm font-semibold px-4 py-1.5 rounded-full transition-colors border ${
+              !cat.slug
+                ? 'bg-charcoal text-white border-charcoal'
+                : 'bg-white text-charcoal border-charcoal/20 hover:bg-charcoal hover:text-white hover:border-charcoal'
+            }`}
+          >
+            {cat.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Post Grid -->
+  <section class="bg-neutral-50 py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="font-display font-bold text-charcoal text-2xl sm:text-3xl mb-10">Latest articles</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map(post => (
+          <a href={`/blog/${post.slug}`} class="group bg-white rounded-2xl overflow-hidden border border-neutral-100 hover:shadow-lg transition-shadow flex flex-col">
+            <div class="h-44 bg-gradient-to-br from-charcoal to-charcoal-light flex items-end p-5">
+              <span class="inline-block bg-sky text-charcoal text-xs font-display font-bold px-3 py-1 rounded-full">
+                {post.category}
+              </span>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <h3 class="font-display font-bold text-charcoal text-base mb-2 group-hover:text-charcoal-light transition-colors leading-snug">
+                {post.title}
+              </h3>
+              <p class="font-body text-neutral-500 text-sm mb-4 leading-relaxed flex-1">{post.excerpt}</p>
+              <div class="flex items-center justify-between pt-3 border-t border-neutral-100">
+                <div class="flex items-center gap-2">
+                  <div class="w-7 h-7 rounded-full bg-charcoal flex items-center justify-center text-white font-display font-bold text-xs">
+                    {post.author.split(' ').map(n => n[0]).join('')}
+                  </div>
+                  <div>
+                    <p class="font-body font-semibold text-charcoal text-xs">{post.author}</p>
+                    <p class="font-body text-neutral-400 text-xs">{post.date}</p>
+                  </div>
+                </div>
+                <span class="font-body text-sky font-semibold text-xs">Read more →</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Newsletter Signup -->
+  <section class="bg-charcoal py-20">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <div class="w-14 h-14 bg-sky/20 rounded-xl flex items-center justify-center mx-auto mb-6">
+        <svg class="w-7 h-7 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+        </svg>
+      </div>
+      <h2 class="font-display font-bold text-white text-2xl sm:text-3xl mb-3">
+        One practical HVAC tip a month
+      </h2>
+      <p class="font-body text-charcoal-50 text-lg mb-8 max-w-md mx-auto">
+        Written by a Skyhooked on Comfort technician. No spam, no sales pitch — just the seasonal tip that keeps your system running.
+      </p>
+      <form
+        class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+        onsubmit="event.preventDefault();"
+        aria-label="Newsletter signup"
+      >
+        <label for="newsletter-email" class="sr-only">Email address</label>
+        <input
+          id="newsletter-email"
+          type="email"
+          placeholder="your@email.com"
+          required
+          class="flex-1 bg-white text-charcoal font-body px-5 py-3.5 rounded-xl border-0 focus:outline-none focus:ring-2 focus:ring-sky text-base"
+        />
+        <button
+          type="submit"
+          class="bg-sky hover:bg-sky-dark text-charcoal font-display font-bold px-7 py-3.5 rounded-xl transition-colors whitespace-nowrap shadow-md"
+        >
+          Subscribe →
+        </button>
+      </form>
+      <p class="font-body text-charcoal-50/60 text-xs mt-3">
+        No spam. Unsubscribe anytime.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- Service CTA Strip -->
+  <section class="bg-sky py-16">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="font-display font-extrabold text-charcoal text-2xl sm:text-3xl mb-4">
+        Have an HVAC issue right now?
+      </h2>
+      <p class="font-body text-charcoal/80 text-lg mb-8 max-w-xl mx-auto">
+        Skip the article. We dispatch same-day across the Phoenix Valley, 24/7, with upfront flat-rate pricing.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="tel:4801234567"
+          class="flex items-center gap-2 bg-charcoal hover:bg-charcoal-dark text-white font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg"
+        >
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Call (480) 123-4567
+        </a>
+        <a
+          href="/contact"
+          class="flex items-center gap-2 border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-white font-display font-bold text-lg px-8 py-4 rounded-xl transition-colors"
+        >
+          Request a Quote →
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
