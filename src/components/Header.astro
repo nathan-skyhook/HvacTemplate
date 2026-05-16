@@ -1,0 +1,320 @@
+---
+const navItems = [
+  { label: 'Promotions', href: '/promotions' },
+  { label: 'Reviews', href: '/reviews' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const residentialLinks = [
+  { label: 'Emergency HVAC', href: '/emergency' },
+  { label: 'AC Repair', href: '/residential/ac-repair' },
+  { label: 'AC Installation', href: '/residential/ac-installation' },
+  { label: 'Heating Repair', href: '/residential/heating-repair' },
+  { label: 'Heating Installation', href: '/residential/heating-installation' },
+  { label: 'Heat Pump Installation', href: '/residential/heat-pump-installation' },
+  { label: 'Ductless Mini-Splits', href: '/residential/mini-splits' },
+  { label: 'Indoor Air Quality', href: '/residential/indoor-air-quality' },
+  { label: 'Duct Cleaning & Sealing', href: '/residential/duct-cleaning' },
+  { label: 'Smart Thermostats', href: '/residential/smart-thermostats' },
+  { label: 'Tune-Ups & Maintenance', href: '/maintenance-plans' },
+  { label: 'Zoning Controls', href: '/residential/zoning' },
+];
+
+const commercialLinks = [
+  { label: 'Emergency HVAC', href: '/emergency' },
+  { label: 'Commercial AC Systems', href: '/commercial/ac-systems' },
+  { label: 'Commercial Heating & Boilers', href: '/commercial/heating' },
+  { label: 'Chiller Services', href: '/commercial/chillers' },
+  { label: 'VRF/VRV Systems', href: '/commercial/vrf-vrv' },
+  { label: 'Commercial Refrigeration', href: '/commercial/refrigeration' },
+  { label: 'Preventive Maintenance', href: '/commercial/maintenance' },
+  { label: 'Indoor Air Quality', href: '/commercial/indoor-air-quality' },
+  { label: 'New Construction & TI', href: '/commercial/new-construction' },
+  { label: 'Industries Served', href: '/commercial/industries' },
+];
+
+const serviceAreas = [
+  { label: 'Phoenix', href: '/service-areas/phoenix' },
+  { label: 'Scottsdale', href: '/service-areas/scottsdale' },
+  { label: 'Mesa', href: '/service-areas/mesa' },
+  { label: 'Tempe', href: '/service-areas/tempe' },
+  { label: 'Chandler', href: '/service-areas/chandler' },
+  { label: 'Gilbert', href: '/service-areas/gilbert' },
+  { label: 'Glendale', href: '/service-areas/glendale' },
+  { label: 'Peoria', href: '/service-areas/peoria' },
+  { label: 'Surprise', href: '/service-areas/surprise' },
+  { label: 'Avondale', href: '/service-areas/avondale' },
+];
+---
+
+<header class="sticky top-0 z-50 w-full">
+  <!-- Tier 1: Seasonal sub-banner -->
+  <div class="bg-sunshine text-navy text-sm font-body font-medium" data-season="summer">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between py-2">
+      <span>🌞 Spring AC Tune-Up Special — $79. Beat the summer rush. Limited spots.</span>
+      <a href="/promotions" class="font-semibold whitespace-nowrap hover:underline ml-4">Book Now →</a>
+    </div>
+  </div>
+
+  <!-- Tier 2: Main header -->
+  <div class="bg-navy">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16 lg:h-18">
+
+      <!-- Logo + wordmark -->
+      <a href="/" class="flex items-center gap-3 flex-shrink-0" aria-label="Skyhooked on Comfort — Home">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="20" cy="20" r="20" fill="oklch(0.83 0.175 84)"/>
+          <!-- Left half: flame -->
+          <path d="M20 8 C16 12 13 15 13 20 C13 24.4 16.1 27 19 28 C18 26 17.5 24.5 18.5 22.5 C19.5 24 19.8 25.5 19.5 27.5 C21.5 26.5 23.5 24 23.5 21 C23.5 18.5 22 16.5 20 15 C20.5 17 20 18.5 19 19.5 C19.5 16 20 12 20 8Z" fill="oklch(0.27 0.085 258)" clip-path="inset(0 50% 0 0)"/>
+          <!-- Right half: snowflake -->
+          <g stroke="oklch(0.27 0.085 258)" stroke-width="1.5" stroke-linecap="round" clip-path="inset(0 0 0 50%)">
+            <line x1="20" y1="11" x2="20" y2="29"/>
+            <line x1="12.2" y1="15.5" x2="27.8" y2="24.5"/>
+            <line x1="12.2" y1="24.5" x2="27.8" y2="15.5"/>
+            <line x1="20" y1="11" x2="18" y2="14"/>
+            <line x1="20" y1="11" x2="22" y2="14"/>
+            <line x1="20" y1="29" x2="18" y2="26"/>
+            <line x1="20" y1="29" x2="22" y2="26"/>
+          </g>
+        </svg>
+        <div class="font-display leading-tight">
+          <div class="text-white font-bold text-base tracking-wide">SKYHOOKED</div>
+          <div class="text-sunshine text-xs font-medium tracking-wider">on Comfort</div>
+        </div>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden lg:flex items-center gap-1 font-body text-sm" aria-label="Main navigation">
+
+        <!-- Residential mega-menu -->
+        <div class="group relative">
+          <button class="flex items-center gap-1 px-3 py-2 text-white hover:text-sunshine transition-colors rounded font-medium" aria-expanded="false" aria-haspopup="true">
+            Residential
+            <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-1 hidden group-hover:block group-focus-within:block z-50 min-w-[520px]">
+            <div class="bg-navy-50 border border-navy rounded-lg shadow-xl p-5">
+              <div class="grid grid-cols-2 gap-x-8 gap-y-1">
+                {residentialLinks.slice(0, 6).map(link => (
+                  <a href={link.href} class="text-navy hover:text-sunshine font-medium py-1.5 text-sm transition-colors">
+                    {link.label}
+                  </a>
+                ))}
+                {residentialLinks.slice(6).map(link => (
+                  <a href={link.href} class="text-navy hover:text-sunshine font-medium py-1.5 text-sm transition-colors">
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Commercial mega-menu -->
+        <div class="group relative">
+          <button class="flex items-center gap-1 px-3 py-2 text-white hover:text-sunshine transition-colors rounded font-medium" aria-expanded="false" aria-haspopup="true">
+            Commercial
+            <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-1 hidden group-hover:block group-focus-within:block z-50 min-w-[480px]">
+            <div class="bg-navy-50 border border-navy rounded-lg shadow-xl p-5">
+              <div class="grid grid-cols-2 gap-x-8 gap-y-1">
+                {commercialLinks.slice(0, 5).map(link => (
+                  <a href={link.href} class="text-navy hover:text-sunshine font-medium py-1.5 text-sm transition-colors">
+                    {link.label}
+                  </a>
+                ))}
+                {commercialLinks.slice(5).map(link => (
+                  <a href={link.href} class="text-navy hover:text-sunshine font-medium py-1.5 text-sm transition-colors">
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Areas dropdown -->
+        <div class="group relative">
+          <button class="flex items-center gap-1 px-3 py-2 text-white hover:text-sunshine transition-colors rounded font-medium" aria-expanded="false" aria-haspopup="true">
+            Service Areas
+            <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-1 hidden group-hover:block group-focus-within:block z-50 min-w-[180px]">
+            <div class="bg-navy-50 border border-navy rounded-lg shadow-xl py-2">
+              {serviceAreas.map(area => (
+                <a href={area.href} class="block px-4 py-1.5 text-navy hover:text-sunshine hover:bg-white font-medium text-sm transition-colors">
+                  {area.label}
+                </a>
+              ))}
+              <div class="border-t border-navy/20 mt-1 pt-1">
+                <a href="/service-areas" class="block px-4 py-1.5 text-navy font-semibold text-sm hover:text-sunshine transition-colors">
+                  See all cities →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Emergency (highlighted) -->
+        <a href="/emergency" class="flex items-center gap-1.5 px-3 py-1.5 text-white bg-emergency hover:bg-emergency-dark rounded font-semibold transition-colors">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sunshine opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-sunshine"></span>
+          </span>
+          Emergency
+        </a>
+
+        <!-- Simple nav items -->
+        {navItems.map(item => (
+          <a href={item.href} class="px-3 py-2 text-white hover:text-sunshine transition-colors rounded font-medium">
+            {item.label}
+          </a>
+        ))}
+
+        <!-- About dropdown -->
+        <div class="group relative">
+          <button class="flex items-center gap-1 px-3 py-2 text-white hover:text-sunshine transition-colors rounded font-medium" aria-expanded="false" aria-haspopup="true">
+            About
+            <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute right-0 top-full pt-1 hidden group-hover:block group-focus-within:block z-50 min-w-[160px]">
+            <div class="bg-navy-50 border border-navy rounded-lg shadow-xl py-2">
+              <a href="/about" class="block px-4 py-1.5 text-navy hover:text-sunshine hover:bg-white font-medium text-sm transition-colors">Why Choose Us</a>
+              <a href="/careers" class="block px-4 py-1.5 text-navy hover:text-sunshine hover:bg-white font-medium text-sm transition-colors">Careers</a>
+              <a href="/about/team" class="block px-4 py-1.5 text-navy hover:text-sunshine hover:bg-white font-medium text-sm transition-colors">Team</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Right: Phone + CTA -->
+      <div class="flex items-center gap-3 flex-shrink-0">
+        <a href="tel:4801234567" class="hidden lg:flex flex-col items-end">
+          <div class="flex items-center gap-2">
+            <span class="text-white font-display font-bold text-base">(480) 123-4567</span>
+            <span class="bg-sunshine text-navy text-xs font-bold px-2 py-0.5 rounded-full">24/7</span>
+          </div>
+          <span class="text-navy-50 text-xs font-body">Call or Text Anytime</span>
+        </a>
+        <a href="tel:4801234567" class="lg:hidden text-white font-display font-bold text-sm">(480) 123-4567</a>
+        <a href="/contact" class="hidden lg:inline-flex bg-sunshine hover:bg-sunshine-dark text-navy font-display font-bold text-sm px-4 py-2.5 rounded-lg transition-colors whitespace-nowrap">
+          Request a Quote
+        </a>
+
+        <!-- Mobile hamburger -->
+        <button id="mobile-menu-btn" class="lg:hidden text-white p-2 rounded hover:bg-navy-light transition-colors" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg id="hamburger-icon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile menu (hidden by default) -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-navy border-t border-navy-light" aria-label="Mobile navigation">
+    <nav class="max-w-7xl mx-auto px-4 py-4 space-y-1 font-body">
+
+      <!-- Emergency -->
+      <a href="/emergency" class="flex items-center gap-2 px-4 py-3 text-white bg-emergency rounded-lg font-semibold">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sunshine opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-sunshine"></span>
+        </span>
+        Emergency HVAC — 24/7
+      </a>
+
+      <!-- Residential accordion -->
+      <div class="mobile-accordion">
+        <button class="mobile-accordion-btn flex items-center justify-between w-full px-4 py-3 text-white font-medium rounded-lg hover:bg-navy-light transition-colors" aria-expanded="false">
+          Residential
+          <svg class="w-4 h-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="mobile-accordion-panel hidden pl-4 pb-2 space-y-1">
+          {residentialLinks.map(link => (
+            <a href={link.href} class="block px-4 py-2 text-navy-50 hover:text-sunshine text-sm transition-colors">
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Commercial accordion -->
+      <div class="mobile-accordion">
+        <button class="mobile-accordion-btn flex items-center justify-between w-full px-4 py-3 text-white font-medium rounded-lg hover:bg-navy-light transition-colors" aria-expanded="false">
+          Commercial
+          <svg class="w-4 h-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="mobile-accordion-panel hidden pl-4 pb-2 space-y-1">
+          {commercialLinks.map(link => (
+            <a href={link.href} class="block px-4 py-2 text-navy-50 hover:text-sunshine text-sm transition-colors">
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Service Areas accordion -->
+      <div class="mobile-accordion">
+        <button class="mobile-accordion-btn flex items-center justify-between w-full px-4 py-3 text-white font-medium rounded-lg hover:bg-navy-light transition-colors" aria-expanded="false">
+          Service Areas
+          <svg class="w-4 h-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="mobile-accordion-panel hidden pl-4 pb-2 space-y-1">
+          {serviceAreas.map(area => (
+            <a href={area.href} class="block px-4 py-2 text-navy-50 hover:text-sunshine text-sm transition-colors">
+              {area.label}
+            </a>
+          ))}
+          <a href="/service-areas" class="block px-4 py-2 text-sunshine font-semibold text-sm">See all cities →</a>
+        </div>
+      </div>
+
+      <!-- Flat nav items -->
+      {navItems.map(item => (
+        <a href={item.href} class="block px-4 py-3 text-white font-medium rounded-lg hover:bg-navy-light transition-colors">
+          {item.label}
+        </a>
+      ))}
+      <a href="/about" class="block px-4 py-3 text-white font-medium rounded-lg hover:bg-navy-light transition-colors">About</a>
+
+      <div class="pt-3 border-t border-navy-light">
+        <a href="/contact" class="block text-center bg-sunshine hover:bg-sunshine-dark text-navy font-display font-bold py-3 rounded-lg transition-colors">
+          Request a Quote
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const hamburger = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    hamburger?.classList.toggle('hidden');
+    closeIcon?.classList.toggle('hidden');
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  document.querySelectorAll('.mobile-accordion-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel = btn.nextElementSibling as HTMLElement;
+      const chevron = btn.querySelector('svg');
+      const isOpen = !panel?.classList.contains('hidden');
+      panel?.classList.toggle('hidden');
+      chevron?.classList.toggle('rotate-180');
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+</script>

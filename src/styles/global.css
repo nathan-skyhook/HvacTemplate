@@ -1,10 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand colors - populated from intake/branding/colors.md */
-  --color-primary: oklch(0.5 0.2 250);
-  --color-secondary: oklch(0.7 0.15 200);
-  --color-accent: oklch(0.6 0.25 30);
+  /* Brand: Navy */
+  --color-navy: oklch(0.27 0.085 258);
+  --color-navy-dark: oklch(0.18 0.085 258);
+  --color-navy-light: oklch(0.40 0.08 258);
+  --color-navy-50: oklch(0.95 0.015 258);
+
+  /* Brand: Sunshine Yellow */
+  --color-sunshine: oklch(0.83 0.175 84);
+  --color-sunshine-dark: oklch(0.72 0.17 84);
+  --color-sunshine-light: oklch(0.93 0.08 84);
+
+  /* Emergency Red */
+  --color-emergency: oklch(0.51 0.21 22);
+  --color-emergency-dark: oklch(0.40 0.21 22);
 
   /* Neutral scale */
   --color-neutral-50: oklch(0.98 0 0);
@@ -18,11 +28,11 @@
   --color-neutral-800: oklch(0.25 0 0);
   --color-neutral-900: oklch(0.15 0 0);
 
-  /* Typography - populated from intake/branding/fonts.md */
-  --font-display: "Inter", system-ui, sans-serif;
+  /* Typography */
+  --font-display: "Poppins", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
 
-  /* Spacing scale */
+  /* Spacing */
   --spacing-section: 5rem;
   --spacing-content: 2rem;
 }

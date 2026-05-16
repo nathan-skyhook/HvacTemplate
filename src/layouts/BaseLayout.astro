@@ -2,6 +2,9 @@
 import '../styles/global.css';
 import SEOHead from '../components/SEOHead.astro';
 import StructuredData from '../components/StructuredData.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileBar from '../components/MobileBar.astro';
 
 interface Props {
   title: string;
@@ -12,17 +15,21 @@ interface Props {
 
 const {
   title,
-  description = 'Site Factory generated website',
+  description = 'Trusted HVAC technicians serving the Phoenix Valley since 2010. AC repair, heating, heat pumps, mini-splits, IAQ. 24/7 emergency. Licensed & insured.',
   image,
   noindex = false,
 } = Astro.props;
 
-// Site-wide structured data (customize in intake/INTAKE.md)
 const organizationData = {
-  name: "[Business Name]",
+  name: "Skyhooked on Comfort",
+  phone: "(480) 123-4567",
   url: Astro.site?.href,
   logo: new URL('/images/logo.png', Astro.site).href,
-  // Add more fields from INTAKE.md: address, phone, email, social profiles
+  address: {
+    addressLocality: "Phoenix",
+    addressRegion: "AZ",
+    addressCountry: "US",
+  },
 };
 ---
 
@@ -32,27 +39,25 @@ const organizationData = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Preconnect to external origins (fonts, analytics) -->
+    <!-- Preconnect to font origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Google Fonts with font-display: swap for performance -->
-    <!-- Update this URL based on intake/branding/fonts.md -->
+    <!-- Poppins (display) + Inter (body) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Complete Favicon Set -->
+    <!-- Favicon set -->
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
 
-    <!-- Theme color for browser UI -->
-    <meta name="theme-color" content="#ffffff" />
+    <!-- Navy brand theme-color -->
+    <meta name="theme-color" content="#1a3558" />
 
-    <!-- SEO Meta Tags (includes Open Graph and Twitter Cards) -->
     <SEOHead
       title={title}
       description={description}
@@ -60,10 +65,14 @@ const organizationData = {
       noindex={noindex}
     />
 
-    <!-- Organization Structured Data (site-wide) -->
     <StructuredData type="Organization" data={organizationData} />
   </head>
-  <body class="font-body text-neutral-900 bg-neutral-50 antialiased">
-    <slot />
+  <body class="font-body text-neutral-900 bg-white antialiased">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <MobileBar />
   </body>
 </html>

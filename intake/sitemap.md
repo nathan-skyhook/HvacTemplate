@@ -1,47 +1,49 @@
 # Sitemap
 
-Define which pages to build. Choose ONE approach:
+## Your Sitemap
 
----
-
-## Option A: Specific Pages
-
-List each page explicitly. Use indentation for hierarchy.
-
-```
 - Home (/)
 - About (/about)
   - Team (/about/team)
-  - History (/about/history)
-- Services (/services)
-  - Consulting (/services/consulting)
-  - Training (/services/training)
+  - Why Us (/about/why-us)
+  - Careers (/about/careers)
+- Residential (/residential)
+  - Emergency HVAC (/residential/emergency-hvac)
+  - AC Repair (/residential/ac-repair)
+  - AC Installation (/residential/ac-installation)
+  - Heating Repair (/residential/heating-repair)
+  - Heating Installation (/residential/heating-installation)
+  - Heat Pump Installation (/residential/heat-pump-installation)
+  - Ductless Mini-Splits (/residential/ductless-mini-splits)
+  - Indoor Air Quality (/residential/indoor-air-quality)
+  - Duct Cleaning & Sealing (/residential/duct-cleaning-sealing)
+  - Smart Thermostats (/residential/smart-thermostats)
+  - Tune-Ups & Maintenance (/residential/tune-ups-maintenance)
+  - Zoning Controls (/residential/zoning-controls)
+- Commercial (/commercial)
+  - Emergency HVAC (/commercial/emergency-hvac)
+  - Commercial AC Systems (/commercial/commercial-ac-systems)
+  - Commercial Heating & Boilers (/commercial/commercial-heating-boilers)
+  - Chiller Services (/commercial/chiller-services)
+  - VRF / VRV Systems (/commercial/vrf-vrv-systems)
+  - Commercial Refrigeration (/commercial/commercial-refrigeration)
+  - Preventive Maintenance (/commercial/preventive-maintenance)
+  - Indoor Air Quality – Commercial (/commercial/indoor-air-quality-commercial)
+  - New Construction & Tenant Improvement (/commercial/new-construction-tenant-improvement)
+  - Industries Served (/commercial/industries-served)
+- Service Areas (/service-areas)
+  - City Page Template (/service-areas/{city})
+- Emergency (/emergency)
+- Promotions (/promotions)
+- Financing (/financing)
+- Maintenance Plans (/maintenance-plans)
+- Reviews (/reviews)
+- Blog (/blog)
+  - Blog Category (/blog/category/{category})
+  - Blog Post (/blog/{post-slug})
 - Contact (/contact)
-```
-
----
-
-## Option B: Build All Discovered Pages
-
-Let Claude discover pages from the reference site and build them all.
-
-```
-BUILD_ALL
-
-Exclude:
-- /wp-admin/*
-- /login
-- /old-*
-- /draft-*
-```
-
----
-
-## Your Sitemap
-
-Delete the option you're NOT using and fill in below:
-
-- Home (/)
-- About (/about)
-- Services (/services)
-- Contact (/contact)
+- FAQ (/faq)
+- Privacy Policy (/privacy-policy)
+- Terms of Service (/terms-of-service)
+- Accessibility (/accessibility)
+- HTML Sitemap (/sitemap)
