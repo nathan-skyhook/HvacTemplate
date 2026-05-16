@@ -13,8 +13,8 @@
   --color-sky-light: oklch(0.85 0.07 233);
 
   /* Emergency */
-  --color-emergency: oklch(0.44 0.16 22);
-  --color-emergency-dark: oklch(0.35 0.15 22);
+  --color-emergency: oklch(0.54 0.22 23);
+  --color-emergency-dark: oklch(0.44 0.21 23);
 
   /* Neutral scale — cool off-white tint */
   --color-neutral-50: oklch(0.97 0.008 253);
